@@ -5,10 +5,10 @@ export const metadata = {
   title: "Sign Up",
 };
 
-export default function SignUpPage() {
+export default function RegisterPage() {
   return (
     <>
-      <SignUpForm />
+      <RegisterForm />
       <div>
         Already registered? <Link href="/sign-in">Sign in</Link> instead
       </div>

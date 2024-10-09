@@ -5,7 +5,7 @@ export default async function Home() {
     <>
       <div className="text-5xl">Welcome to Tjing doubles</div>
       <Link href="/sign-in">SIGN IN -</Link> New user? then{" "}
-      <Link href="/sign-up">- SIGN UP</Link>
+      <Link href="/register">- SIGN UP</Link>
     </>
   );
 }

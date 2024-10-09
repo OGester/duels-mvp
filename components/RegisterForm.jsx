@@ -1,8 +1,9 @@
 "use client";
-
+//change to register action
+import { signUpAction } from "@/app/register/actions";
 import { useFormState } from "../lib/hooks";
 
-export default function RegisterForm() {
+export default function SignUpForm() {
   const [state, handleSubmit] = useFormState(signUpAction);
 
   return (
