@@ -9,8 +9,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div></div>
-        {children}
+        <header>[HEADER]</header>
+        <main>{children}</main>
+        <footer>[FOOTER]</footer>
       </body>
     </html>
   );
