@@ -10,4 +10,13 @@ datasource db {
   url      = "file:./dev.db" // or env("DATABASE_URL")
 }
 
+model User {
+  id              String @id @default(uuid())
+  username        String
+  email           String @unique
+  passwordHash    String  
+  //define role after switching to postgres
+  //role            Role @default(USER)
+}
 
+// define enums here! USER and ADMIN
