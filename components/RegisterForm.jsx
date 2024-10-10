@@ -16,7 +16,7 @@ export default function SignUpForm() {
           id="usernameField"
           name="username"
           type="text"
-          className="border px-2 py-1 rounded w-full"
+          className="text-slate-800 border px-2 py-1 rounded w-full"
         />
       </div>
       <div className="flex">
@@ -27,7 +27,7 @@ export default function SignUpForm() {
           id="emailField"
           name="email"
           type="email"
-          className="border px-2 py-1 rounded w-full"
+          className="text-slate-800 border px-2 py-1 rounded w-full"
         />
       </div>
       <div className="flex">
@@ -38,13 +38,15 @@ export default function SignUpForm() {
           id="passwordField"
           name="password"
           type="password"
-          className="border px-2 py-1 rounded w-full"
+          className="text-slate-800 border px-2 py-1 rounded w-full"
         />
       </div>
       {Boolean(state.error) && (
         <p className="text-red-700">{state.error.message}</p>
       )}
-      <button type="submit">Logga in</button>
+      <button classNAme="border px-2 py-1 rounded" type="submit">
+        Logga in
+      </button>
     </form>
   );
 }

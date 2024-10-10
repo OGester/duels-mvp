@@ -8,10 +8,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-slate-400 px-4 py-2">
         <header>[HEADER]</header>
-        <main>{children}</main>
-        <footer>[FOOTER]</footer>
+        <main className="bg-slate-400 py-3">{children}</main>
+        <footer className="border-t py-3 text-center text-xs">[FOOTER]</footer>
       </body>
     </html>
   );

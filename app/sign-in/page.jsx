@@ -7,8 +7,13 @@ export const metadata = {
 export default function SignInPage() {
   return (
     <>
-      <h3>Här loggar du in</h3>
-      <SignInForm />
+      <div className="">
+        <h3 className="">Här loggar du in</h3>
+
+        <div className="">
+          <SignInForm />
+        </div>
+      </div>
     </>
   );
 }

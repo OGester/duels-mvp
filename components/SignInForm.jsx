@@ -7,33 +7,39 @@ export default function SignInForm() {
   const [state, handleSubmit] = useFormState(signInAction);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="flex">
-        <label htmlFor="emailField" className="shrink-0 w-32">
+    <form onSubmit={handleSubmit} className="">
+      <div className="">
+        <label htmlFor="emailField" className="">
           Email
         </label>
         <input
           id="emailField"
           name="email"
           type="email"
-          className="border px-2 py-1 rounded w-full"
+          placeholder="Email"
+          className=""
         />
       </div>
-      <div className="flex">
-        <label htmlFor="passwordField" className="shrink-0 w-32">
+      <div className="">
+        <label htmlFor="passwordField" className="">
           Password
         </label>
         <input
           id="passwordField"
           name="password"
           type="password"
-          className="border px-2 py-1 rounded w-full"
+          placeholder="Enter password"
+          className=""
         />
       </div>
       {Boolean(state.error) && (
         <p className="text-red-700">{state.error.message}</p>
       )}
-      <button type="submit">Logga in</button>
+      <div className="flex justify-center py-2">
+        <button className="border px-4 py-1 rounded" type="submit">
+          Logga in
+        </button>
+      </div>
     </form>
   );
 }
