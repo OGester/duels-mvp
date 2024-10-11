@@ -36,7 +36,10 @@ export default function SignInForm() {
         <p className="text-red-700">{state.error.message}</p>
       )}
       <div className="flex justify-center py-2">
-        <button className="border px-4 py-1 rounded" type="submit">
+        <button
+          className="border px-4 py-1 rounded text-blue-600"
+          type="submit"
+        >
           Logga in
         </button>
       </div>
