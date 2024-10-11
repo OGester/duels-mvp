@@ -9,12 +9,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="">
+      <body className="px-4 py-2">
         <header>
           <NavBar />
         </header>
-        <main className="">{children}</main>
-        <footer className="border-t">This is the footer</footer>
+        <main className="flex justify-center">{children}</main>
+        <footer className="border-t text-center text-xs py-2">
+          This is the footer
+        </footer>
       </body>
     </html>
   );
