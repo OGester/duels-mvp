@@ -7,8 +7,8 @@ export default async function userPage() {
 
   return (
     <div>
-      {user ? <h1>Welcome: {user.username}</h1> : <h2>"User not logged in"</h2>}
       <p>Ready for some duels?</p>
     </div>
   );
 }
+//{user ? <h1>Welcome: {user.username}</h1> : <h2>"User not logged in"</h2>}
