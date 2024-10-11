@@ -1,4 +1,5 @@
 import "./globals.css";
+import NavBar from "@/components/Navbar";
 
 export const metadata = {
   title: "Duels Prototype",
@@ -9,7 +10,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="">
-        <header>Insert header here</header>
+        <header>
+          <NavBar />
+        </header>
         <main className="">{children}</main>
         <footer className="border-t">This is the footer</footer>
       </body>
