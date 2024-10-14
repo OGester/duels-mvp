@@ -7,9 +7,9 @@ export default async function Home() {
         <h2 className="flex justify-center text-black font-bold">
           - Welcome to Tjing doubles -
         </h2>
-        {/* <Link className="flex justify-center " href="/profile-page">
+        <Link className="flex justify-center " href="/profile-page">
           Profile
-        </Link> */}
+        </Link>
       </main>
     </>
   );
