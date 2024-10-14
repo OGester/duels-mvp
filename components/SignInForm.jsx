@@ -32,9 +32,9 @@ export default function SignInForm() {
           className=""
         />
       </div>
-      {/*  {Boolean(state.error) && (
+      {Boolean(state.error) && (
         <p className="text-red-700">{state.error.message}</p>
-      )} */}
+      )}
       <div className="flex justify-center py-2">
         <button
           className="border px-4 py-1 rounded text-blue-600"
