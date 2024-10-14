@@ -18,10 +18,11 @@ export default function SignInForm() {
   const [state, handleSubmit] = useFormState(signInAction);
 
   return (
-    <div className="flex flex-col justify-center w-auto p-20">
+    <div className="flex flex-col justify-center w-auto p-6">
       <h2 className="flex justify-center text-black font-bold mb-2.5">
-        Duels Sign In
+        Tjing Duels
       </h2>
+      <p className="flex justify-center mb-4">Sign in below</p>
       <Card className="flex flex-col justify-center border-4 border-orange-300">
         <CardContent>
           <form onSubmit={handleSubmit} className="">
@@ -42,7 +43,6 @@ export default function SignInForm() {
                   name="password"
                   type="password"
                   placeholder="Enter password"
-                  className=""
                 />
               </div>
               {Boolean(state.error) && (
