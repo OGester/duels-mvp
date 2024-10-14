@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 import Link from "next/link";
 
@@ -35,15 +36,21 @@ export default async function Home() {
                   </p>
                 </CardContent>
                 <CardFooter className="flex justify-center">
-                  <button>Let´s Play!</button>
+                  <Button asChild className="bg-orange-300 text-black">
+                    <Link href="/register">Let´s play</Link>
+                  </Button>
+
+                  {/* <Button className="bg-orange-300 text-black">
+                    Let´s Play!
+                  </Button> */}
                 </CardFooter>
               </div>
             </CardHeader>
           </Card>
         </div>
-        <Link className="flex justify-center " href="/profile-page">
+        {/* <Link className="flex justify-center " href="/profile-page">
           Profile
-        </Link>
+        </Link> */}
       </main>
     </>
   );
