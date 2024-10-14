@@ -12,13 +12,12 @@ import Link from "next/link";
 export default async function Home() {
   return (
     <>
-      <main /* className="basis-2/4 border-orange-400 border-4 rounded-xl p-8" */
-      >
+      <main>
         <h2 className="flex justify-center text-black font-bold">
           - Welcome to Tjing doubles -
         </h2>
         <div className="flex justify-center p-4">
-          <Card className="flex flex-col justify-center border-4 border-orange-300 ">
+          <Card className="flex flex-col justify-center border-4 border-orange-300">
             <CardHeader>
               <div>
                 <CardTitle className="flex justify-center">
