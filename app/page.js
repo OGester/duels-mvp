@@ -30,7 +30,7 @@ export default async function Home() {
                 <CardContent>
                   <p>
                     Tjing wants to encourage the interaction and playfullness
-                    between players in a new way, challange friends, family your
+                    between players in a new way, challenge friends, family your
                     local club nemesis or just random people you meet on the
                     course. in different one on one duels.
                   </p>
