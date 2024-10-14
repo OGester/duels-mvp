@@ -23,40 +23,42 @@ export default function SignInForm() {
         Tjing Duels
       </h2>
       <p className="flex justify-center mb-4">Sign in below</p>
-      <Card className="flex flex-col justify-center border-4 border-orange-300">
-        <CardContent>
-          <form onSubmit={handleSubmit} className="">
-            <div className="grid w-full items-center gap-4 mt-6">
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="emailField">Email</Label>
-                <Input
-                  id="emailField"
-                  name="email"
-                  type="email"
-                  placeholder="Enter your Email"
-                />
+      <div className="flex justify-center p-4">
+        <Card className="flex flex-col justify-center border-4 border-orange-300 w-1/2">
+          <CardContent>
+            <form onSubmit={handleSubmit} className="">
+              <div className="grid w-full items-center gap-4 mt-6">
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="emailField">Email</Label>
+                  <Input
+                    id="emailField"
+                    name="email"
+                    type="email"
+                    placeholder="Enter your Email"
+                  />
+                </div>
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="passwordField">Password</Label>
+                  <Input
+                    id="passwordField"
+                    name="password"
+                    type="password"
+                    placeholder="Enter password"
+                  />
+                </div>
+                {Boolean(state.error) && (
+                  <p className="text-red-700">{state.error.message}</p>
+                )}
+                <div className="flex justify-center py-2">
+                  <Button className="bg-orange-300 text-black" type="submit">
+                    Sign-in
+                  </Button>
+                </div>
               </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="passwordField">Password</Label>
-                <Input
-                  id="passwordField"
-                  name="password"
-                  type="password"
-                  placeholder="Enter password"
-                />
-              </div>
-              {Boolean(state.error) && (
-                <p className="text-red-700">{state.error.message}</p>
-              )}
-              <div className="flex justify-center py-2">
-                <Button className="bg-orange-300 text-black" type="submit">
-                  Sign-in
-                </Button>
-              </div>
-            </div>
-          </form>
-        </CardContent>
-      </Card>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }

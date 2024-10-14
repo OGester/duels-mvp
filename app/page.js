@@ -17,7 +17,7 @@ export default async function Home() {
           - Welcome to Tjing doubles -
         </h2>
         <div className="flex justify-center p-4">
-          <Card className="flex flex-col justify-center border-4 border-orange-300">
+          <Card className="flex flex-col justify-center border-4 border-orange-300 w-1/2">
             <CardHeader>
               <div>
                 <CardTitle className="flex justify-center">

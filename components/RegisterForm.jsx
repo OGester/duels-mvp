@@ -25,52 +25,59 @@ export default function SignUpForm() {
         Tjing Duels
       </h2>
       <p className="flex justify-center mb-4">Register here to get started</p>
-      <Card className="flex flex-col justify-center border-4 border-orange-300">
-        <CardContent>
-          <form onSubmit={handleSubmit}>
-            <div className="grid w-full items-center gap-4 mt-6">
-              <div className="flex-col space-y-1.5">
-                <Label htmlFor="usernameField">Username</Label>
-                <Input
-                  id="usernameField"
-                  name="username"
-                  type="text"
-                  placeholder="Enter a username"
-                />
+      <div className="flex justify-center p-4">
+        <Card className="flex flex-col justify-center border-4 border-orange-300">
+          <CardContent>
+            <form onSubmit={handleSubmit}>
+              <div className="grid w-full items-center gap-4 mt-6">
+                <div className="flex-col space-y-1.5">
+                  <Label htmlFor="usernameField">Username</Label>
+                  <Input
+                    id="usernameField"
+                    name="username"
+                    type="text"
+                    placeholder="Enter a username"
+                  />
+                </div>
+                <div className="flex-col space-y-1.5">
+                  <Label htmlFor="emailField">Email</Label>
+                  <Input
+                    id="emailField"
+                    name="email"
+                    type="email"
+                    placeholder="Enter your email"
+                  />
+                </div>
+                <div className="flex-col space-y-1.5">
+                  <Label htmlFor="passwordField">Password</Label>
+                  <Input
+                    id="passwordField"
+                    name="password"
+                    type="password"
+                    placeholder="Enter password"
+                  />
+                </div>
+                {Boolean(state.error) && (
+                  <p className="text-red-700">{state.error.message}</p>
+                )}
+                <div className="flex justify-center py-2">
+                  <Button className="bg-orange-300 text-black" type="submit">
+                    Register
+                  </Button>
+                </div>
               </div>
-              <div className="flex-col space-y-1.5">
-                <Label htmlFor="emailField">Email</Label>
-                <Input
-                  id="emailField"
-                  name="email"
-                  type="email"
-                  placeholder="Enter your email"
-                />
-              </div>
-              <div className="flex-col space-y-1.5">
-                <Label htmlFor="passwordField">Password</Label>
-                <Input
-                  id="passwordField"
-                  name="password"
-                  type="password"
-                  placeholder="Enter password"
-                />
-              </div>
-              {Boolean(state.error) && (
-                <p className="text-red-700">{state.error.message}</p>
-              )}
-              <div className="flex justify-center py-2">
-                <Button className="bg-orange-300 text-black" type="submit">
-                  Register
-                </Button>
-              </div>
-            </div>
-          </form>
-          <CardFooter className="flex justify-center">
-            Already registered? <Link href="/sign-in"> Sign in </Link> instead!
-          </CardFooter>
-        </CardContent>
-      </Card>
+            </form>
+            <CardFooter className="flex justify-center">
+              Already registered?{" "}
+              <Link className="text-orange-300" href="/sign-in">
+                {" "}
+                Sign in{" "}
+              </Link>{" "}
+              instead!
+            </CardFooter>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }
