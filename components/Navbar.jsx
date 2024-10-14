@@ -26,7 +26,7 @@ export default async function NavBar() {
           </li>
         ) : (
           <li>
-            <NavLink href="/sign-in">Sign in</NavLink>
+            <NavLink href="/sign-in">Sign-in</NavLink>
           </li>
         )}
       </ul>

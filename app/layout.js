@@ -14,8 +14,8 @@ export default function RootLayout({ children }) {
           <NavBar />
         </header>
         <main className="flex justify-center">{children}</main>
-        <footer className="border-t text-center text-xs py-2">
-          This is the footer
+        <footer className="border-t text-center text-xs py-2 max-w-6xl mx-auto my-12">
+          Duels by Tjing est. 2024
         </footer>
       </body>
     </html>
