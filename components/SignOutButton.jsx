@@ -9,7 +9,6 @@ export default function SignOutButton() {
   }
 
   return (
-    //lägg till css på knapp
     //uses a form even thoug there is no input to be able
     //to invoke a server action
     <form action={action}>

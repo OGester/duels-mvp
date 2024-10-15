@@ -7,10 +7,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { getUserFromSession } from "@/lib/auth";
 
 import Link from "next/link";
 
 export default async function Home() {
+  const user = await getUserFromSession();
   return (
     <>
       <main>
@@ -36,13 +38,15 @@ export default async function Home() {
                   </p>
                 </CardContent>
                 <CardFooter className="flex justify-center">
-                  <Button asChild className="bg-orange-300 text-black">
-                    <Link href="/sign-in">Let´s play</Link>
-                  </Button>
-
-                  {/* <Button className="bg-orange-300 text-black">
-                    Let´s Play!
-                  </Button> */}
+                  {!user ? (
+                    <Button asChild className="bg-orange-300 text-black">
+                      <Link href="/sign-in">Let´s play</Link>
+                    </Button>
+                  ) : (
+                    <Button asChild className="bg-orange-300 text-black">
+                      <Link href="/profile-page">Let´s play</Link>
+                    </Button>
+                  )}
                 </CardFooter>
               </div>
             </CardHeader>
