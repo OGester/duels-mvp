@@ -10,6 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 import { signInAction } from "@/app/sign-in/actions";
 import { useFormState } from "../lib/hooks";
@@ -24,7 +25,7 @@ export default function SignInForm() {
       </h2>
       <p className="flex justify-center mb-4">Sign in below</p>
       <div className="flex justify-center p-4">
-        <Card className="flex flex-col justify-center border-4 border-orange-300 w-1/2">
+        <Card className="flex flex-col justify-center border-4 border-orange-300 w-1/4">
           <CardContent>
             <form onSubmit={handleSubmit} className="">
               <div className="grid w-full items-center gap-4 mt-6">
@@ -49,13 +50,23 @@ export default function SignInForm() {
                 {Boolean(state.error) && (
                   <p className="text-red-700">{state.error.message}</p>
                 )}
-                <div className="flex justify-center py-2">
+                <div className="flex justify-center py-2 text-xs">
                   <Button className="bg-orange-300 text-black" type="submit">
                     Sign-in
                   </Button>
                 </div>
               </div>
             </form>
+            <div className="flex justify-center py-2 text-xs">
+              <span>
+                New player?
+                <Link className="text-orange-400" href="/register">
+                  {" "}
+                  Sign up
+                </Link>{" "}
+                here!
+              </span>
+            </div>
           </CardContent>
         </Card>
       </div>

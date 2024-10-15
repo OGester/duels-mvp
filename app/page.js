@@ -37,7 +37,7 @@ export default async function Home() {
                 </CardContent>
                 <CardFooter className="flex justify-center">
                   <Button asChild className="bg-orange-300 text-black">
-                    <Link href="/register">Let´s play</Link>
+                    <Link href="/sign-in">Let´s play</Link>
                   </Button>
 
                   {/* <Button className="bg-orange-300 text-black">

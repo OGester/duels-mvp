@@ -67,7 +67,7 @@ export default function SignUpForm() {
                 </div>
               </div>
             </form>
-            <CardFooter className="flex justify-center">
+            <CardFooter className="flex justify-center text-xs">
               Already registered?{" "}
               <Link className="text-orange-300" href="/sign-in">
                 {" "}
