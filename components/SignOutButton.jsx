@@ -13,7 +13,9 @@ export default function SignOutButton() {
     //uses a form even thoug there is no input to be able
     //to invoke a server action
     <form action={action}>
-      <button type="submit">Logga ut!</button>
+      <button className="text-orange-400" type="submit">
+        Log-out
+      </button>
     </form>
   );
 }

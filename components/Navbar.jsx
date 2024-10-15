@@ -12,9 +12,15 @@ export default async function NavBar() {
         <li className="font-bold font-orbitron">
           <NavLink href="/">Home</NavLink>
         </li>
-        <li className="ml-auto">
-          <NavLink href="/register">Register</NavLink>
-        </li>
+        {user ? (
+          <li className="ml-auto">
+            <NavLink href="/profile-page">Profile</NavLink>
+          </li>
+        ) : (
+          <li className="ml-auto">
+            <NavLink href="/register">Register</NavLink>
+          </li>
+        )}
         <li>
           <NavLink href="/admin" prefetch={false}>
             Admin
