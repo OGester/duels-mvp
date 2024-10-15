@@ -60,21 +60,18 @@ export default function SignUpForm() {
                 {Boolean(state.error) && (
                   <p className="text-red-700">{state.error.message}</p>
                 )}
-                <div className="flex justify-center py-2">
-                  <Button className="bg-orange-300 text-black" type="submit">
-                    Register
-                  </Button>
+                <div className="flex justify-center py-2 text-xs">
+                  <span>
+                    Already registered?
+                    <Link className="text-orange-400" href="/sign-in">
+                      {" "}
+                      Sign in
+                    </Link>{" "}
+                    instead!
+                  </span>
                 </div>
               </div>
             </form>
-            <CardFooter className="flex justify-center text-xs">
-              Already registered?{" "}
-              <Link className="text-orange-300" href="/sign-in">
-                {" "}
-                Sign in{" "}
-              </Link>{" "}
-              instead!
-            </CardFooter>
           </CardContent>
         </Card>
       </div>
