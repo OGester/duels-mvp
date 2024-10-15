@@ -32,7 +32,7 @@ export default async function Home() {
                     Tjing wants to encourage the interaction and playfullness
                     between players in a new way, challenge friends, family your
                     local club nemesis or just random people you meet on the
-                    course. in different one on one duels.
+                    course in fun one on one duels.
                   </p>
                 </CardContent>
                 <CardFooter className="flex justify-center">
