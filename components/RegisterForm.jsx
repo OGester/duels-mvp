@@ -61,6 +61,11 @@ export default function SignUpForm() {
                   <p className="text-red-700">{state.error.message}</p>
                 )}
                 <div className="flex justify-center py-2 text-xs">
+                  <Button className="bg-orange-300 text-black" type="submit">
+                    Register
+                  </Button>
+                </div>
+                <div className="flex justify-center py-2 text-xs">
                   <span>
                     Already registered?
                     <Link className="text-orange-400" href="/sign-in">
