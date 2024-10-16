@@ -52,6 +52,9 @@ export default async function Home() {
             </CardHeader>
           </Card>
         </div>
+        {/* <Link className="flex justify-center " href="/profile-page">
+          Profile
+        </Link> */}
       </main>
     </>
   );
