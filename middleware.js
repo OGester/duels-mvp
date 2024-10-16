@@ -11,6 +11,8 @@ export async function middleware(request) {
   console.log("middleware");
 
   const isAuthenticated = !!session?.username;
+  // figure out how to restrict admin route only for logged in users with admin role
+  const isAdmin = !!session?.role;
   console.log(isAuthenticated, nextUrl.pathname);
 
   //Using routes from routes.js to manage what routes are public or not
