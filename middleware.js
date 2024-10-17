@@ -13,9 +13,13 @@ export async function middleware(request) {
 
   //
   const isAuthenticated = !!session?.username;
-
+  // states wich routes that should be restricted if logged in as user
   const adminRoutes = ["/admin"];
 
+  //if youre not logged in /profile and /admin urls are restricted
+  if (!isAuthenticated) {
+    return NextResponse.redirect(new URL(SIGNIN, nextUrl));
+  }
   if (
     isAuthenticated &&
     //checks if the logged in user has access to adminroutes
@@ -24,9 +28,6 @@ export async function middleware(request) {
   ) {
     console.log("access denied");
     return NextResponse.redirect(new URL(ROOT, nextUrl));
-  }
-  if (!isAuthenticated) {
-    return NextResponse.redirect(new URL(SIGNIN, nextUrl));
   }
 }
 
