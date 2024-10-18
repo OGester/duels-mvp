@@ -1,6 +1,8 @@
 import { getUserFromSession } from "@/lib/auth";
 
 export default async function userPage() {
+  //somehow this function makes user in navbar undefined
+  //look in to that later,
   const user = getUserFromSession();
 
   return (
