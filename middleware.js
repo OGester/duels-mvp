@@ -2,7 +2,7 @@
 import { getUserFromSession } from "./lib/auth";
 import { NextResponse } from "next/server";
 
-import { SIGNIN, ROOT } from "./lib/routes";
+import { SIGNIN, ERROR, ROOT, PROFILE } from "./lib/routes";
 
 export async function middleware(request) {
   const { nextUrl } = request;
@@ -26,13 +26,13 @@ export async function middleware(request) {
     session.role === "USER" &&
     adminRoutes.includes(nextUrl.pathname)
   ) {
-    console.log("access denied");
-    return NextResponse.redirect(new URL(ROOT, nextUrl));
+    console.log("admin status required! access denied");
+    return NextResponse.redirect(new URL(ERROR, nextUrl));
   }
 }
 
 export const config = {
-  matcher: ["/profile-page/:path*", "/admin"],
+  matcher: ["/profile-page/:path*", "/admin", "/error"],
 };
 
 /* if (loggedInAs === "admin" && adminRoutes.includes(nextUrl.pathname)) {
