@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  //previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
@@ -22,17 +21,17 @@ model User {
   email           String @unique
   passwordHash    String
   role            Role @default(USER)
-  //profile         Profile?
+  profile         Profile?
 }
 
 model Profile{
   id              String @id @default(uuid())
-  profileImageUrl String 
-  description     String
-  score           Int
+  profileImageUrl String? 
+  description     String?
+  score           Int @default(0)
   
-  //userId          String @unique
-  //user            User @relation(fields: [userId], references: [id])          
+  userId          String @unique
+  user            User @relation(fields: [userId], references: [id], onDelete: Cascade)          
 
   
 }

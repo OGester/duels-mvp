@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { setSessionCookie } from "@/lib/auth";
 import { createUser } from "@/lib/users";
+import { createProfile } from "@/lib/users";
 
 //change to registerAction
 export async function signUpAction(formData) {
@@ -16,6 +17,12 @@ export async function signUpAction(formData) {
   //TODO validate data / handle duplicate email error
   const user = await createUser(data);
   console.log("[signUpAction] user:", user);
+
+  await createProfile(user.id);
+
   await setSessionCookie(user);
+
+  console.log("registered user", user);
+
   redirect("/profile-page");
 }
