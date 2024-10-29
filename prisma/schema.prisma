@@ -12,7 +12,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL") //"postgresql://postgres.wwcavlovsmcaxejhtbkz:%Tattoo12345%@aws-0-eu-north-1.pooler.supabase.com:6543/postgres?pgbouncer=true" 
-  //directUrl = env("DIRECT_URL") 
+  directUrl = env("DIRECT_URL") 
   //env("DATABASE_URL")//
 }
 
@@ -22,6 +22,19 @@ model User {
   email           String @unique
   passwordHash    String
   role            Role @default(USER)
+  //profile         Profile?
+}
+
+model Profile{
+  id              String @id @default(uuid())
+  profileImageUrl String 
+  description     String
+  score           Int
+  
+  //userId          String @unique
+  //user            User @relation(fields: [userId], references: [id])          
+
+  
 }
 
 
