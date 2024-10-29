@@ -1,9 +1,7 @@
-import { getUserFromSession } from "@/lib/auth";
-
 export default async function userSettings() {
   //somehow this function makes user in navbar undefined
   //look in to that later,
-  const user = getUserFromSession();
+  //const user = getUserFromSession();
 
   return (
     <div className="flex flex-col justify-center">
