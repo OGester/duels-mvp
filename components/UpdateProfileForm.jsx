@@ -1,4 +1,4 @@
-"use client";
+/* "use client";
 import {
   Card,
   CardContent,
@@ -14,13 +14,16 @@ import { Button } from "@/components/ui/button";
 //change to register action
 import { updateProfileAction } from "@/app/profile-page/settings/actions";
 import { useFormState } from "../lib/hooks";
-import Link from "next/link";
+import Link from "next/link"; */
 
 export default function UpdateProfileForm() {
-  const [state, handleSubmit] = useFormState(updateProfileAction);
+  // const [state, handleSubmit] = useFormState(updateProfileAction);
 
   return (
-    <div className="flex flex-col justify-center w-auto p-6">
+    <div>
+      <h2>uppdate your profile</h2>
+    </div>
+    /*  <div className="flex flex-col justify-center w-auto p-6">
       <h2 className="flex justify-center text-black font-bold mb-2.5">
         Profile settings
       </h2>
@@ -72,6 +75,6 @@ export default function UpdateProfileForm() {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </div> */
   );
 }
