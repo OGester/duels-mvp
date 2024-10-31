@@ -28,9 +28,11 @@ export default async function userPage() {
             className="w-40 h-40 rounded-xl border-4 shadow-outline border-orange-300 object-fill"
           />
         </div>
-        <p>Bio:</p>
-        <div className="flex justify-center w-1/2 p-4 border-2 shadow-outline rounded-lg  border-gray-300">
-          <p className="text-md text-center p-2">{profileBio?.description}</p>
+        <p className="text-center border-b min-w-full p-2">Bio:</p>
+        <div className="flex justify-center w-1/2 p-4 ">
+          <p className="text-xl font-semibold text-center p-2">
+            {profileBio?.description}
+          </p>
         </div>
       </div>
     </div>
