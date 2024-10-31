@@ -1,12 +1,5 @@
-/* "use client";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+"use client";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -14,52 +7,38 @@ import { Button } from "@/components/ui/button";
 //change to register action
 import { updateProfileAction } from "@/app/profile-page/settings/actions";
 import { useFormState } from "../lib/hooks";
-import Link from "next/link"; */
+import Link from "next/link";
 
 export default function UpdateProfileForm() {
-  // const [state, handleSubmit] = useFormState(updateProfileAction);
+  const [state, handleSubmit] = useFormState(updateProfileAction);
 
   return (
-    <div>
-      <h2>uppdate your profile</h2>
-    </div>
-    /*  <div className="flex flex-col justify-center w-auto p-6">
+    <div className="flex flex-col justify-center w-full p-6">
       <h2 className="flex justify-center text-black font-bold mb-2.5">
-        Profile settings
+        Tjing Duels
       </h2>
-      <p className="flex justify-center mb-4">
-        Update your profile information
-      </p>
-      <div className="flex justify-center p-4">
-        <Card className="flex flex-col justify-center border-4 border-orange-300">
+      <p className="flex justify-center mb-4">Update Profile</p>
+      <div className="flex justify-center w-full p-4">
+        <Card className="flex flex-col justify-center border-4 border-orange-300 w-full">
           <CardContent>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="">
               <div className="grid w-full items-center gap-4 mt-6">
-                <div className="flex-col space-y-1.5">
+                <div className="flex flex-col space-y-1.5">
                   <Label htmlFor="profileImageUrlField">Image Url</Label>
                   <Input
                     id="profileImageUrlField"
                     name="profileImageUrl"
                     type="text"
-                    placeholder="Enter a image url"
+                    placeholder="Image Url"
                   />
                 </div>
-                <div className="flex-col space-y-1.5">
+                <div className="flex flex-col space-y-1.5">
                   <Label htmlFor="descriptionField">Description</Label>
                   <Input
                     id="descriptionField"
                     name="description"
                     type="text"
-                    placeholder="Your profile description"
-                  />
-                </div>
-                <div className="flex-col space-y-1.5">
-                  <Label htmlFor="scoreField">Score</Label>
-                  <Input
-                    id="scoreField"
-                    name="score"
-                    type="int"
-                    placeholder="Enter score"
+                    placeholder="Profile description "
                   />
                 </div>
                 {Boolean(state.error) && (
@@ -75,6 +54,6 @@ export default function UpdateProfileForm() {
           </CardContent>
         </Card>
       </div>
-    </div> */
+    </div>
   );
 }

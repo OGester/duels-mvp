@@ -3,7 +3,7 @@
 import { redirect } from "next/navigation";
 import { setSessionCookie } from "@/lib/auth";
 import { createUser } from "@/lib/users";
-import { createProfile } from "@/lib/users";
+import { createProfile } from "@/lib/profile";
 
 //change to registerAction
 export async function signUpAction(formData) {

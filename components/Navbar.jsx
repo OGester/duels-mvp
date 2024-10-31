@@ -5,7 +5,7 @@ import SignOutButton from "./SignOutButton";
 
 export default async function NavBar() {
   const user = await getUserFromSession();
-  console.log("[NavBar] user:", user);
+  console.log("[NavBar] user:", user.username);
   return (
     <nav>
       <ul className="flex gap-2">

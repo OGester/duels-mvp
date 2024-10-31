@@ -8,7 +8,7 @@ export async function signInAction(formData) {
   const email = formData.get("email");
   const password = formData.get("password");
   const user = await authenticateUser(email, password);
-  //const user = await authenticateUser(email, password);
+
   if (!user) {
     return { isError: true, message: "invalid credentials" };
   }
