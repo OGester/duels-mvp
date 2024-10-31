@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 //change to register action
 import { updateProfileAction } from "@/app/profile-page/settings/actions";
 import { useFormState } from "../lib/hooks";
-import Link from "next/link";
 
 export default function UpdateProfileForm() {
   const [state, handleSubmit] = useFormState(updateProfileAction);

@@ -5,7 +5,6 @@ import { getUserFromSession } from "@/lib/auth";
 
 export async function updateProfileAction(formData) {
   const user = await getUserFromSession();
-
   //console.log("[signInAction]", formData);
   const data = {
     userId: user.id,
