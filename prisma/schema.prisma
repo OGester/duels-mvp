@@ -36,7 +36,6 @@ model Profile{
   
 }
 
-
 enum Role {
   USER
   ADMIN
