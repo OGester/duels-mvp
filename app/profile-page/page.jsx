@@ -19,7 +19,7 @@ export default async function userPage() {
         Your Duels Profile
       </h2>
       <p className="text-center text-lg mb-4">
-        Welcome: <span className="font-bold text-xl">{user.username}</span>
+        Hello: <span className="font-bold text-xl">{user.username}</span>
       </p>
 
       <div className="flex flex-col items-center min-w-full min-h-full border-4 border-orange-300 rounded-xl /* sm:w-2/3 md:w-1/2 lg:w-1/3 p-4 space-y-4 */">
