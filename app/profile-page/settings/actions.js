@@ -7,8 +7,8 @@ export async function updateProfileAction(formData) {
   const user = await getUserFromSession();
   //console.log("[signInAction]", formData);
   const data = {
-    userId: user.id,
-    profileImageUrl: formData.get("profileImageUrl"),
+    user_id: user.user_id,
+    profile_image_url: formData.get("profileImageUrl"),
     description: formData.get("description"),
   };
   //console.log("Data sent to updateProfile:", data);
