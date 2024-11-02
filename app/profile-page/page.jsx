@@ -6,10 +6,10 @@ import { db } from "@/db";
 
 export default async function userPage() {
   const user = await getUserFromSession();
-  const userId = user.id;
+  const userId = user.user_id;
   const profileBio = await db.profile.findUnique({
     where: {
-      userId: userId,
+      user_id: userId,
     },
   });
 
@@ -18,12 +18,14 @@ export default async function userPage() {
       <h2 className="text-center text-black font-bold mb-2.5">
         Your Duels Profile
       </h2>
-      <p className="text-center text-lg mb-4">Welcome: {user.username}</p>
+      <p className="text-center text-lg mb-4">
+        Welcome: <span className="font-bold text-xl">{user.username}</span>
+      </p>
 
       <div className="flex flex-col items-center min-w-full min-h-full border-4 border-orange-300 rounded-xl /* sm:w-2/3 md:w-1/2 lg:w-1/3 p-4 space-y-4 */">
         <div className="flex justify-center max-w-xs max-h-xs p-3">
           <img
-            src={profileBio?.profileImageUrl}
+            src={profileBio?.profile_image_url}
             alt="ProfileImage"
             className="w-40 h-40 rounded-xl border-4 shadow-outline border-orange-300 object-fill"
           />

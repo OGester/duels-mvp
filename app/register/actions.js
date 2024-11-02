@@ -18,7 +18,7 @@ export async function signUpAction(formData) {
   const user = await createUser(data);
   console.log("[signUpAction] user:", user);
 
-  await createProfile(user.id);
+  await createProfile(user.user_id);
 
   await setSessionCookie(user);
 
