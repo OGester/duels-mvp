@@ -15,29 +15,101 @@ datasource db {
   //env("DATABASE_URL")//
 }
 
-model User {
-  id              String @id @default(uuid())
-  username        String
-  email           String @unique
-  passwordHash    String
-  role            Role @default(USER)
-  profile         Profile?
+model user {
+  user_id                String @id @default(uuid())
+  username              String
+  email                 String @unique
+  passwordHash          String
+  role                  Role @default(USER)
+  profile               profile?
+
+  created_leauges       league[] @relation("MyCreatedLeagues")
+  leagues_joined        league_user[]
+
+  created_at             DateTime  @default(now())
 }
 
-model Profile{
-  id              String @id @default(uuid())
-  profileImageUrl String? 
-  description     String?
-  score           Int @default(0)
-  
-  userId          String @unique
-  user            User @relation(fields: [userId], references: [id], onDelete: Cascade)          
 
+model league {
+  league_id              String @id @default(uuid())
+  created_by             String
+  name                   String
+  type                   LeagueType
+  isPublic               Boolean  //should this be set to public by default?
+  start_date             DateTime  //should these dates be set by creator?
+  end_date               DateTime
+  description            String //should description be optional?
+
+  creator                user    @relation("MyCreatedLeagues", fields: [created_by],references: [user_id])
+  members                league_user[]
+
+  created_at             DateTime  @default(now())
+}
+
+model league_user {
+  league_user_id         String @id @default(uuid())
+  user_id                String
+  league_id              String
+  status                 MembershipStatus
+  requested_at           DateTime @default(now())
+  updated_at             DateTime?
+
+  user                  user   @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
+  league                league  @relation(fields: [league_id], references: [league_id], onDelete: Cascade)
+  payment               payment? @relation("leagueUserPayment")//assuming this should be optional? so the creator of the league decides if it free?
+
+  @@unique([user_id, league_id]) // this anotation makes sure a user can´t join the same league multiple times
   
 }
+
+
+
+model profile{
+  profile_id              String @id @default(uuid())
+  profile_image_url       String? 
+  description             String?
+  score                   Int @default(0)
+  
+  user_id                 String @unique
+  user                    user @relation(fields: [user_id], references: [user_id], onDelete: Cascade)          
+
+}
+
+model payment {
+  payment_id             String  @id @default(uuid())
+  league_user_id         String @unique
+  amount                 Float
+
+  payment_status         PaymentStatus
+  payment_date           DateTime
+  league_user            league_user @relation("leagueUserPayment", fields: [league_user_id], references: [league_user_id], onDelete: Cascade)
+}
+
+//All ENUMS
 
 enum Role {
   USER
   ADMIN
-
 }
+
+enum LeagueType {
+  GLOBAL
+  LOCAL
+}
+
+enum MembershipStatus {
+  PENDING
+  PENDING_PAYMENT
+  ACCEPTED
+  DECLINED
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+
+
+
