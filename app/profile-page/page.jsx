@@ -36,6 +36,12 @@ export default async function userPage() {
             {profileBio?.description}
           </p>
         </div>
+        <p className="text-center border-b min-w-full p-2">Your score:</p>
+        <div className="flex justify-center w-1/2 p-4 ">
+          <p className="text-xl font-semibold text-center p-2">
+            {profileBio?.score}
+          </p>
+        </div>
       </div>
     </div>
   );
