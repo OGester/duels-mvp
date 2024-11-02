@@ -16,28 +16,98 @@ datasource db {
 }
 
 model User {
-  id              String @id @default(uuid())
-  username        String
-  email           String @unique
-  passwordHash    String
-  role            Role @default(USER)
-  profile         Profile?
+  userId                String @id @default(uuid())
+  username              String
+  email                 String @unique
+  passwordHash          String
+  role                  Role @default(USER)
+  profile               Profile?
+
+  createdLeauges        League[] @relation("MyCreatedLeagues")
+  leaguesJoined         LeagueUser[]
+
+  createdAt             DateTime  @default(now())
 }
+
+
+model League {
+  leagueId              String @id @default(uuid())
+  createdBy             String
+  name                  String
+  type                  LeagueType
+  isPublic              Boolean  //should this be set to public by default?
+  startDate             DateTime  //should these dates be set by creator?
+  endDate               DateTime
+  description           String //should description be optional?
+
+  creator               User    @relation("MyCreatedLeagues", fields: [createdBy],references: [userId])
+  members               LeagueUser[]
+
+  createdAt             DateTime  @default(now())
+}
+
+model LeagueUser {
+  leagueUserId          String @id @default(uuid())
+  userId                String
+  leagueId              String
+  status                MembershipStatus
+  requestedAt           DateTime @default(now())
+  updatedAt             DateTime?
+
+  user                  User   @relation(fields: userId, references: [userId])
+  league                League  @relation(fields: leagueId, references: [leagueId])
+  payment               PaymentStatus? //assuming this should be optional? so the creator of the league decides if it free?
+
+  @@unique([userId, leagueId]) // this anotation makes sure a user can´t join the same league multiple times
+}
+
+
 
 model Profile{
-  id              String @id @default(uuid())
-  profileImageUrl String? 
-  description     String?
-  score           Int @default(0)
+  profilId              String @id @default(uuid())
+  profileImageUrl       String? 
+  description           String?
+  score                 Int @default(0)
   
-  userId          String @unique
-  user            User @relation(fields: [userId], references: [id], onDelete: Cascade)          
+  userId                String @unique
+  user                  User @relation(fields: [userId], references: [userId], onDelete: Cascade)          
 
-  
 }
+
+model Payment {
+  paymentId             String  @id @default(uuid())
+  lagueUserId           String
+  amount                Float
+
+  paymentStatus         PaymentStatus
+  paymentDate           DateTime
+}
+
+//All ENUMS
 
 enum Role {
   USER
   ADMIN
-
 }
+
+enum LeagueType {
+  GLOBAL
+  LOCAL
+}
+
+enum MembershipStatus {
+  PENDING
+  PENDING_PAYMENT
+  ACCEPTED
+  DECLINED
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+
+
+
