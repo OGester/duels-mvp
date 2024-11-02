@@ -38,17 +38,3 @@ export default async function userPage() {
     </div>
   );
 }
-
-{
-  /* <div className="flex flex-col justify-center">
-  <div className="flex justify-center">
-    <h2>Welcome</h2>
-  </div>
-  <h3 className="flex justify-center font-bold ">-- {user.username} --</h3>
-
-  <p>Ready for some duels?</p>
-  <div className="flex justify-center">
-    <p>{profileBio?.description}</p>
-  </div>
-</div>; */
-}
