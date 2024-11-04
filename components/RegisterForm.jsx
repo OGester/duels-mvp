@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 //change to register action
 import { signUpAction } from "@/app/register/actions";
 import { useFormState } from "../lib/hooks";
+
+//Maybe refactor to use navlink instead of link?
 import Link from "next/link";
 
 export default function SignUpForm() {
