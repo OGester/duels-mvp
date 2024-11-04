@@ -29,6 +29,17 @@ model user {
   created_at             DateTime  @default(now())
 }
 
+model profile{
+  profile_id              String @id @default(uuid())
+  profile_image_url       String? 
+  description             String?
+  score                   Int @default(0)
+  
+  user_id                 String @unique
+  user                    user @relation(fields: [user_id], references: [user_id], onDelete: Cascade)          
+
+}
+
 
 model league {
   league_id              String @id @default(uuid())
@@ -62,18 +73,6 @@ model league_user {
   
 }
 
-
-
-model profile{
-  profile_id              String @id @default(uuid())
-  profile_image_url       String? 
-  description             String?
-  score                   Int @default(0)
-  
-  user_id                 String @unique
-  user                    user @relation(fields: [user_id], references: [user_id], onDelete: Cascade)          
-
-}
 
 model payment {
   payment_id             String  @id @default(uuid())

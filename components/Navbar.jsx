@@ -21,6 +21,12 @@ export default async function NavBar() {
             <NavLink href="/register">Register</NavLink>
           </li>
         )}
+        {user && (
+          <li>
+            <NavLink href="/leagues">Leagues</NavLink>
+          </li>
+        )}
+
         <li>
           <NavLink href="/admin" prefetch={false}>
             Admin
