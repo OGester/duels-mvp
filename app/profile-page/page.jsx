@@ -1,5 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 //import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 import { getUserFromSession } from "@/lib/auth";
 import { db } from "@/db";
@@ -42,6 +44,11 @@ export default async function userPage() {
             {profileBio?.score}
           </p>
         </div>
+        <span className="flex justify center">
+          <Button asChild className="bg-orange-300 text-black">
+            <Link href="/leagues">Go to Leagues</Link>
+          </Button>
+        </span>
       </div>
     </div>
   );
