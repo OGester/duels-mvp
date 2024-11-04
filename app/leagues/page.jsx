@@ -14,7 +14,7 @@ export default async function LeaguesPage() {
         </div>
         <div className="flex justify-center m-2">
           <Button asChild className="bg-orange-300 text-black">
-            <Link href="/leagues/new">Create League</Link>
+            <Link href="/leagues/new">Create new League</Link>
           </Button>
         </div>
       </main>
