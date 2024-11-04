@@ -33,6 +33,7 @@ export default function UpdateProfileForm() {
                 </div>
                 <div className="flex flex-col space-y-1.5">
                   <Label htmlFor="descriptionField">Description</Label>
+                  {/* change input to textarea!! */}
                   <Input
                     id="descriptionField"
                     name="description"
