@@ -11,7 +11,7 @@ export default function CreateLeaguePage() {
   const [state, handleSubmit] = useFormState(createLeagueAction);
   return (
     <>
-      <main className="flex w-full">
+      <main className="flex flex-col w-full">
         <div className="flex-auto justify-center m-2">
           <h2 className="text-center">Create League</h2>
         </div>

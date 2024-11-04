@@ -8,7 +8,7 @@ export async function createLeagueAction() {
 
   const data = {
     created_by: user.user_id,
-    name: "username",
+    name: "Tore Invitational",
     type: "GLOBAL",
     isPublic: true,
     start_date: new Date(),
