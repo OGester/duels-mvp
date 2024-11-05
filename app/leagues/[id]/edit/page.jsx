@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { db } from "@/db";
+import EditLeagueForm from "@/components/EditLeagueForm";
 
 export default async function LeagueEditPage(props) {
   const league_id = props.params.id;
@@ -13,5 +14,9 @@ export default async function LeagueEditPage(props) {
     return notFound();
   }
 
-  return <div>Editing league with id {league_id}</div>;
+  return (
+    <div>
+      <EditLeagueForm league={league} />
+    </div>
+  );
 }
