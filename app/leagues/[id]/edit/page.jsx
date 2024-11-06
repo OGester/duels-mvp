@@ -15,8 +15,8 @@ export default async function LeagueEditPage(props) {
   }
 
   return (
-    <div>
+    <main className="flex flex-col w-full">
       <EditLeagueForm league={league} />
-    </div>
+    </main>
   );
 }

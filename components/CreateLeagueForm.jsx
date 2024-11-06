@@ -56,7 +56,7 @@ export default function CreateLeagueForm() {
                     ))}
                   </select>
                 </div>
-                <div classname="flex flex-col space-y-1.5">
+                <div className="flex flex-col space-y-1.5">
                   <Label htmlFor="isPublic">Public League</Label>
                   <Input
                     type="checkbox"
