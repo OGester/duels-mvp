@@ -35,9 +35,12 @@ export default async function SpecificLeaguePage(props) {
               >
                 Edit
               </Link>
-              <button className="p-2 border rounded border-orange-300">
+              <Link
+                href={`/leagues/${league.league_id}/delete`}
+                className="p-2 border rounded border-orange-300"
+              >
                 Delete
-              </button>
+              </Link>
             </div>
 
             <div className="flex flex-col justify-center p-4 border rounded border-orange-300">
