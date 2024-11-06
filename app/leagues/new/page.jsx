@@ -1,4 +1,4 @@
-"use client";
+//"use client";
 import CreateLeagueForm from "@/components/CreateLeagueForm";
 
 /* export const metadata = {
