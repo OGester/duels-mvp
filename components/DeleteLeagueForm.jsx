@@ -3,9 +3,16 @@ import { deleteLeagueAction } from "@/app/leagues/[id]/delete/actions";
 
 import { Button } from "@/components/ui/button";
 import { useFormState } from "@/lib/hooks";
+import { useRouter } from "next/navigation";
 
 export default function DeleteLeagueForm({ league }) {
+  const router = useRouter();
   const [state, handleSubmit] = useFormState(deleteLeagueAction);
+
+  //redirects to the league page without triggering the deleteLeague action
+  const handleClick = () => {
+    router.push(`/leagues/${league.league_id}`);
+  };
 
   return (
     <div>
@@ -26,8 +33,9 @@ export default function DeleteLeagueForm({ league }) {
               Yes
             </Button>
             <Button
+              type="button"
               className="bg-red-400 text-black"
-              href={`/leagues/${league.league_id}`}
+              onClick={handleClick}
             >
               NO!
             </Button>

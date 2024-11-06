@@ -1,6 +1,7 @@
 "use server";
 import { createLeague } from "@/lib/league";
 import { getUserFromSession } from "@/lib/auth";
+import { redirect } from "next/navigation";
 
 export async function createLeagueAction(formData) {
   const user = await getUserFromSession();
