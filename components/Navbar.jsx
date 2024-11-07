@@ -2,6 +2,7 @@
 import { getUserFromSession } from "@/lib/auth";
 import NavLink from "./NavLink";
 import SignOutButton from "./SignOutButton";
+import Search from "./SearchInput";
 
 export default async function NavBar() {
   const user = await getUserFromSession();
@@ -12,6 +13,7 @@ export default async function NavBar() {
         <li className="font-bold font-orbitron">
           <NavLink href="/">Home</NavLink>
         </li>
+        {user && <Search />}
         {user ? (
           <li className="ml-auto">
             <NavLink href="/profile-page">Profile</NavLink>
