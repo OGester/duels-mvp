@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function accessDenied() {
   return (
-    <div className="flex flex-col justify-center w-1/2 p-6">
+    <main className="flex justify-center flex-col w-full">
       <h2 className="flex justify-center text-orange-500 font-bold mb-2.5">
         OOPS!
       </h2>
@@ -31,6 +31,6 @@ export default function accessDenied() {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </main>
   );
 }
