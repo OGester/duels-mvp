@@ -1,13 +1,20 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { db } from "@/db";
+import SearchLeague from "@/components/SearchLeague";
 
 export const metadata = {
   title: "Leagues",
 };
 
-export default async function LeaguesPage() {
-  const leagues = await db.league.findMany();
+export default async function LeaguesPage({ searchParams }) {
+  const query = searchParams.query ?? "";
+
+  const leagues = await db.league.findMany({
+    where: {
+      name: { contains: query, mode: "insensitive" },
+    },
+  });
 
   //rendering the array of leagues fetched from the database
   const renderedLeagues = leagues.map((league) => {
@@ -28,15 +35,22 @@ export default async function LeaguesPage() {
       <div className="flex-auto justify-center m-2">
         <h2 className="text-center">Leagues</h2>
       </div>
-
+      <div className="flex justify-center m-2">
+        <div className="flex w-1/2 justify-between">
+          <SearchLeague className="" />
+          <Button asChild className="bg-orange-300 text-black">
+            <Link href="/leagues/new">New League</Link>
+          </Button>
+        </div>
+      </div>
       <div className="flex justify-center m-2">
         <div className="flex flex-col w-1/2 py-2 gap-2">{renderedLeagues}</div>
       </div>
-      <div className="flex justify-center m-2">
+      {/*   <div className="flex justify-center m-2">
         <Button asChild className="bg-orange-300 text-black">
           <Link href="/leagues/new">Create new League</Link>
         </Button>
-      </div>
+      </div> */}
     </main>
   );
 }

@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { getUserFromSession } from "@/lib/auth";
-import SearchResults from "@/components/SearchResults";
 
 import Link from "next/link";
 
