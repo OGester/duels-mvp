@@ -14,7 +14,7 @@ export async function createLeagueAction(formData) {
   console.log("end_date:", end_date);
 
   const data = {
-    created_by: user.user_id,
+    owner_id: user.user_id,
     name: formData.get("name"),
     type: formData.get("type"),
     isPublic,
@@ -27,13 +27,3 @@ export async function createLeagueAction(formData) {
 
   redirect(`/leagues`);
 }
-
-/* const data = {
-    created_by: user.user_id,
-    name: formData.get("name"),
-    type: formData.get("type"),
-    isPublic: (isPublic = formData.get("isPublic") === "on"),
-    start_date: formData.get("startDate"),
-    end_date: formData.get("endDate"),
-    description: formData.get("description"),
-  }; */
