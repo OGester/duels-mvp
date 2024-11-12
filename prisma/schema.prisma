@@ -10,9 +10,11 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      =  env("DATABASE_URL")//"postgresql://postgres.wwcavlovsmcaxejhtbkz:%Tattoo12345%@aws-0-eu-north-1.pooler.supabase.com:6543/postgres?pgbouncer=true" 
-  directUrl = env("DIRECT_URL")// "postgresql://postgres.wwcavlovsmcaxejhtbkz:%Tattoo12345%@aws-0-eu-north-1.pooler.supabase.com:5432/postgres"
+  url      =  "postgresql://postgres.wwcavlovsmcaxejhtbkz:%Tattoo12345%@aws-0-eu-north-1.pooler.supabase.com:6543/postgres?pgbouncer=true" 
+  directUrl =  "postgresql://postgres.wwcavlovsmcaxejhtbkz:%Tattoo12345%@aws-0-eu-north-1.pooler.supabase.com:5432/postgres"
+  
   //env("DATABASE_URL")//
+  //env("DIRECT_URL")//
 }
 
 model user {
@@ -93,6 +95,7 @@ model payment {
 enum Role {
   USER
   ADMIN
+  OWNER
 }
 
 enum LeagueType {
