@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 
-//change to register action
+//change to register action for readability?
 import { signUpAction } from "@/app/register/actions";
 import { useFormState } from "../lib/hooks";
 
