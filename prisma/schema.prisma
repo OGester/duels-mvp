@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")// "postgresql://postgres.wwcavlovsmcaxejhtbkz:%Tattoo12345%@aws-0-eu-north-1.pooler.supabase.com:6543/postgres?pgbouncer=true" 
+  url      =  env("DATABASE_URL")//"postgresql://postgres.wwcavlovsmcaxejhtbkz:%Tattoo12345%@aws-0-eu-north-1.pooler.supabase.com:6543/postgres?pgbouncer=true" 
   directUrl =  env("DIRECT_URL")//"postgresql://postgres.wwcavlovsmcaxejhtbkz:%Tattoo12345%@aws-0-eu-north-1.pooler.supabase.com:5432/postgres"
   
   //env("DATABASE_URL")//
@@ -64,7 +64,7 @@ model league {
 }
 
 model league_user_role {
-  league_user_id         String @id @default(uuid())
+  league_user_role_id         String @id @default(uuid())
   user                   user   @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
   user_id                String
 
@@ -72,6 +72,7 @@ model league_user_role {
   league_id              String
   role                   Role
   created_at             DateTime @default(now())
+   @@unique([user_id, league_id])
 }
 
 model league_user {

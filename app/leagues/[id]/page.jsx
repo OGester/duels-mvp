@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/db";
+import { getUserFromSession } from "@/lib/auth";
+import { getLeagueRole } from "@/lib/league";
 
 export default async function SpecificLeaguePage(props) {
   //query to find a specific league based on the prop sent in to the function
   //in this case the league_id
+  const user = await getUserFromSession();
   const league = await db.league.findFirst({
     where: {
       league_id: props.params.id,
@@ -14,7 +17,11 @@ export default async function SpecificLeaguePage(props) {
   if (!league) {
     return notFound();
   }
-  console.log(props);
+
+  const user_id = user.user_id;
+  const league_id = league.league_id;
+
+  const leagueRole = await getLeagueRole(user_id, league_id);
 
   return (
     <main className="flex flex-col w-full">
