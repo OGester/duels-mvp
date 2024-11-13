@@ -23,8 +23,8 @@ export async function setLeagueAdminAction(formData) {
     league_id,
     role,
   };
-  console.log("Data provided:", data);
-  //setLeagueAdmin(data);
+  //console.log("Data provided:", data);
+  setLeagueAdmin(data);
 
-  //redirect("/leagues");
+  redirect("/leagues");
 }
