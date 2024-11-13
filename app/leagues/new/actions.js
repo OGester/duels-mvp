@@ -14,7 +14,7 @@ export async function createLeagueAction(formData) {
   console.log("end_date:", end_date);
 
   const data = {
-    owner_id: user.user_id,
+    created_by: user.user_id,
     name: formData.get("name"),
     type: formData.get("type"),
     isPublic,
