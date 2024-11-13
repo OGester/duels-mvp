@@ -10,7 +10,7 @@ export async function setLeagueAdminAction(formData) {
   const email = formData.get("userEmail");
   console.log("User email entered:", email);
 
-  const user = findUser(email);
+  const user = await findUser(email);
 
   console.log("User found:", user);
 
@@ -23,8 +23,8 @@ export async function setLeagueAdminAction(formData) {
     league_id,
     role,
   };
+  console.log("Data provided:", data);
+  //setLeagueAdmin(data);
 
-  setLeagueAdmin(data);
-
-  redirect("/leagues");
+  //redirect("/leagues");
 }
