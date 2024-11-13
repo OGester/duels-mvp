@@ -12,7 +12,7 @@ export async function setLeagueAdminAction(formData) {
 
   const user = findUser(email);
 
-  console.log("User found:", user);
+  //console.log("User found:", user);
 
   const user_id = user.user_id;
   const league_id = formData.get("league_id");
