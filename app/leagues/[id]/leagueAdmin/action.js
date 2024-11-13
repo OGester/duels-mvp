@@ -10,7 +10,7 @@ export async function setLeagueAdminAction(formData) {
   const email = formData.get("userEmail");
   console.log("User email entered:", email);
 
-  const user = findUser(email);
+  const user = await findUser(email);
 
   //console.log("User found:", user);
 
