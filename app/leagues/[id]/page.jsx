@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { db } from "@/db";
 import { getUserFromSession } from "@/lib/auth";
 import { getLeagueRole } from "@/lib/league";
+import { existingMember } from "@/lib/league";
 
 export default async function SpecificLeaguePage(props) {
   //query to find a specific league based on the prop sent in to the function
@@ -20,8 +21,10 @@ export default async function SpecificLeaguePage(props) {
 
   const user_id = user.user_id;
   const league_id = league.league_id;
-
+  //checks if the user is admin or owner on this league
   const leagueRole = await getLeagueRole(user_id, league_id);
+
+  //checks if user is an existing member of this league
 
   return (
     <main className="flex flex-col w-full">
