@@ -9,7 +9,7 @@ export default function SignOutButton() {
   }
 
   return (
-    //uses a form even thoug there is no input to be able
+    //uses a form even though there is no input to be able
     //to invoke a server action
     <form action={action}>
       <button className="text-orange-400" type="submit">
