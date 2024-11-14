@@ -36,26 +36,34 @@ export default async function SpecificLeaguePage(props) {
           <div className="flex flex-col justify-center border-4 rounded-xl border-orange-300 w-1/2 h-full py-4 px-4 gap-4">
             <div className="flex justify-end gap-4">
               {/*If the logged in user created the league, show these buttons, if the user is Admin
-              show ONLY edit otherwise hide them */}
+              show ONLY edit otherwise hide them 
+              ADD JOIN BUTTON IF leagueRole IS NULL!*/}
 
-              <Link
-                href={`/leagues/${league.league_id}/leagueAdmin`}
-                className="p-2 border rounded border-orange-300"
-              >
-                New Admin
-              </Link>
-              <Link
-                href={`/leagues/${league.league_id}/edit`}
-                className="p-2 border rounded border-orange-300"
-              >
-                Edit
-              </Link>
-              <Link
-                href={`/leagues/${league.league_id}/delete`}
-                className="p-2 border rounded border-orange-300"
-              >
-                Delete
-              </Link>
+              {leagueRole === "OWNER" && (
+                <Link
+                  href={`/leagues/${league.league_id}/leagueAdmin`}
+                  className="p-2 border rounded border-orange-300"
+                >
+                  New Admin
+                </Link>
+              )}
+              {leagueRole === "OWNER" ||
+                (leagueRole === "ADMIN" && (
+                  <Link
+                    href={`/leagues/${league.league_id}/edit`}
+                    className="p-2 border rounded border-orange-300"
+                  >
+                    Edit
+                  </Link>
+                ))}
+              {leagueRole === "OWNER" && (
+                <Link
+                  href={`/leagues/${league.league_id}/delete`}
+                  className="p-2 border rounded border-orange-300"
+                >
+                  Delete
+                </Link>
+              )}
             </div>
 
             <div className="flex flex-col justify-center p-4 border rounded border-orange-300">
