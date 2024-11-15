@@ -4,6 +4,7 @@ import { db } from "@/db";
 import { getUserFromSession } from "@/lib/auth";
 import { getLeagueRole } from "@/lib/league";
 import { existingMember } from "@/lib/league";
+import JoinLeagueButton from "@/components/JoinLeagueButton";
 
 export default async function SpecificLeaguePage(props) {
   //query to find a specific league based on the prop sent in to the function
@@ -53,15 +54,14 @@ export default async function SpecificLeaguePage(props) {
                   New Admin
                 </Link>
               )}
-              {leagueRole === "OWNER" ||
-                (leagueRole === "ADMIN" && (
-                  <Link
-                    href={`/leagues/${league.league_id}/edit`}
-                    className="p-2 border rounded border-orange-300"
-                  >
-                    Edit
-                  </Link>
-                ))}
+              {(leagueRole === "OWNER" || leagueRole === "ADMIN") && (
+                <Link
+                  href={`/leagues/${league.league_id}/edit`}
+                  className="p-2 border rounded border-orange-300"
+                >
+                  Edit
+                </Link>
+              )}
               {leagueRole === "OWNER" && (
                 <Link
                   href={`/leagues/${league.league_id}/delete`}
@@ -79,6 +79,14 @@ export default async function SpecificLeaguePage(props) {
                 </h3>
               </div>
               <p className="flex justify-center">{league.description}</p>
+            </div>
+            <div className="flex justify-center mb-1">
+              {userStatus === "ACCEPTED" && <span>Member</span>}
+              {userStatus === "PENDING" && <span>Awaiting Verification</span>}
+              {(!userStatus ||
+                (userStatus !== "ACCEPTED" && userStatus !== "PENDING")) && (
+                <JoinLeagueButton league={league} />
+              )}
             </div>
           </div>
         </div>

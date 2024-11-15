@@ -1,12 +1,20 @@
 //import joinLeague function here
 import { redirect } from "next/navigation";
+import { joinLeague } from "@/lib/league";
+//import { joinLeagueTest } from "@/lib/league";
+import { getUserFromSession } from "@/lib/auth";
 
-export default function JoinLeagueButton() {
+export default function JoinLeagueButton({ league }) {
   async function action() {
     "use server";
-    joinLeague();
+    const user = await getUserFromSession();
+    const user_id = user.user_id;
+    const league_id = league.league_id;
+
+    joinLeague(user_id, league_id);
     //test if the specific league route could be reached from this component
-    redirect("/leagues");
+    redirect(`/leagues/${league.league_id}`);
+    //redirect(`/leagues`);
   }
 
   return (
