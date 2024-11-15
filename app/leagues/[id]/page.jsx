@@ -23,6 +23,9 @@ export default async function SpecificLeaguePage(props) {
   const league_id = league.league_id;
   //checks if the user is admin or owner on this league
   const leagueRole = await getLeagueRole(user_id, league_id);
+  //checks user status on the league
+  const userStatus = await existingMember(user_id, league_id);
+  console.log(userStatus);
 
   //checks if user is an existing member of this league
 
