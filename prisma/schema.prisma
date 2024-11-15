@@ -82,7 +82,7 @@ model league_user {
 
   league                 league  @relation(fields: [league_id], references: [league_id], onDelete: Cascade)
   league_id              String
-  role                   Role @default(USER)
+  role                   Role
 
   status                 MembershipStatus
   requested_at           DateTime @default(now())
