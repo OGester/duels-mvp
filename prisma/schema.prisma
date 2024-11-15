@@ -10,8 +10,8 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      =  env("DATABASE_URL")//"postgresql://postgres.wwcavlovsmcaxejhtbkz:%Tattoo12345%@aws-0-eu-north-1.pooler.supabase.com:6543/postgres?pgbouncer=true" 
-  directUrl =  env("DIRECT_URL")//"postgresql://postgres.wwcavlovsmcaxejhtbkz:%Tattoo12345%@aws-0-eu-north-1.pooler.supabase.com:5432/postgres"
+  url      = env("DATABASE_URL")//"postgresql://postgres.wwcavlovsmcaxejhtbkz:%Tattoo12345%@aws-0-eu-north-1.pooler.supabase.com:6543/postgres?pgbouncer=true" 
+  directUrl = env("DIRECT_URL")//"postgresql://postgres.wwcavlovsmcaxejhtbkz:%Tattoo12345%@aws-0-eu-north-1.pooler.supabase.com:5432/postgres"
   
   //env("DATABASE_URL")//
   //env("DIRECT_URL")//
@@ -47,7 +47,7 @@ model profile{
 model league {
   league_id              String @id @default(uuid())
 
-  created_by_id          user    @relation(fields: [created_by],references: [user_id])
+  created_by_id          user    @relation(fields: [created_by],references: [user_id], onDelete: Cascade)
   created_by             String
   name                   String
   type                   LeagueType
