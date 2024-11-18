@@ -6,6 +6,7 @@ import { getLeagueRole } from "@/lib/league";
 import { existingMember } from "@/lib/league";
 import { findLeagueUsers } from "@/lib/users";
 import JoinLeagueButton from "@/components/JoinLeagueButton";
+import { ListBulletIcon } from "@radix-ui/react-icons";
 
 export default async function SpecificLeaguePage(props) {
   //query to find a specific league based on the prop sent in to the function
@@ -29,22 +30,26 @@ export default async function SpecificLeaguePage(props) {
   const userStatus = await existingMember(user_id, league_id);
   console.log(userStatus);
 
+  //checks for existing members of this league
   const listUsers = await findLeagueUsers(league_id);
 
-  const renderedUsers = listUsers.map((user) => {
-    return (
-      <div
-        key={user.user_id}
-        className=" flex justify-between items-center p-2 border rounded"
-      >
-        {user.username}
-      </div>
-    );
-  });
+  if (listUsers) {
+    const renderedUsers = await listUsers.map((user) => {
+      return (
+        <div
+          key={user.user_id}
+          className=" flex justify-between items-center p-2 border border-orange-200 rounded"
+        >
+          <div>{user.username}</div>
+          <Link key={user.user_id} href={`/player-page/${user.user_id}`}>
+            Visit
+          </Link>
+        </div>
+      );
+    });
+  }
   console.log("MEMBERS:", listUsers);
-  console.log("RENDERED USERS:", renderedUsers);
-
-  //checks if user is an existing member of this league
+  //console.log("RENDERED USERS:", renderedUsers);
 
   return (
     <main className="flex flex-col w-full">
@@ -103,7 +108,14 @@ export default async function SpecificLeaguePage(props) {
                   League Members
                 </h3>
               </div>
-              <div className="flex flex-col gap-2">{renderedUsers}</div>
+              {listUsers ? (
+                <div className="flex flex-col gap-2">{renderedUsers}</div>
+              ) : (
+                <div className="flex justify-center font-medium">
+                  {" "}
+                  No players in this league yet!{" "}
+                </div>
+              )}
             </div>
 
             {/* show memberStatus depending on the logged in users league_user status */}
