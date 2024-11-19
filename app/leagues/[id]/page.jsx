@@ -7,6 +7,7 @@ import { existingMember } from "@/lib/league";
 import { getLeagueMembers } from "@/lib/league";
 import JoinLeagueButton from "@/components/JoinLeagueButton";
 import AcceptMemberButton from "@/components/AcceptMemberButton";
+import RemoveMemberButton from "@/components/RemoveMemberButton";
 
 export default async function SpecificLeaguePage(props) {
   //query to find a specific league based on the prop sent in to the function
@@ -53,9 +54,15 @@ export default async function SpecificLeaguePage(props) {
         className=" flex justify-between items-center p-2 border border-orange-200 rounded"
       >
         <div>{user.username}</div>
-        {/* show two buttons if usermembership is pending, accept and decline, pass both user_id and league as props */}
+        {/* show two buttons if usermembership is pending, accept and delete, pass both user_id and league as props */}
         {user.status === "PENDING" && (
           <AcceptMemberButton
+            user_id={user.user_id}
+            league_id={league.league_id}
+          />
+        )}
+        {user.status === "PENDING" && (
+          <RemoveMemberButton
             user_id={user.user_id}
             league_id={league.league_id}
           />

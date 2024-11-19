@@ -1,13 +1,13 @@
-import { acceptLeagueMember } from "@/lib/league";
+import { removeLeagueMember } from "@/lib/league";
 import { redirect } from "next/navigation";
 
-export default function AcceptMemberButton({ user_id, league_id }) {
+export default function RemoveMemberButton({ user_id, league_id }) {
   async function action() {
     "use server";
     //console.log("USER ID PROPS--", user_id);
     //console.log("LEAGUE ID PROPS--", league_id);
     //triggering the acceptLeagueMember function passing the props sent from leagues-Page
-    acceptLeagueMember(user_id, league_id);
+    removeLeagueMember(user_id, league_id);
 
     redirect(`/leagues/${league_id}`);
   }
@@ -17,7 +17,7 @@ export default function AcceptMemberButton({ user_id, league_id }) {
     //to invoke a server action
     <form action={action}>
       <button className="text-slate-300 font-thin" type="submit">
-        Accept
+        Delete
       </button>
     </form>
   );
