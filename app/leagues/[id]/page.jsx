@@ -4,9 +4,8 @@ import { db } from "@/db";
 import { getUserFromSession } from "@/lib/auth";
 import { getLeagueRole } from "@/lib/league";
 import { existingMember } from "@/lib/league";
-import { findLeagueUsers } from "@/lib/users";
+import { getLeagueMembers } from "@/lib/league";
 import JoinLeagueButton from "@/components/JoinLeagueButton";
-import { ListBulletIcon } from "@radix-ui/react-icons";
 
 export default async function SpecificLeaguePage(props) {
   //query to find a specific league based on the prop sent in to the function
@@ -31,25 +30,24 @@ export default async function SpecificLeaguePage(props) {
   console.log(userStatus);
 
   //checks for existing members of this league
-  const listUsers = await findLeagueUsers(league_id);
+  const listMembers = await getLeagueMembers(league_id);
 
-  if (listUsers) {
-    const renderedUsers = await listUsers.map((user) => {
-      return (
-        <div
-          key={user.user_id}
-          className=" flex justify-between items-center p-2 border border-orange-200 rounded"
-        >
-          <div>{user.username}</div>
-          <Link key={user.user_id} href={`/player-page/${user.user_id}`}>
-            Visit
-          </Link>
-        </div>
-      );
-    });
-  }
-  console.log("MEMBERS:", listUsers);
-  //console.log("RENDERED USERS:", renderedUsers);
+  const renderedMembers = await listMembers.map((user) => {
+    return (
+      <div
+        key={user.user_id}
+        className=" flex justify-between items-center p-2 border border-orange-200 rounded"
+      >
+        <div>{user.username}</div>
+        <Link key={user.user_id} href={`/player-page/${user.user_id}`}>
+          Visit
+        </Link>
+      </div>
+    );
+  });
+
+  console.log("MEMBERS:", listMembers);
+  //console.log("RENDERED USERS:", renderedMembers);
 
   return (
     <main className="flex flex-col w-full">
@@ -58,6 +56,10 @@ export default async function SpecificLeaguePage(props) {
           <h2 className="text-center text-black font-bold mb-2.5 w-full">
             {league.name}
           </h2>
+        </div>
+        <div className="flex justify-center mb-1 font-medium text-orange-400">
+          {userStatus === "ACCEPTED" && <span>Member</span>}
+          {userStatus === "PENDING" && <span>Awaiting Verification</span>}
         </div>
 
         <div className=" flex justify-center min-w-full min-h-full pt-6">
@@ -93,7 +95,7 @@ export default async function SpecificLeaguePage(props) {
               )}
             </div>
 
-            <div className="flex flex-col justify-center p-4 border rounded border-orange-300">
+            <div className="flex flex-col justify-center p-4 border rounded border-slate-300">
               <div>
                 <h3 className="flex justify-center mb-1 font-bold">
                   Description
@@ -102,14 +104,14 @@ export default async function SpecificLeaguePage(props) {
               <p className="flex justify-center">{league.description}</p>
             </div>
             {/* showing the accepted members in the league */}
-            <div className="flex flex-col justify-center p-4 border rounded border-orange-300">
+            <div className="flex flex-col justify-center p-4 border rounded border-slate-300">
               <div>
                 <h3 className="flex justify-center mb-1 font-bold">
                   League Members
                 </h3>
               </div>
-              {listUsers ? (
-                <div className="flex flex-col gap-2">{renderedUsers}</div>
+              {listMembers.length > 0 ? (
+                <div className="flex flex-col gap-2">{renderedMembers}</div>
               ) : (
                 <div className="flex justify-center font-medium">
                   {" "}
@@ -120,8 +122,8 @@ export default async function SpecificLeaguePage(props) {
 
             {/* show memberStatus depending on the logged in users league_user status */}
             <div className="flex justify-center mb-1">
-              {userStatus === "ACCEPTED" && <span>Member</span>}
-              {userStatus === "PENDING" && <span>Awaiting Verification</span>}
+              {/* {userStatus === "ACCEPTED" && <span>Member</span>}
+              {userStatus === "PENDING" && <span>Awaiting Verification</span>} */}
               {(!userStatus ||
                 (userStatus !== "ACCEPTED" && userStatus !== "PENDING")) && (
                 <JoinLeagueButton league={league} />
