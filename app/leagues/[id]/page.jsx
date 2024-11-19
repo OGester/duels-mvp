@@ -6,6 +6,7 @@ import { getLeagueRole } from "@/lib/league";
 import { existingMember } from "@/lib/league";
 import { getLeagueMembers } from "@/lib/league";
 import JoinLeagueButton from "@/components/JoinLeagueButton";
+import AcceptMemberButton from "@/components/AcceptMemberButton";
 
 export default async function SpecificLeaguePage(props) {
   //query to find a specific league based on the prop sent in to the function
@@ -29,16 +30,36 @@ export default async function SpecificLeaguePage(props) {
   const userStatus = await existingMember(user_id, league_id);
   console.log(userStatus);
 
-  //checks for existing members of this league
+  //gets existing members of this league both accepted and pending
   const listMembers = await getLeagueMembers(league_id);
 
-  const renderedMembers = await listMembers.map((user) => {
+  //if the leagueRole of user is admin or owner both accepted and pending members will render,
+  //otherwise it will just render accepted members of the league
+  const verifiedMembers =
+    leagueRole === "ADMIN" || leagueRole === "OWNER"
+      ? //admin will see all members
+        listMembers
+      : listMembers.filter((user) => user.status === "ACCEPTED");
+
+  //finding users with pending status
+  /*  const pendingMember = listMembers.filter(
+    (user) => user.status === "PENDING"
+  );  */
+
+  const renderedMembers = await verifiedMembers.map((user) => {
     return (
       <div
         key={user.user_id}
         className=" flex justify-between items-center p-2 border border-orange-200 rounded"
       >
         <div>{user.username}</div>
+        {/* show two buttons if usermembership is pending, accept and decline, pass both user_id and league as props */}
+        {user.status === "PENDING" && (
+          <AcceptMemberButton
+            user_id={user.user_id}
+            league_id={league.league_id}
+          />
+        )}
         <Link key={user.user_id} href={`/player-page/${user.user_id}`}>
           Visit
         </Link>
