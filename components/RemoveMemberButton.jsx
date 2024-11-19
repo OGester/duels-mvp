@@ -16,7 +16,7 @@ export default function RemoveMemberButton({ user_id, league_id }) {
     //uses a form even though there is no input to be able
     //to invoke a server action
     <form action={action}>
-      <button className="text-slate-300 font-thin" type="submit">
+      <button className="text-orange-500 font-thin" type="submit">
         Delete
       </button>
     </form>

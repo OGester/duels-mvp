@@ -51,25 +51,32 @@ export default async function SpecificLeaguePage(props) {
     return (
       <div
         key={user.user_id}
-        className=" flex justify-between items-center p-2 border border-orange-200 rounded"
+        className="flex justify-between items-center p-1.5 px-6 border border-orange-200 rounded"
       >
-        <div>{user.username}</div>
+        <div className="font-medium">{user.username}</div>
         {/* show two buttons if usermembership is pending, accept and delete, pass both user_id and league as props */}
         {user.status === "PENDING" && (
-          <AcceptMemberButton
-            user_id={user.user_id}
-            league_id={league.league_id}
-          />
+          <div className="flex items-center gap-1.5">
+            <AcceptMemberButton
+              user_id={user.user_id}
+              league_id={league.league_id}
+            />
+
+            <RemoveMemberButton
+              user_id={user.user_id}
+              league_id={league.league_id}
+            />
+          </div>
         )}
-        {user.status === "PENDING" && (
-          <RemoveMemberButton
-            user_id={user.user_id}
-            league_id={league.league_id}
-          />
+        {user.status === "ACCEPTED" && (
+          <Link
+            className="text-orange-400"
+            key={user.user_id}
+            href={`/player-page/${user.user_id}`}
+          >
+            Visit
+          </Link>
         )}
-        <Link key={user.user_id} href={`/player-page/${user.user_id}`}>
-          Visit
-        </Link>
       </div>
     );
   });
@@ -81,11 +88,11 @@ export default async function SpecificLeaguePage(props) {
     <main className="flex flex-col w-full">
       <div className="flexp-4 max-w-full">
         <div className="flex justify-center min-w-full">
-          <h2 className="text-center text-black font-bold mb-2.5 w-full">
+          <h2 className="text-center text-black text-transform: capitalize font-bold mb-2.5 w-full">
             {league.name}
           </h2>
         </div>
-        <div className="flex justify-center mb-1 font-medium text-orange-400">
+        <div className="flex justify-center my-1 font-medium text-orange-400">
           {userStatus === "ACCEPTED" && <span>Member</span>}
           {userStatus === "PENDING" && <span>Awaiting Verification</span>}
         </div>
@@ -163,3 +170,17 @@ export default async function SpecificLeaguePage(props) {
     </main>
   );
 }
+
+/* {user.status === "PENDING" && (
+  <AcceptMemberButton
+    user_id={user.user_id}
+    league_id={league.league_id}
+  />
+)}
+{user.status === "PENDING" && (
+  <RemoveMemberButton
+    user_id={user.user_id}
+    league_id={league.league_id}
+  />
+)}
+ */
