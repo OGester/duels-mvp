@@ -17,7 +17,7 @@ export default function RemoveMemberButton({ user_id, league_id }) {
     //to invoke a server action
     <form action={action}>
       <button className="text-orange-500 font-thin" type="submit">
-        Delete
+        Decline
       </button>
     </form>
   );

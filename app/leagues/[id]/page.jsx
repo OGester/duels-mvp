@@ -1,21 +1,25 @@
 import Link from "next/link";
+import Modal from "@/components/BasicModal";
 import { notFound } from "next/navigation";
 import { db } from "@/db";
 import { getUserFromSession } from "@/lib/auth";
-import { getLeagueRole } from "@/lib/league";
-import { existingMember } from "@/lib/league";
-import { getLeagueMembers } from "@/lib/league";
+import {
+  getLeagueRole,
+  existingMember,
+  getLeagueMembers,
+  removeLeagueMember,
+} from "@/lib/league";
 import JoinLeagueButton from "@/components/JoinLeagueButton";
 import AcceptMemberButton from "@/components/AcceptMemberButton";
 import RemoveMemberButton from "@/components/RemoveMemberButton";
 
-export default async function SpecificLeaguePage(props) {
+export default async function SpecificLeaguePage({ params, searchParams }) {
   //query to find a specific league based on the prop sent in to the function
   //in this case the league_id
   const loggedInUser = await getUserFromSession();
   const league = await db.league.findFirst({
     where: {
-      league_id: props.params.id,
+      league_id: params.id,
     },
   });
 
@@ -41,11 +45,9 @@ export default async function SpecificLeaguePage(props) {
       ? //admin will see all members
         listMembers
       : listMembers.filter((user) => user.status === "ACCEPTED");
+  //delete user from league_user table
 
-  //finding users with pending status
-  /*  const pendingMember = listMembers.filter(
-    (user) => user.status === "PENDING"
-  );  */
+  const showModal = searchParams?.modal;
 
   const renderedMembers = await verifiedMembers.map((user) => {
     return (
@@ -163,6 +165,9 @@ export default async function SpecificLeaguePage(props) {
                 (userStatus !== "ACCEPTED" && userStatus !== "PENDING")) && (
                 <JoinLeagueButton league={league} />
               )}
+
+              <Link href="/?modal=true">show modal</Link>
+              {showModal && <Modal />}
             </div>
           </div>
         </div>

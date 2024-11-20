@@ -2,11 +2,11 @@
 import { db } from "@/db";
 //import Link from "next/link";
 
-export default async function ShowUserProfile(props) {
+export default async function ShowUserProfile(params) {
   console.log("PROPS:", props);
   const userProfile = await db.user.findUnique({
     where: {
-      user_id: props.params.userId,
+      user_id: params.userId,
     },
     select: {
       username: true,
