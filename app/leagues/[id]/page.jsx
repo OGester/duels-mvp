@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Modal from "@/components/BasicModal";
+//import Modal from "@/components/BasicModal";
 import { notFound } from "next/navigation";
 import { db } from "@/db";
 import { getUserFromSession } from "@/lib/auth";
@@ -9,6 +9,7 @@ import {
   getLeagueMembers,
   removeLeagueMember,
 } from "@/lib/league";
+//import { useState, useEffect } from "react";
 import JoinLeagueButton from "@/components/JoinLeagueButton";
 import AcceptMemberButton from "@/components/AcceptMemberButton";
 import RemoveMemberButton from "@/components/RemoveMemberButton";
@@ -26,6 +27,8 @@ export default async function SpecificLeaguePage({ params, searchParams }) {
   if (!league) {
     return notFound();
   }
+
+  //const [status, setStatus] = useState(false);
 
   const user_id = loggedInUser.user_id;
   const league_id = league.league_id;
@@ -46,8 +49,6 @@ export default async function SpecificLeaguePage({ params, searchParams }) {
         listMembers
       : listMembers.filter((user) => user.status === "ACCEPTED");
   //delete user from league_user table
-
-  const showModal = searchParams?.modal;
 
   const renderedMembers = await verifiedMembers.map((user) => {
     return (
@@ -165,9 +166,6 @@ export default async function SpecificLeaguePage({ params, searchParams }) {
                 (userStatus !== "ACCEPTED" && userStatus !== "PENDING")) && (
                 <JoinLeagueButton league={league} />
               )}
-
-              <Link href="/?modal=true">show modal</Link>
-              {showModal && <Modal />}
             </div>
           </div>
         </div>

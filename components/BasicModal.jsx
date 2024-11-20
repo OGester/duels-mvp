@@ -1,16 +1,18 @@
-"use client";
-import { useRouter } from "next/navigation";
+/* "use client";
+import {useState, useEffect}  from "react"
 
 export default function Modal() {
-  const router = useRouter();
-  return (
-    <div>
-      <h1>test</h1>
-      <button onClick={router.back}>ok</button>
-    </div>
-  );
-}
+const [status, setStatus] = useState(false)
 
+return(
+  <div>
+    {status && (
+
+    )}
+  </div>
+)
+}
+ */
 /* 
 import Link from "next/link";
 
