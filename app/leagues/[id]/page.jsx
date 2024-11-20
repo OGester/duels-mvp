@@ -70,7 +70,7 @@ export default async function SpecificLeaguePage(props) {
         )}
         {user.status === "ACCEPTED" && (
           <Link
-            className="text-orange-400"
+            className="text-orange-300"
             key={user.user_id}
             href={`/player-page/${user.user_id}`}
           >
