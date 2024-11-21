@@ -1,11 +1,10 @@
 import { db } from "@/db";
-import Modal from "@/components/Modal";
 
 export default async function ShowUserProfile(props) {
   console.log("PROPS:", props);
-  const userProfile = await db.user.findUnique({
+  const fullUserProfile = await db.user.findUnique({
     where: {
-      user_id: props.params.userId,
+      user_id: props.params.id,
     },
     select: {
       username: true,
@@ -20,15 +19,16 @@ export default async function ShowUserProfile(props) {
     },
   });
 
-  if (!userProfile) {
+  if (!fullUserProfile) {
     console.log("User not found");
     return null;
   }
-  console.log("UserProfile:", userProfile);
+  console.log("Owner userProfile:", fullUserProfile);
   return (
     <div>
-      <Modal />
-      <div>Show profile for{userProfile.username}</div>
+      <div>
+        Show profile for <span>{fullUserProfile.username}</span>
+      </div>
     </div>
   );
 }
