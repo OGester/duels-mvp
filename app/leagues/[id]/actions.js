@@ -9,3 +9,11 @@ export async function deleteLeagueAction(formData) {
 
   redirect("/leagues");
 }
+
+export async function leaveLeagueAction(formData) {
+  const user_id = formData.get("user_id");
+  const league_id = formData.get("league_id");
+
+  await removeLeagueMember(user_id, league_id);
+  redirect("/leagues");
+}
