@@ -1,33 +1,33 @@
-import { db } from "@/db";
+import { getProfile } from "@/lib/profile";
+import { getUserFromSession } from "@/lib/auth";
+import { getLeagueRole } from "@/lib/league";
+//import { getEmail } from "@/lib/profile";
 
 export default async function ShowUserProfile(props) {
   console.log("PROPS:", props);
-  const fullUserProfile = await db.user.findUnique({
-    where: {
-      user_id: props.params.id,
-    },
-    select: {
-      username: true,
-      email: true,
-      profile: {
-        select: {
-          profile_image_url: true,
-          description: true,
-          score: true,
-        },
-      },
-    },
-  });
+  const visitingUser = await getUserFromSession();
+  const user_id = props.params.id;
+  const league_id = props.searchParams.league_id;
 
-  if (!fullUserProfile) {
-    console.log("User not found");
-    return null;
+  const userRole = await getLeagueRole(visitingUser.user_id, league_id);
+  const profile = await getProfile(user_id);
+  console.log("PROFILE:", profile);
+
+  if (userRole === "OWNER") {
+    const showEmail = await getEmail(user_id);
   }
-  console.log("Owner userProfile:", fullUserProfile);
+  //console.log("Owner userProfile:", fullUserProfile);
   return (
     <div>
       <div>
-        Show profile for <span>{fullUserProfile.username}</span>
+        Show profile for <span>{profile.username}</span>
+        <img
+          src={profile?.profile?.profile_image_url}
+          alt="ProfileImage"
+          className="w-40 h-40 rounded-xl border-4 shadow-outline border-orange-300 object-fill"
+        />
+        <div>{profile?.profile?.description}</div>
+        <div>{profile?.profile?.score}</div>
       </div>
     </div>
   );
