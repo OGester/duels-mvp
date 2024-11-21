@@ -1,12 +1,11 @@
-//import { notFound } from "next/navigation";
 import { db } from "@/db";
-//import Link from "next/link";
+import Modal from "@/components/Modal";
 
-export default async function ShowUserProfile(params) {
+export default async function ShowUserProfile(props) {
   console.log("PROPS:", props);
   const userProfile = await db.user.findUnique({
     where: {
-      user_id: params.userId,
+      user_id: props.params.userId,
     },
     select: {
       username: true,
@@ -26,5 +25,10 @@ export default async function ShowUserProfile(params) {
     return null;
   }
   console.log("UserProfile:", userProfile);
-  return <div>Show profile for{userProfile.username}</div>;
+  return (
+    <div>
+      <Modal />
+      <div>Show profile for{userProfile.username}</div>
+    </div>
+  );
 }

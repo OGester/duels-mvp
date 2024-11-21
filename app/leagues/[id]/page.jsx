@@ -3,32 +3,26 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/db";
 import { getUserFromSession } from "@/lib/auth";
-import {
-  getLeagueRole,
-  existingMember,
-  getLeagueMembers,
-  removeLeagueMember,
-} from "@/lib/league";
+import { getLeagueRole, existingMember, getLeagueMembers } from "@/lib/league";
 //import { useState, useEffect } from "react";
 import JoinLeagueButton from "@/components/JoinLeagueButton";
 import AcceptMemberButton from "@/components/AcceptMemberButton";
 import RemoveMemberButton from "@/components/RemoveMemberButton";
+import DeleteLeagueModal from "@/components/DeleteLeagueModal";
 
-export default async function SpecificLeaguePage({ params, searchParams }) {
+export default async function SpecificLeaguePage(props) {
   //query to find a specific league based on the prop sent in to the function
   //in this case the league_id
   const loggedInUser = await getUserFromSession();
   const league = await db.league.findFirst({
     where: {
-      league_id: params.id,
+      league_id: props.params.id,
     },
   });
 
   if (!league) {
     return notFound();
   }
-
-  //const [status, setStatus] = useState(false);
 
   const user_id = loggedInUser.user_id;
   const league_id = league.league_id;
@@ -124,12 +118,13 @@ export default async function SpecificLeaguePage({ params, searchParams }) {
                 </Link>
               )}
               {leagueRole === "OWNER" && (
-                <Link
+                <DeleteLeagueModal league={league} />
+                /* <Link
                   href={`/leagues/${league.league_id}/delete`}
                   className="p-2 border rounded border-orange-300"
                 >
                   Delete
-                </Link>
+                </Link> */
               )}
             </div>
 
