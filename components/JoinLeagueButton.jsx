@@ -19,17 +19,19 @@ export default function JoinLeagueButton({ league }) {
     const leagueRole = await getLeagueRole(user_id, league_id);
 
     joinLeague(user_id, league_id, leagueRole);
-    //test if the specific league route could be reached from this component
+
     redirect(`/leagues/${league.league_id}`);
-    //redirect(`/leagues`);
   }
 
   return (
     //uses a form even though there is no input to be able
     //to invoke a server action
     <form action={action}>
-      <button className="text-orange-400" type="submit">
-        Join
+      <button
+        className="text-green-500 p-2 border rounded-lg border-slate-300"
+        type="submit"
+      >
+        Join League
       </button>
     </form>
   );

@@ -9,6 +9,7 @@ import JoinLeagueButton from "@/components/JoinLeagueButton";
 import AcceptMemberButton from "@/components/AcceptMemberButton";
 import RemoveMemberButton from "@/components/RemoveMemberButton";
 import DeleteLeagueModal from "@/components/DeleteLeagueModal";
+import LeaveLeagueModal from "@/components/LeaveLeagueModal";
 
 export default async function SpecificLeaguePage(props) {
   //query to find a specific league based on the prop sent in to the function
@@ -89,9 +90,18 @@ export default async function SpecificLeaguePage(props) {
             {league.name}
           </h2>
         </div>
+        {/* show memberStatus depending on the logged in users league_user status */}
         <div className="flex justify-center my-1 font-medium text-orange-400">
           {userStatus === "ACCEPTED" && <span>Member</span>}
           {userStatus === "PENDING" && <span>Awaiting Verification</span>}
+
+          <div className="flex justify-center mb-1">
+            {/*If user havent got a userStatus on league show join league button */}
+            {(!userStatus ||
+              (userStatus !== "ACCEPTED" && userStatus !== "PENDING")) && (
+              <JoinLeagueButton league={league} />
+            )}
+          </div>
         </div>
 
         <div className=" flex justify-center min-w-full min-h-full pt-6">
@@ -152,14 +162,10 @@ export default async function SpecificLeaguePage(props) {
                 </div>
               )}
             </div>
-
-            {/* show memberStatus depending on the logged in users league_user status */}
             <div className="flex justify-center mb-1">
-              {/* {userStatus === "ACCEPTED" && <span>Member</span>}
-              {userStatus === "PENDING" && <span>Awaiting Verification</span>} */}
-              {(!userStatus ||
-                (userStatus !== "ACCEPTED" && userStatus !== "PENDING")) && (
-                <JoinLeagueButton league={league} />
+              {/*If user is ACCEPTED show leave league modal */}
+              {userStatus === "ACCEPTED" && (
+                <LeaveLeagueModal user_id={user_id} league={league} />
               )}
             </div>
           </div>
