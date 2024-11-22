@@ -15,7 +15,7 @@ export default function UpdateProfileForm() {
   return (
     <main className="flex justify-center flex-col w-full">
       <h2 className="text-center text-black font-bold mb-2.5">Tjing Duels</h2>
-      <p className="text-center mb-4">Update Profile</p>
+      <p className="text-center mb-4">Update your Profile</p>
       <div className="flex flex-col items-center justify-center w-full p-4">
         <div className="w-full max-w-md rounded-lg shadow-lg border-2 border-orange-300 p-6">
           <form onSubmit={handleSubmit} className="space-y-6">
