@@ -14,16 +14,13 @@ export default async function ShowUserProfile(props) {
   const profile = await getProfile(user_id);
   console.log("PROFILE:", profile);
 
-  let email = null;
-
-  if (userRole === "OWNER") {
-    const showEmail = await getEmail(user_id);
-    email = showEmail?.email || null;
-  }
+  //if the userRole of visiting user is OWNER it gets the email for the player profile
+  // and renders it on the page otherwise its value is null and nothing is displayed.
+  const email =
+    userRole === "OWNER" ? (await getEmail(user_id))?.email || null : null;
 
   return (
     <main className="flex justify-center flex-col w-full">
-      {/* <div className="flex flex-col items-center justify-center w-1/2 min-h-full p-6"> */}
       <h2 className="text-center text-black font-bold mb-2.5">
         Player Profile
       </h2>
@@ -60,18 +57,3 @@ export default async function ShowUserProfile(props) {
     </main>
   );
 }
-
-/* return (
-  <div>
-    <div>
-      Show profile for <span>{profile.username}</span>
-      <img
-        src={profile?.profile?.profile_image_url}
-        alt="ProfileImage"
-        className="w-40 h-40 rounded-xl border-4 shadow-outline border-orange-300 object-fill"
-      />
-      <div>{profile?.profile?.description}</div>
-      <div>{profile?.profile?.score}</div>
-    </div>
-  </div>
-); */
