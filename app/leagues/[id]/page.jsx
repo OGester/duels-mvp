@@ -67,13 +67,22 @@ export default async function SpecificLeaguePage(props) {
           </div>
         )}
         {user.status === "ACCEPTED" && (
-          <Link
-            className="text-orange-300"
-            key={user.user_id}
-            href={`/player-page/${user.user_id}?league_id=${league.league_id}`}
-          >
-            Visit
-          </Link>
+          <div className="flex items-center gap-1.5">
+            <Link
+              className="text-orange-300"
+              key={user.user_id}
+              href={`/player-page/${user.user_id}?league_id=${league.league_id}`}
+            >
+              Visit
+            </Link>
+
+            {["ADMIN", "OWNER"].includes(leagueRole) && (
+              <RemoveMemberButton
+                user_id={user.user_id}
+                league_id={league.league_id}
+              />
+            )}
+          </div>
         )}
       </div>
     );
