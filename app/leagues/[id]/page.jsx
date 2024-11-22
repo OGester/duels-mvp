@@ -70,7 +70,7 @@ export default async function SpecificLeaguePage(props) {
           <Link
             className="text-orange-300"
             key={user.user_id}
-            href={`/player-page/${user.user_id}`}
+            href={`/player-page/${user.user_id}?league_id=${league.league_id}`}
           >
             Visit
           </Link>
