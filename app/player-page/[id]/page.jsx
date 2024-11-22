@@ -2,7 +2,7 @@ import { getProfile } from "@/lib/profile";
 import { getUserFromSession } from "@/lib/auth";
 import { getLeagueRole } from "@/lib/league";
 import Link from "next/link";
-//import { getEmail } from "@/lib/profile";
+import { getEmail } from "@/lib/profile";
 
 export default async function ShowUserProfile(props) {
   console.log("PROPS:", props);
@@ -14,23 +14,26 @@ export default async function ShowUserProfile(props) {
   const profile = await getProfile(user_id);
   console.log("PROFILE:", profile);
 
+  let email = null;
+
   if (userRole === "OWNER") {
     const showEmail = await getEmail(user_id);
+    email = showEmail?.email || null;
   }
-  //console.log("Owner userProfile:", fullUserProfile);
 
   return (
     <main className="flex justify-center flex-col w-full">
       {/* <div className="flex flex-col items-center justify-center w-1/2 min-h-full p-6"> */}
       <h2 className="text-center text-black font-bold mb-2.5">
-        Your Duels Profile
+        Player Profile
       </h2>
       <div className="flex flex-col items-center justify-center min-h-1/2 p-2">
-        <h1 className="text-2xl font-semibold mb-4">
-          <span className="text-orange-500 text-transform: capitalize">
+        <div className="flex flex-col items-center">
+          <h1 className="text-2xl font-semibold text-orange-500 text-transform: capitalize mb-2">
             {profile.username}
-          </span>
-        </h1>
+          </h1>
+          {email && <p className="p-2">{email}</p>}
+        </div>
         <div className="w-full max-w-md bg-white rounded-lg shadow-lg border-2 border-orange-300 p-6">
           <div className="flex flex-col items-center">
             <img
