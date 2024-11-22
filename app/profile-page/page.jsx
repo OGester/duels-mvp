@@ -67,8 +67,8 @@ export default async function userPage() {
               {renderedUserLeagues}
             </p>
           </div>
-          <div className="mt-6">
-            <button className="w-full py-2 px-4 bg-orange-300 text-white font-semibold rounded-lg shadow hover:bg-orange-400 transition">
+          <div className="flex justify-center  mt-6">
+            <button className="w-1/2 py-2 px-4 bg-orange-300 text-white font-semibold rounded-lg shadow hover:bg-orange-400 transition">
               <Link href="/leagues">Go to Leagues</Link>
             </button>
           </div>
