@@ -20,12 +20,12 @@ export default async function userPage() {
       <Link
         key={league.league_id}
         href={`/leagues/${league.league_id}`}
-        className="flex justify-between items-center p-2 "
+        className="flex justify-between items-center p-2 hover:text-teal-500 transition-all duration-300"
       >
         <div className="font-medium text-transform: capitalize">
           {league.name}
         </div>
-        <div className="text-xs font-extralight text-slate-500 text-transform: capitalize">
+        <div className="text-xs font-extralight text-transform: capitalize">
           {league.role}
         </div>
       </Link>
@@ -40,7 +40,7 @@ export default async function userPage() {
       </h2>
       <p className="text-center text-lg mb-4">
         Hello:{" "}
-        <span className="font-bold text-xl text-orange-500 text-transform: capitalize">
+        <span className="font-black text-xl tracking-wide text-orange-500 text-transform: capitalize">
           {user.username}
         </span>
       </p>
