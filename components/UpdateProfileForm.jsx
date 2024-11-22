@@ -1,8 +1,7 @@
 "use client";
-import { Card, CardContent } from "@/components/ui/card";
+import { Textarea } from "./ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
 
 //change to register action
 import { updateProfileAction } from "@/app/profile-page/settings/actions";
