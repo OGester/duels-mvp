@@ -1,9 +1,4 @@
-//"use client";
 import CreateLeagueForm from "@/components/CreateLeagueForm";
-
-/* export const metadata = {
-  title: "Create League",
-}; */
 
 export default function CreateLeaguePage() {
   return (
