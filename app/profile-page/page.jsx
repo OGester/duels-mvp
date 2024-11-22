@@ -1,18 +1,35 @@
-import { Card, CardContent } from "@/components/ui/card";
-
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 import { getUserFromSession } from "@/lib/auth";
 import { db } from "@/db";
+import { getUserLeagues } from "@/lib/profile";
 
 export default async function userPage() {
   const user = await getUserFromSession();
-  const userId = user.user_id;
+  const user_id = user.user_id;
   const profileBio = await db.profile.findUnique({
     where: {
-      user_id: userId,
+      user_id: user_id,
     },
+  });
+
+  const joinedLeagues = await getUserLeagues(user_id);
+
+  const renderedUserLeagues = joinedLeagues.map((league) => {
+    return (
+      <Link
+        key={league.league_id}
+        href={`/leagues/${league.league_id}`}
+        className="flex justify-between items-center p-2 "
+      >
+        <div className="font-medium text-transform: capitalize">
+          {league.name}
+        </div>
+        <div className="text-xs font-extralight text-slate-500 text-transform: capitalize">
+          {league.role}
+        </div>
+      </Link>
+    );
   });
 
   return (
@@ -22,14 +39,12 @@ export default async function userPage() {
         Your Duels Profile
       </h2>
       <p className="text-center text-lg mb-4">
-        Hello: <span className="font-bold text-xl">{user.username}</span>
+        Hello:{" "}
+        <span className="font-bold text-xl text-orange-500 text-transform: capitalize">
+          {user.username}
+        </span>
       </p>
       <div className="flex flex-col items-center justify-center min-h-1/2 p-2">
-        <h1 className="text-2xl font-semibold mb-4">
-          <span className="text-orange-500 text-transform: capitalize">
-            {profileBio?.username}
-          </span>
-        </h1>
         <div className="w-full max-w-md bg-white rounded-lg shadow-lg border-2 border-orange-300 p-6">
           <div className="flex flex-col items-center">
             <img
@@ -41,9 +56,15 @@ export default async function userPage() {
             <p className="text-center text-gray-700 whitespace-pre-line mb-6">
               {profileBio?.description}
             </p>
-            <div className="text-lg font-semibold">Your score:</div>
+            <div className="text-lg font-semibold mt-2 mb-1">Your score:</div>
             <p className="text-2xl font-bold text-gray-800">
               {profileBio?.score}
+            </p>
+            <div className="text-lg font-semibold mt-4 mb-1">
+              Joined Leagues:
+            </div>
+            <p className="text-gray-800 border rounded-xl w-full p-2 mt-2">
+              {renderedUserLeagues}
             </p>
           </div>
           <div className="mt-6">
