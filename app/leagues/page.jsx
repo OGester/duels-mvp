@@ -41,18 +41,24 @@ export default async function LeaguesPage({ searchParams }) {
   //rendering the array of leagues fetched from the database
   //slice will only show the first PAGE_SIZE leagues but still
   //allow to know if there is more to show
-  const renderedLeagues = leagues.slice(0, PAGE_SIZE).map((league) => {
-    return (
-      <Link
-        key={league.league_id}
-        href={`/leagues/${league.league_id}`}
-        className="flex justify-between items-center p-2 border border-orange-300 rounded"
-      >
-        <div>{league.name}</div>
-        <div>View</div>
-      </Link>
+  const renderedLeagues =
+    leagues.length === 0 ? (
+      <p className="mt-4 text-lg text-orange-600">No leagues where found</p>
+    ) : (
+      leagues.slice(0, PAGE_SIZE).map((league) => {
+        return (
+          <Link
+            key={league.league_id}
+            href={`/leagues/${league.league_id}`}
+            className="flex justify-between items-center p-2 border border-orange-300 rounded"
+          >
+            <div>{league.name}</div>
+            <div>View</div>
+          </Link>
+        );
+      })
     );
-  });
+  //if no leagues are found render tis message
 
   return (
     <main className="flex justify-center flex-col w-full">
