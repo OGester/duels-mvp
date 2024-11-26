@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { setSessionCookie } from "@/lib/auth";
 import { createUser } from "@/lib/users";
 import { createProfile } from "@/lib/profile";
+import { db } from "@/db";
 
 //change to registerAction
 export async function signUpAction(formData) {
@@ -15,6 +16,19 @@ export async function signUpAction(formData) {
   };
 
   //TODO validate data / handle duplicate email error
+  //checks database if email exists
+  const existingEmail = await db.user.findUnique({
+    where: { email: data.email },
+  });
+
+  //returns a error message in client
+  if (existingEmail) {
+    return {
+      isError: true,
+      message: "This email is already used. Please try again!",
+    };
+  }
+
   const user = await createUser(data);
   console.log("[signUpAction] user:", user);
 
