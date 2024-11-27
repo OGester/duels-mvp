@@ -45,7 +45,7 @@ export default async function LeaguesPage({ searchParams }) {
   const goBack = pagenum > 0;
   console.log("LEAGUES LEFT:", leaguesLeft);
   //rendering the array of leagues fetched from the database
-  //if leaguesis empty it will show no leagues where found.
+  //if leagues is empty it will show no leagues where found.
   const renderedLeagues =
     leagues.length === 0 ? (
       <p className="mt-4 text-lg text-orange-600">No leagues where found</p>
