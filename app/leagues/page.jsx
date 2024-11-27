@@ -21,9 +21,9 @@ export default async function LeaguesPage({ searchParams }) {
     where: {
       name: { contains: query, mode: "insensitive" },
     },
+    //skips items to start at the correct page and shows as many as set PAGE_SIZE
     skip: +pagenum * PAGE_SIZE,
-    //fetch one extra item to know if there is more
-    take: PAGE_SIZE + 1,
+    take: PAGE_SIZE,
   });
 
   //getting the total count of leagues in DB that match the search
@@ -33,19 +33,22 @@ export default async function LeaguesPage({ searchParams }) {
     },
   });
 
-  //determine if there is an extra league, and in that case an extra page
-  const showMore = leagues.length > PAGE_SIZE;
-  //if the page number is larger than 0 (first page)
+  //the number of leagues shown so far
+  const leaguesShown = (pagenum + 1) * PAGE_SIZE;
+  //calculating how many leagues there is left in totalLeagues
+  const leaguesLeft = totalLeagues - leaguesShown;
+  //if leagues left is larger than 0 its set to true and More button is needed
+  const showMore = leaguesLeft > 0;
+  //if the page number is larger than 0 (first page) the Back button is needed
   const goBack = pagenum > 0;
 
   //rendering the array of leagues fetched from the database
-  //slice will only show the first PAGE_SIZE leagues but still
-  //allow to know if there is more to show
+  //if leaguesis empty it will show no leagues where found.
   const renderedLeagues =
     leagues.length === 0 ? (
       <p className="mt-4 text-lg text-orange-600">No leagues where found</p>
     ) : (
-      leagues.slice(0, PAGE_SIZE).map((league) => {
+      leagues.map((league) => {
         return (
           <Link
             key={league.league_id}
@@ -96,7 +99,7 @@ export default async function LeaguesPage({ searchParams }) {
             }}
             className="font-semibold text-orange-300"
           >
-            Show more
+            More
           </Link>
         )}
       </div>
