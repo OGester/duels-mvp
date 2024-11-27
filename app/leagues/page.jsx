@@ -10,7 +10,7 @@ export const metadata = {
 
 export default async function LeaguesPage({ searchParams }) {
   //if the pagenum is undefined its set to 0
-  const pagenum = searchParams.pagenum ?? 0;
+  const pagenum = parseInt(searchParams.pagenum ?? "0", 10);
 
   //if the query is undefined its set to en empty string
   const query = searchParams.query ?? "";
@@ -32,16 +32,18 @@ export default async function LeaguesPage({ searchParams }) {
       name: { contains: query, mode: "insensitive" },
     },
   });
+  console.log("[TOTAL LEAGUES] :", totalLeagues);
 
   //the number of leagues shown so far
   const leaguesShown = (pagenum + 1) * PAGE_SIZE;
+  console.log("LEAGUES SHOWN:", leaguesShown);
   //calculating how many leagues there is left in totalLeagues
   const leaguesLeft = totalLeagues - leaguesShown;
   //if leagues left is larger than 0 its set to true and More button is needed
   const showMore = leaguesLeft > 0;
   //if the page number is larger than 0 (first page) the Back button is needed
   const goBack = pagenum > 0;
-
+  console.log("LEAGUES LEFT:", leaguesLeft);
   //rendering the array of leagues fetched from the database
   //if leaguesis empty it will show no leagues where found.
   const renderedLeagues =
