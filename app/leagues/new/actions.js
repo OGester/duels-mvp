@@ -22,6 +22,13 @@ export async function createLeagueAction(formData) {
       message: "All required fields must be entered",
     };
   }
+  //make sure description is not longer than 500 characters
+  if (description && description.length > 500) {
+    return {
+      isError: true,
+      message: "Description is to long!",
+    };
+  }
 
   //enables to check and ensure that end date is after start date
   const startDate = new Date(start_date);
@@ -39,15 +46,15 @@ export async function createLeagueAction(formData) {
     name,
     type,
     isPublic,
-    start_date: start_date ? new Date(start_date).toISOString() : null,
-    end_date: end_date ? new Date(end_date).toISOString() : null,
+    start_date: new Date(start_date).toISOString(),
+    end_date: new Date(end_date).toISOString(),
     //this is optional if not provided sets description to empty string
     description: description || "",
   };
 
   try {
     await createLeague(data);
-    console.log("[createLeagueAction] League created:", data);
+    //console.log("[createLeagueAction] League created:", data);
   } catch (error) {
     console.error("[createLeagueAction] Error creating league:", error);
     return {

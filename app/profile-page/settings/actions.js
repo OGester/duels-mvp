@@ -19,7 +19,7 @@ export async function updateProfileAction(formData) {
   }
 
   if (profile_image_url) {
-    console.log("[updateProfileAction] Validating URL:", profile_image_url);
+    console.log("[updateProfileAction] URL provided:", profile_image_url);
     //remove extra spaces taht might interfere with startsWith check
     //might not be a strong and forever validation but good enough for this MVP
     const trimmedUrl = profile_image_url.trim();
