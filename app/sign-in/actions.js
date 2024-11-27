@@ -5,7 +5,8 @@ import { authenticateUser } from "@/lib/users";
 
 export async function signInAction(formData) {
   //console.log("[signInAction]", formData);
-  const email = formData.get("email");
+  //converts input to lowercase as saved in database, eliminating case sensitive sign in
+  const email = formData.get("email").toLowerCase();
   const password = formData.get("password");
   const user = await authenticateUser(email, password);
 

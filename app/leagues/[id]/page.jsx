@@ -101,7 +101,12 @@ export default async function SpecificLeaguePage(props) {
         </div>
         {/* show memberStatus depending on the logged in users league_user status */}
         <div className="flex justify-center my-1 font-medium text-orange-400">
-          {userStatus === "ACCEPTED" && <span>Member</span>}
+          {leagueRole === "ADMIN" && (
+            <span>You are Admin for this legague</span>
+          )}
+          {userStatus === "ACCEPTED" && leagueRole !== "ADMIN" && (
+            <span>Member</span>
+          )}
           {userStatus === "PENDING" && <span>Awaiting Verification</span>}
 
           <div className="flex justify-center mb-1">
