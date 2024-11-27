@@ -11,7 +11,9 @@ export async function signUpAction(formData) {
   console.log("[signUpAction] formData:", formData);
   const data = {
     username: formData.get("username"),
-    email: formData.get("email"),
+    //saves email as lowercase to prevent duplicate emails with only Capitalized letters
+    //as separating them, opens up for case insensitive sign in that is stil unique in database.
+    email: formData.get("email").toLowerCase(),
     password: formData.get("password"),
   };
 
