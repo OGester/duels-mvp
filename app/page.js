@@ -17,24 +17,24 @@ export default async function Home() {
     <>
       <main>
         <h2 className="flex justify-center text-black font-bold">
-          - Welcome to Tjing doubles -
+          - Welcome to My Leagues -
         </h2>
         <div className="flex justify-center p-4">
           <Card className="flex flex-col justify-center border-4 border-orange-300 w-1/2">
             <CardHeader>
               <div>
                 <CardTitle className="flex justify-center">
-                  Get ready to challange the players around you!
+                  Get ready to challange the people around you!
                 </CardTitle>
                 <CardDescription className="flex ml-6">
-                  What is duels?
+                  What is My Leagues?
                 </CardDescription>
                 <CardContent>
                   <p>
-                    Tjing wants to encourage the interaction and playfullness
-                    between players in a new way, challenge friends, family your
-                    local club nemesis or just random people you meet on the
-                    course in fun one on one duels.
+                    My League wants to encourage the interaction and
+                    playfullness between players in a new way, challenge
+                    friends, family your local club nemesis or just random
+                    people all over the globe.
                   </p>
                 </CardContent>
                 <CardFooter className="flex justify-center">

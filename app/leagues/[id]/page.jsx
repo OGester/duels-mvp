@@ -1,10 +1,10 @@
 import Link from "next/link";
-//import Modal from "@/components/BasicModal";
+
 import { notFound } from "next/navigation";
 import { db } from "@/db";
 import { getUserFromSession } from "@/lib/auth";
 import { getLeagueRole, existingMember, getLeagueMembers } from "@/lib/league";
-//import { useState, useEffect } from "react";
+
 import JoinLeagueButton from "@/components/JoinLeagueButton";
 import AcceptMemberButton from "@/components/AcceptMemberButton";
 import RemoveMemberButton from "@/components/RemoveMemberButton";

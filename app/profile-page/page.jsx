@@ -36,10 +36,9 @@ export default async function userPage() {
     <main className="flex justify-center flex-col w-full">
       {/* <div className="flex flex-col items-center justify-center w-1/2 min-h-full p-6"> */}
       <h2 className="text-center text-black font-bold mb-2.5">
-        Your Duels Profile
+        Welcome to My Leagues
       </h2>
       <p className="text-center text-lg mb-4">
-        Hello:{" "}
         <span className="font-black text-xl tracking-wide text-orange-500 text-transform: capitalize">
           {user.username}
         </span>

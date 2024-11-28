@@ -32,7 +32,13 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/profile-page/:path*", "/admin", "/error"],
+  matcher: [
+    "/profile-page/:path*",
+    "/admin",
+    "/error",
+    "/leagues/:path*",
+    "/player-page/:path*",
+  ],
 };
 
 /* if (loggedInAs === "admin" && adminRoutes.includes(nextUrl.pathname)) {
