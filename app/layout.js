@@ -7,18 +7,35 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  //allows access to the search query from the context
-  //const { searchQuery } = useSearch();
   return (
-    <html lang="en">
-      <body className="px-4 py-2">
-        <header>
-          <NavBar />
+    <html lang="en" className="w-full h-full">
+      <body className="min-h-full w-full bg-light-gray flex flex-col items-center">
+        {/* Header */}
+        <header
+          className="w-full bg-dark-gray text-white py-4 border-b-2 border-medium-gray"
+          style={{
+            boxShadow: "0 4px 10px #292929",
+            borderLeft: "2px solid #medium-gray",
+            borderRight: "2px solid #medium-gray",
+            borderBottomLeftRadius: "12px",
+            borderBottomRightRadius: "12px",
+          }}
+        >
+          <div className="w-2/3 mx-auto">
+            <NavBar />
+          </div>
         </header>
-        <main className="flex flex-col justify-center">{children}</main>
-        <footer className="border-t text-center text-xs py-2 max-w-6xl mx-auto my-12">
-          My League est. 2024
-        </footer>
+
+        {/* content */}
+        <main className="bg-light-gray flex-grow w-full flex flex-col items-center justify-center mt-6">
+          {/* Center Content  */}
+          <div
+            className="bg-dark-gray rounded-lg p-6 h-full w-full max-w-[900px]"
+            style={{ boxShadow: "0 4px 10px #292929" }}
+          >
+            <div>{children}</div>
+          </div>
+        </main>
       </body>
     </html>
   );
