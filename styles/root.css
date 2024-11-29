@@ -1,0 +1,35 @@
+.header {
+  width: 100%;
+  background-color: #333;
+  padding: 0.5rem;
+  box-shadow: 0 4px 10px #292929;
+  border-left: 2px solid #888;
+  border-right: 2px solid #888;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.main-container {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding: 1rem;
+}
+
+.content-wrapper {
+  background-color: #333;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 4px 10px #292929;
+}
+
+/* Utility Classes */
+.padding {
+  padding: 1rem;
+}

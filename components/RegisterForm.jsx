@@ -17,7 +17,7 @@ export default function SignUpForm() {
   return (
     <div className="flex flex-col justify-center w-auto p-6">
       <h2 className="flex justify-center text-black font-bold mb-2.5">
-        Tjing Duels
+        My Leagues
       </h2>
       <p className="flex justify-center mb-4">Register here to get started</p>
       <div className="flex justify-center p-4">

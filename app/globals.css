@@ -2,33 +2,142 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-dark-gray: #1a1a2e; /* Inner container background */
-  --color-light-gray: #eaeaea; /* Outer container background */
-  --color-accent: #58d68d; /* Optional accent color */
-}
+/* Global Styles */
 html,
 body {
-  background-color: var(--color-light-gray); /* Outer container background */
-  color: white; /* Default text color */
-  font-family: "Inter", sans-serif; /* Use your preferred font */
-  margin: 4;
-  padding: 4;
-  height: 100%; /* Ensures body takes full screen height */
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4; /* Light gray background */
+}
+.full-height {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.main-container {
+  flex-grow: 1; /* Ensures the main content takes up remaining space */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 
-#root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* Centers content vertically and horizontally */
+/* Centered content box */
+.content-wrapper {
+  background-color: #333;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 4px 10px #292929;
 }
-.center-container {
-  background-color: var(--color-dark-gray);
+
+.bg-light-gray {
+  background-color: #f4f4f4;
+}
+
+.bg-dark-gray {
+  background-color: #333;
+}
+
+.bg-dark-gray-light {
+  background-color: #444;
+}
+
+.border-medium-gray {
+  border-color: #888;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.min-h-full {
+  min-height: 100%;
+}
+
+.flex {
   display: flex;
-  justify-content: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
   align-items: center;
 }
-.custom-header {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Customize shadow */
+
+.justify-center {
+  justify-content: center;
+}
+
+.max-w-90 {
+  max-width: 90%;
+}
+
+.max-w-900 {
+  max-width: 900px;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.sm\:p-6 {
+  padding: 1.5rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.sm\:mt-8 {
+  margin-top: 2rem;
+}
+
+.box-shadow {
+  box-shadow: 0 4px 10px #292929;
+}
+
+.rounded-lg {
+  border-radius: 8px;
+}
+
+.border-radius {
+  border-radius: 12px;
+}
+
+.border-left {
+  border-left: 2px solid #888;
+}
+
+.border-right {
+  border-right: 2px solid #888;
+}
+
+.border-bottom-left-radius {
+  border-bottom-left-radius: 12px;
+}
+
+.border-bottom-right-radius {
+  border-bottom-right-radius: 12px;
+}
+
+.sm\:px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
