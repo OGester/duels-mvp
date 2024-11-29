@@ -1,0 +1,39 @@
+.navlink {
+  font-size: 0.875rem; /* Equivalent to 'text-sm' */
+  font-weight: 600; /* Equivalent to 'font-semibold' */
+  padding: 0.25rem 0.25rem; /* Equivalent to 'py-1 px-1' */
+  border-radius: 0.5rem; /* Equivalent to 'rounded-lg' */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Equivalent to 'shadow-md' */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0px 1px 2px #787878;
+  transition: all 0.2s ease-in-out; /* Equivalent to 'transition-all duration-200' */
+}
+
+/* Active link styles */
+.navlink-active {
+  background-color: #f4f4f4; /* Light gray */
+  color: #222; /* Dark text */
+  border: 2px solid #6a0dad; /* Custom purple */
+}
+
+/* Default link styles */
+.navlink-default {
+  background-color: #ccc; /* Medium gray */
+  color: #222; /* Dark text */
+  border: 2px solid #006666; /* Dark teal */
+}
+
+.navlink-default:hover {
+  background-color: #004c4c; /* Darker teal */
+}
+
+/* Responsive styles for larger screens */
+@media (min-width: 640px) {
+  .navlink {
+    padding: 0.5rem 1rem; /* Equivalent to 'sm:py-2 sm:px-4' */
+    border-width: 4px; /* Equivalent to 'sm:border-4' */
+    border-radius: 9999px; /* Equivalent to 'sm:rounded-full' */
+  }
+}

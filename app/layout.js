@@ -1,5 +1,6 @@
 import "./globals.css";
 import "@/styles/root.css";
+
 import NavBar from "@/components/Navbar";
 
 export const metadata = {

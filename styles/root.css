@@ -33,3 +33,37 @@
 .padding {
   padding: 1rem;
 }
+
+/* Navbar container */
+.navbar {
+  width: 100%;
+  background-color: #333; /* Dark gray background */
+  padding: 1rem; /* Equivalent to 'py-4 px-2' */
+}
+
+/* Outer container for the nav items */
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* Space between Home and the rest of the links */
+  align-items: center; /* Vertically align items */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  max-width: 100%;
+  margin: 0 auto; /* Center the nav content horizontally */
+  gap: 1rem;
+  padding: 0; /* Remove list padding */
+  list-style: none; /* Remove bullet points */
+}
+
+/* Left section: Home link */
+.navbar-left {
+  flex: 0; /* Only take up as much space as the content needs */
+}
+
+/* Right section: Other links */
+.navbar-right {
+  display: flex;
+  gap: 1rem; /* Space between links */
+  flex-wrap: wrap;
+  justify-content: flex-end; /* Push all links to the right */
+  align-items: center;
+}
