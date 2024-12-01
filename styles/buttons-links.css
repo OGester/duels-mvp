@@ -37,3 +37,31 @@
     border-radius: 9999px; /* Equivalent to 'sm:rounded-full' */
   }
 }
+
+.rounded-button {
+  background-color: #008080; /* Teal background */
+  color: #333; /* Dark gray text */
+  border: 2px solid #d3d3d3; /* Light gray border */
+  border-radius: 9999px; /* Fully rounded ends */
+  padding: 0.5rem 1.5rem; /* Add some spacing */
+  font-size: 1rem; /* Adjust font size */
+  font-weight: 600; /* Slightly bold text */
+  text-align: center;
+  text-decoration: none; /* Remove underline for links */
+  cursor: pointer; /* Pointer cursor for buttons */
+  display: inline-block; /* Keep it inline with block properties */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Drop shadow */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect */
+.rounded-button:hover {
+  background-color: #006666; /* Darker teal on hover */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+/* Active/Pressed state */
+.rounded-button:active {
+  background-color: #004c4c; /* Even darker teal when pressed */
+  transform: scale(0.95); /* Slightly shrink on press */
+}

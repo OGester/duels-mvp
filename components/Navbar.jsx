@@ -43,13 +43,6 @@ export default async function NavBar() {
             </NavLink>
           </li>
 
-          {/* Settings */}
-          {user && (
-            <li>
-              <NavLink href="/profile-page/settings">Settings</NavLink>
-            </li>
-          )}
-
           {/* Sign In/Sign Out */}
           {user ? (
             <li>
