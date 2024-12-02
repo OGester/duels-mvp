@@ -1,9 +1,8 @@
 .navlink {
   font-size: 0.875rem; /* Equivalent to 'text-sm' */
   font-weight: 600; /* Equivalent to 'font-semibold' */
-  padding: 0.25rem 0.4rem; /* Equivalent to 'py-1 px-1' */
+  padding: 0.2rem 0.5rem; /* Equivalent to 'py-1 px-1' */
   border-radius: 1rem; /* Equivalent to 'rounded-lg' */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Equivalent to 'shadow-md' */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -13,20 +12,23 @@
 
 /* Active link styles */
 .navlink-active {
-  background-color: #f4f4f4; /* Light gray */
-  color: #222; /* Dark text */
-  border: 2px solid #6a0dad; /* Custom purple */
+  background-color: #bba8f2;
+  color: #403f3f;
+  box-shadow: 0px 2px 4px rgba(2, 2, 2, 0.294),
+    /* Equivalent to 'shadow-md' */ inset 0 0 6px #8b6beb,
+    /* Light inner glow */ inset 0 0 4px rgba(0, 0, 0, 0.3); /* Subtle shadow inside for depth */
 }
 
 /* Default link styles */
 .navlink-default {
-  background-color: #ccc; /* Medium gray */
-  color: #222; /* Dark text */
-  border: 2px solid #006666; /* Dark teal */
+  background-color: #84b6ad; /* Medium gray */
+  color: #403f3f; /* Dark text */
+  box-shadow: 0px 2px 4px rgba(2, 2, 2, 0.294), inset 0 0 6px #609c91,
+    /* Light inner glow */ inset 0 0 6px rgba(0, 0, 0, 0.253); /* Subtle shadow inside for depth */
 }
 
 .navlink-default:hover {
-  background-color: #004c4c; /* Darker teal */
+  background-color: #77b6aa; /* Darker teal */
 }
 
 /* Responsive styles for larger screens */
@@ -36,32 +38,4 @@
     border-width: 4px; /* Equivalent to 'sm:border-4' */
     border-radius: 9999px; /* Equivalent to 'sm:rounded-full' */
   }
-}
-
-.rounded-button {
-  background-color: #008080; /* Teal background */
-  color: #333; /* Dark gray text */
-  border: 2px solid #d3d3d3; /* Light gray border */
-  border-radius: 9999px; /* Fully rounded ends */
-  padding: 0.5rem 1.5rem; /* Add some spacing */
-  font-size: 1rem; /* Adjust font size */
-  font-weight: 600; /* Slightly bold text */
-  text-align: center;
-  text-decoration: none; /* Remove underline for links */
-  cursor: pointer; /* Pointer cursor for buttons */
-  display: inline-block; /* Keep it inline with block properties */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Drop shadow */
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-}
-
-/* Hover effect */
-.rounded-button:hover {
-  background-color: #006666; /* Darker teal on hover */
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
-}
-
-/* Active/Pressed state */
-.rounded-button:active {
-  background-color: #004c4c; /* Even darker teal when pressed */
-  transform: scale(0.95); /* Slightly shrink on press */
 }

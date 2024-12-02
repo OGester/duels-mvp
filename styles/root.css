@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  background-color: #333;
+  background-color: #454444;
   padding: 0.5rem;
   box-shadow: 0 4px 10px #292929;
   border-left: 2px solid #888;
@@ -21,7 +21,7 @@
 }
 
 .content-wrapper {
-  background-color: #333;
+  background-color: #454444;
   border-radius: 8px;
   padding: 1rem;
   width: 100%;
@@ -46,8 +46,8 @@
 /* Navbar container */
 .navbar {
   width: 100%;
-  background-color: #333; /* Dark gray background */
-  padding: 1rem; /* Equivalent to 'py-4 px-2' */
+  background-color: #454444; /* Dark gray background */
+  padding: 0.5rem; /* Equivalent to 'py-4 px-2' */
 }
 
 /* Outer container for the nav items */
