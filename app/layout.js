@@ -18,10 +18,10 @@ export default function RootLayout({ children }) {
         </header>
 
         {/* Content */}
-        <main className="bg-light-gray flex-grow w-full flex flex-col items-center justify-center mt-6 sm:mt-8 px-4">
+        <main className="main-container">
           {/* Center Content */}
           <div
-            className="bg-dark-gray rounded-lg p-4 sm:p-6 w-full max-w-[90%] sm:max-w-[900px]"
+            className="content-wrapper"
             style={{ boxShadow: "0 4px 10px #292929" }}
           >
             <div>{children}</div>

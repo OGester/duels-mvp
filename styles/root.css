@@ -16,7 +16,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 1.5rem;
+  margin-top: 1.5rem; /* Space below header */
   padding: 1rem;
 }
 
@@ -27,6 +27,15 @@
   width: 100%;
   max-width: 900px;
   box-shadow: 0 4px 10px #292929;
+
+  /* New height rules */
+  min-height: calc(
+    100vh - 120px
+  ); /* Fill almost full screen, accounting for header height and gap */
+  margin-top: 1rem; /* Small gap from header */
+  display: flex;
+  flex-direction: column; /* Ensure content inside aligns properly */
+  justify-content: center; /* Center content vertically if needed */
 }
 
 /* Utility Classes */

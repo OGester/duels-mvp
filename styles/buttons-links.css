@@ -1,8 +1,8 @@
 .navlink {
   font-size: 0.875rem; /* Equivalent to 'text-sm' */
   font-weight: 600; /* Equivalent to 'font-semibold' */
-  padding: 0.25rem 0.25rem; /* Equivalent to 'py-1 px-1' */
-  border-radius: 0.5rem; /* Equivalent to 'rounded-lg' */
+  padding: 0.25rem 0.4rem; /* Equivalent to 'py-1 px-1' */
+  border-radius: 1rem; /* Equivalent to 'rounded-lg' */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Equivalent to 'shadow-md' */
   display: inline-flex;
   align-items: center;
