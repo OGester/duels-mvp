@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import "@/styles/buttons-links.css";
+import "@/styles/navbar.css";
 //investigate what the prefetch is!
 export default function NavLink({ children, href, prefetch }) {
   const pathname = usePathname();

@@ -13,8 +13,8 @@
 /* Active link styles */
 .navlink-active {
   background-color: #bba8f2;
-  color: #403f3f;
-  box-shadow: 0px 2px 4px rgba(2, 2, 2, 0.294),
+  color: #2b2b2b;
+  box-shadow: 0px 1px 2px rgba(2, 2, 2, 0.055),
     /* Equivalent to 'shadow-md' */ inset 0 0 6px #8b6beb,
     /* Light inner glow */ inset 0 0 4px rgba(0, 0, 0, 0.3); /* Subtle shadow inside for depth */
 }
@@ -22,8 +22,8 @@
 /* Default link styles */
 .navlink-default {
   background-color: #84b6ad; /* Medium gray */
-  color: #403f3f; /* Dark text */
-  box-shadow: 0px 2px 4px rgba(2, 2, 2, 0.294), inset 0 0 6px #609c91,
+  color: #2b2b2b; /* Dark text */
+  box-shadow: 0px 1px 2px rgba(2, 2, 2, 0.055), inset 0 0 6px #609c91,
     /* Light inner glow */ inset 0 0 6px rgba(0, 0, 0, 0.253); /* Subtle shadow inside for depth */
 }
 
@@ -35,7 +35,7 @@
 @media (min-width: 640px) {
   .navlink {
     padding: 0.5rem 1rem; /* Equivalent to 'sm:py-2 sm:px-4' */
-    border-width: 4px; /* Equivalent to 'sm:border-4' */
+    /*border-width: 4px;  Equivalent to 'sm:border-4' */
     border-radius: 9999px; /* Equivalent to 'sm:rounded-full' */
   }
 }
