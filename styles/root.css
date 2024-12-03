@@ -1,0 +1,78 @@
+.header {
+  width: 100%;
+  background-color: #454444;
+  padding: 0.5rem;
+  box-shadow: 0 4px 10px #292929;
+  border-left: 2px solid #888;
+  border-right: 2px solid #888;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.main-container {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem; /* Space below header */
+  padding: 1rem;
+}
+
+.content-wrapper {
+  background-color: #454444;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 4px 10px #292929;
+
+  /* New height rules */
+  min-height: calc(
+    100vh - 120px
+  ); /* Fill almost full screen, accounting for header height and gap */
+  margin-top: 1rem; /* Small gap from header */
+  display: flex;
+  flex-direction: column; /* Ensure content inside aligns properly */
+  justify-content: center; /* Center content vertically if needed */
+}
+
+/* Utility Classes */
+.padding {
+  padding: 1rem;
+}
+
+/* Navbar container */
+.navbar {
+  width: 100%;
+  background-color: #454444; /* Dark gray background */
+  padding: 0.5rem; /* Equivalent to 'py-4 px-2' */
+}
+
+/* Outer container for the nav items */
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* Space between Home and the rest of the links */
+  align-items: center; /* Vertically align items */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  max-width: 100%;
+  margin: 0 auto; /* Center the nav content horizontally */
+  gap: 1rem;
+  padding: 0; /* Remove list padding */
+  list-style: none; /* Remove bullet points */
+}
+
+/* Left section: Home link */
+.navbar-left {
+  flex: 0; /* Only take up as much space as the content needs */
+}
+
+/* Right section: Other links */
+.navbar-right {
+  display: flex;
+  gap: 1rem; /* Space between links */
+  flex-wrap: wrap;
+  justify-content: flex-end; /* Push all links to the right */
+  align-items: center;
+}

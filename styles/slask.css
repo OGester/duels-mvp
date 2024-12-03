@@ -1,0 +1,26 @@
+.league-link {
+  display: flex; /* Flex layout for the container */
+  justify-content: space-between; /* Space between the child elements */
+  align-items: center; /* Align items vertically */
+  padding: 0.5rem; /* Padding around the content */
+  text-decoration: none; /* Remove underline from the link */
+  transition: color 0.3s ease; /* Transition for hover effect */
+}
+
+.league-link:hover {
+  color: #38b2ac; /* Hover color (equivalent to teal-500 in Tailwind) */
+}
+
+/* Styling for the league name */
+.league-name {
+  font-size: 12px;
+  font-weight: 500; /* Medium font weight */
+  text-transform: capitalize; /* Capitalize the first letter of each word */
+}
+
+/* Styling for the league role */
+.league-role {
+  font-size: 0.6rem; /* Smaller font size (text-xs) */
+  font-weight: 400; /* Extra light font weight */
+  color: #38b2ac;
+}

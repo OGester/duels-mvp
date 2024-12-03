@@ -1,0 +1,41 @@
+.navlink {
+  font-size: 0.875rem; /* Equivalent to 'text-sm' */
+  font-weight: 600; /* Equivalent to 'font-semibold' */
+  padding: 0.2rem 0.5rem; /* Equivalent to 'py-1 px-1' */
+  border-radius: 1rem; /* Equivalent to 'rounded-lg' */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0px 1px 2px #787878;
+  transition: all 0.2s ease-in-out; /* Equivalent to 'transition-all duration-200' */
+}
+
+/* Active link styles */
+.navlink-active {
+  background-color: #bba8f2;
+  color: #2b2b2b;
+  box-shadow: 0px 1px 2px rgba(2, 2, 2, 0.055),
+    /* Equivalent to 'shadow-md' */ inset 0 0 6px #8b6beb,
+    /* Light inner glow */ inset 0 0 4px rgba(0, 0, 0, 0.3); /* Subtle shadow inside for depth */
+}
+
+/* Default link styles */
+.navlink-default {
+  background-color: #84b6ad; /* Medium gray */
+  color: #2b2b2b; /* Dark text */
+  box-shadow: 0px 1px 2px rgba(2, 2, 2, 0.055), inset 0 0 6px #609c91,
+    /* Light inner glow */ inset 0 0 6px rgba(0, 0, 0, 0.253); /* Subtle shadow inside for depth */
+}
+
+.navlink-default:hover {
+  background-color: #77b6aa; /* Darker teal */
+}
+
+/* Responsive styles for larger screens */
+@media (min-width: 640px) {
+  .navlink {
+    padding: 0.5rem 1rem; /* Equivalent to 'sm:py-2 sm:px-4' */
+    /*border-width: 4px;  Equivalent to 'sm:border-4' */
+    border-radius: 9999px; /* Equivalent to 'sm:rounded-full' */
+  }
+}

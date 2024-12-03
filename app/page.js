@@ -1,58 +1,42 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+//import { Button } from "@/components/ui/button";
+import "./globals.css";
 import { getUserFromSession } from "@/lib/auth";
+import "@/styles/navbar.css";
+import "@/styles/home.css";
 
 import Link from "next/link";
 
 export default async function Home() {
   const user = await getUserFromSession();
   return (
-    <>
-      <main>
-        <h2 className="flex justify-center text-black font-bold">
-          - Welcome to My Leagues -
-        </h2>
-        <div className="flex justify-center p-4">
-          <Card className="flex flex-col justify-center border-4 border-orange-300 w-1/2">
-            <CardHeader>
-              <div>
-                <CardTitle className="flex justify-center">
-                  Get ready to challange the people around you!
-                </CardTitle>
-                <CardDescription className="flex ml-6">
-                  What is My Leagues?
-                </CardDescription>
-                <CardContent>
-                  <p>
-                    My League wants to encourage the interaction and
-                    playfullness between players in a new way, challenge
-                    friends, family your local club nemesis or just random
-                    people all over the globe.
-                  </p>
-                </CardContent>
-                <CardFooter className="flex justify-center">
-                  {!user ? (
-                    <Button asChild className="bg-orange-300 text-black">
-                      <Link href="/sign-in">Let´s play</Link>
-                    </Button>
-                  ) : (
-                    <Button asChild className="bg-orange-300 text-black">
-                      <Link href="/profile-page">Let´s play</Link>
-                    </Button>
-                  )}
-                </CardFooter>
-              </div>
-            </CardHeader>
-          </Card>
+    <main className="main-container">
+      <div className="title-container">
+        <h2 className="page-title">MY LEAGUES</h2>
+      </div>
+      <div className="landing-page">
+        <div className="info-card">
+          <h2 className="info-title">What is My Leagues?</h2>
+          <div className="info-text-wrapper">
+            <p className="info-text">
+              My League wants to encourage interaction and playfulness between
+              players in a new way. Challenge friends, family, your local club
+              nemesis, or random people all over the globe.
+            </p>
+          </div>
+          <div className="cta-section">
+            <button className="letsplay-button">
+              <Link href={user ? "/profile-page" : "/sign-in"}>
+                Let’s Play!
+              </Link>
+            </button>
+            {!user && (
+              <button className="register-button">
+                <Link href="/register">Not Registered?</Link>
+              </button>
+            )}
+          </div>
         </div>
-      </main>
-    </>
+      </div>
+    </main>
   );
 }
