@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import "@/styles/profile.css";
 import { getUserFromSession } from "@/lib/auth";
 import { db } from "@/db";
 import { getUserLeagues } from "@/lib/profile";
@@ -20,54 +20,52 @@ export default async function userPage() {
       <Link
         key={league.league_id}
         href={`/leagues/${league.league_id}`}
-        className="flex justify-between items-center p-2 hover:text-teal-500 transition-all duration-300"
+        className="league-link"
       >
-        <div className="font-medium text-transform: capitalize">
-          {league.name}
-        </div>
-        <div className="text-xs font-extralight text-transform: capitalize">
-          {league.role}
-        </div>
+        <div className="league-name">{league.name}</div>
+        <div className="league-role">{league.role}</div>
       </Link>
     );
   });
 
   return (
-    <main className="flex justify-center flex-col w-full">
-      {/* <div className="flex flex-col items-center justify-center w-1/2 min-h-full p-6"> */}
-      <h2 className="text-center text-black font-bold mb-2.5">
-        Welcome to My Leagues
-      </h2>
-      <p className="text-center text-lg mb-4">
-        <span className="font-black text-xl tracking-wide text-orange-500 text-transform: capitalize">
-          {user.username}
-        </span>
-      </p>
-      <div className="flex flex-col items-center justify-center min-h-1/2 p-2">
-        <div className="w-full max-w-md bg-white rounded-lg shadow-lg border-2 border-orange-300 p-6">
-          <div className="flex flex-col items-center">
-            <img
-              src={profileBio?.profile_image_url}
-              alt="ProfileImage"
-              className="w-40 h-40 rounded-full border-4 border-orange-300 shadow-lg object-cover mb-4"
-            />
-            <div className="text-lg font-semibold mt-2 mb-4">Bio:</div>
-            <p className="text-center text-gray-700 whitespace-pre-line mb-6">
-              {profileBio?.description}
-            </p>
-            <div className="text-lg font-semibold mt-2 mb-1">Your score:</div>
-            <p className="text-2xl font-bold text-gray-800">
-              {profileBio?.score}
-            </p>
-            <div className="text-lg font-semibold mt-4 mb-1">
-              Joined Leagues:
-            </div>
-            <p className="text-gray-800 border rounded-xl w-full p-2 mt-2">
-              {renderedUserLeagues}
-            </p>
+    <main className="main-container">
+      <div className="title-container">
+        <h2 className="page-title">Welcome to My Leagues</h2>
+        <span className="username">{user.username}</span>
+      </div>
+
+      <div className="landing-page">
+        <div className="profile-card">
+          <div className="page-title-container">
+            <h2 className="page-title">Your Profile</h2>
           </div>
-          <div className="flex justify-center  mt-6">
-            <button className="w-1/2 py-2 px-4 bg-orange-300 text-white font-semibold rounded-lg shadow hover:bg-orange-400 transition">
+          <div className="profile-wrapper">
+            <div className="info-box">
+              <div className="profile-header">
+                <img
+                  src={profileBio?.profile_image_url}
+                  alt="ProfileImage"
+                  className="profile-image"
+                />
+                <div className="score-container">
+                  <div className="score-label">Your Score:</div>
+                  <p className="score">{profileBio?.score}</p>
+                </div>
+              </div>
+              <div className="separator"></div>
+              <div className="bio-section">
+                <div className="bio-label">Bio:</div>
+                <p className="bio-description">{profileBio?.description}</p>
+              </div>
+            </div>
+            <div className="joined-leagues-container">
+              <div className="joined-leagues-title">Joined Leagues:</div>
+              <p className="rendered-leagues">{renderedUserLeagues}</p>
+            </div>
+          </div>
+          <div className="cta-section">
+            <button className="leagues-button">
               <Link href="/leagues">Go to Leagues</Link>
             </button>
           </div>

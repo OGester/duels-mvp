@@ -61,13 +61,27 @@
   gap: 1rem;
 }
 
+.form-title-container {
+  background-color: #84b6ad;
+  border: 3px solid #454444; /* Border color */
+  border-radius: 0 0 8px 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Drop shadow */
+  width: 150px;
+  padding: 5px; /* Padding inside the container */
+  margin-bottom: 10px; /* Space between title container and form elements */
+  display: flex; /* Use flexbox to center content */
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  text-align: center; /* Ensure text is centered */
+}
+
 .form-title {
   font-size: 1rem; /* Larger font */
   font-weight: bold;
   color: #403f3f; /* Darker text color */
   text-align: center;
-  margin-bottom: 1rem; /* Add space below the title */
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  margin: 0;
 }
 
 /* Info Text Wrapper */
@@ -158,14 +172,21 @@
   width: 100%;
 }
 
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  margin-top: 30px;
+  margin-bottom: -5px; /* Add space between the password input and the button */
+}
+
 /* Rounded Button */
 .sign-in-button {
   background-color: #9ae5b9; /* Teal color */
   color: #333; /* Dark gray text */
-  padding: 0.5rem 1rem;
-  width: 200px;
+  padding: 0.2rem 0.8rem;
+  width: 150px;
   border: 2px solid #454444; /* Light gray border */
-  border-radius: 20px 20px 20px 0; /* Fully rounded */
+  border-radius: 0px 20px 20px 20px; /* Fully rounded */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2),
     inset 0 0 10px rgba(60, 173, 152, 0.464); /* Drop shadow */
   text-decoration: none;
