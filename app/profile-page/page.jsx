@@ -31,7 +31,7 @@ export default async function userPage() {
   return (
     <main className="main-container">
       <div className="title-container">
-        <h2 className="page-title">Welcome to My Leagues</h2>
+        <h2 className="page-title">Welcome</h2>
         <span className="username">{user.username}</span>
       </div>
 
