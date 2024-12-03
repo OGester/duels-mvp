@@ -106,7 +106,7 @@
   background-color: #bba8f2;
   color: #333;
   padding: 2rem;
-  border-radius: 20px 0 20px 20px;
+  border-radius: 20px 0 40px 20px;
   border: 4px solid #454444;
   text-align: justify;
   max-width: calc(100% + 8rem);
@@ -193,10 +193,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #bba8f2; /* Same as .info-box */
+  background-color: #cec2f1; /* Same as .info-box */
   color: #333;
   padding: 1rem;
-  border-radius: 20px 0 20px 20px; /* Matches .info-box */
+  border-radius: 40px 20px 20px 0px; /* Matches .info-box */
   border: 4px solid #454444; /* Matches .info-box */
   text-align: justify; /* Matches .info-box */
   max-width: calc(100% + 8rem); /* Matches .info-box */
@@ -216,43 +216,42 @@
   margin-bottom: 0.5rem; /* Space between the title and content */
 }
 
-/* Content styling for rendered leagues */
-.joined-leagues-content {
-  border: 1px solid #ccc; /* Optional: Light gray border */
-  border-radius: 10px; /* Optional: Rounded corners for content */
-  padding: 0.5rem; /* Internal spacing for leagues */
-  background-color: #f9f9f9; /* Slightly lighter background */
-  color: #333; /* Ensure text color matches the container */
-  width: 100%; /* Full width inside the container */
-  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle inset shadow */
-}
-
 /* Container for the link */
 .league-link {
-  display: flex; /* Flex layout for the container */
-  justify-content: space-between; /* Space between the child elements */
-  align-items: center; /* Align items vertically */
+  display: flex; /* Use block layout for the link */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 0.5rem; /* Padding around the content */
+  border: 2px solid #454444; /* Add a discrete border */
+  border-radius: 20px; /* Optional: Rounded corners */
+  background-color: #d2cfcf; /* Light background color */
   text-decoration: none; /* Remove underline from the link */
-  transition: color 0.3s ease; /* Transition for hover effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* transition: background-color 0.3s ease, box-shadow 0.3s ease; */ /* Smooth transitions */
+  margin-bottom: 0.5rem; /* Add spacing between items */
 }
 
 .league-link:hover {
-  color: #38b2ac; /* Hover color (equivalent to teal-500 in Tailwind) */
+  background-color: #e0f7f5; /* Light teal hover background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
 }
 
 /* Styling for the league name */
 .league-name {
-  font-size: 12px;
-  font-weight: 500; /* Medium font weight */
+  font-size: 1rem; /* Adjusted for readability */
+  font-weight: 50; /* Medium font weight */
   text-transform: capitalize; /* Capitalize the first letter of each word */
+  color: #333; /* Darker text color for contrast */
+  margin-bottom: 0.25rem; /* Space between name and role */
 }
 
 /* Styling for the league role */
 .league-role {
-  font-size: 0.6rem; /* Smaller font size (text-xs) */
-  font-weight: 400; /* Extra light font weight */
-  color: #38b2ac;
+  font-size: 0.85rem; /* Slightly smaller font size */
+  font-weight: 400; /* Normal font weight */
+  color: #454444; /* Teal color */
+  text-transform: capitalize; /* Capitalize the first letter of each word */
 }
 
 /* CTA Section */

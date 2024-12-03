@@ -23,7 +23,7 @@ export default async function userPage() {
         className="league-link"
       >
         <div className="league-name">{league.name}</div>
-        <div className="league-role">{league.role}</div>
+        {league.role && <div className="league-role">{league.role}</div>}
       </Link>
     );
   });
