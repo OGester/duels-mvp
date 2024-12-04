@@ -8,27 +8,19 @@
   padding: 1rem;
   margin-top: 1rem;
 }
-
-/* Title Container */
+/* title container */
 .title-container {
   background-image: linear-gradient(to bottom, #d2cfcf, #a5a5a5);
-  border: 6px solid #a5a5a5; /* Slightly darker gray for the border */
-  border-radius: 15px 0 15px 15px; /* Rounded corners */
-  padding: 10px; /* Space inside the container */
-  width: 50%;
+  border: 6px solid #a5a5a5;
+  border-radius: 15px 0 15px 15px;
+  padding: 10px;
+  width: 70%; /* Make it almost full-width on small screens */
   max-width: 400px;
-  min-width: 300px; /* Ensure it doesn’t shrink too much */
-  margin: -4rem auto 2rem auto; /* Center horizontally and add spacing */
+  min-width: 250px; /* Ensure it doesn’t shrink too much */
+  margin: 1rem auto; /* Center horizontally with consistent spacing */
   text-align: center;
   box-shadow: 0 2px 6px rgba(3, 3, 3, 0.517);
-
-  position: relative; /* Relative to parent container */
-}
-
-@media (min-width: 768px) {
-  .title-container {
-    margin-top: 1.5rem; /* Adjust margin for larger screens */
-  }
+  position: relative;
 }
 
 /* Page Title */
@@ -39,17 +31,22 @@
   white-space: nowrap; /* Prevent wrapping */
 }
 
-/* Responsive Adjustments */
 @media (max-width: 600px) {
   .title-container {
-    width: 80%; /* Expand width for smaller screens */
-    margin-top: -2rem; /* Adjust vertical position */
-    padding: 8px; /* Reduce padding for smaller screens */
+    width: 70%; /* Ensure title container fills screen width */
+    margin-top: -2rem;
+    padding: 8px;
   }
 
-  .page-title {
-    font-size: 1.2rem; /* Adjust text size for smaller screens */
+  .form-card {
+    width: 70%; /* Ensure form card adapts to smaller screens */
+    min-height: auto; /* Let height adjust dynamically */
+    max-width: auto;
   }
+}
+
+.page-title {
+  font-size: 1.2rem; /* Adjust text size for smaller screens */
 }
 
 /* Landing Page */
@@ -63,21 +60,22 @@
   gap: 1.5rem;
 }
 
-/* Info Card */
+/* light background card */
 .form-card {
   background-color: #d2cfcf;
   padding: 1rem;
   border-radius: 0 20px 0 20px;
-  width: 70%;
-  min-height: 400px; /* Sets a minimum height */
+  width: 90%; /* Use responsive width */
+  max-width: 400px; /* Cap the width for larger screens */
+  min-height: 400px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
+  margin: 1rem auto; /* Center horizontally */
   display: flex;
-  flex-direction: column; /* Ensure child elements stack vertically */
-  justify-content: center; /* Distribute space for content */
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  position: relative;
   gap: 1rem;
+  position: relative;
 }
 
 .form-title-container {
@@ -125,6 +123,18 @@
   margin-right: -4rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: relative; /* Position the text box absolutely */
+}
+
+@media screen and (max-width: 600px) {
+  .form-box {
+    flex-direction: column; /* Stack the elements vertically */
+    padding: 1rem; /* Adjust padding for smaller screens */
+    border-radius: 10px; /* Reduce border-radius for a more compact look */
+    max-width: calc(100% + 6rem);
+    margin-left: -3rem; /* Remove negative left margin */
+    margin-right: -3rem; /* Remove negative right margin */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Reduce shadow for smaller screens */
+  }
 }
 
 /* Form inside the existing box */

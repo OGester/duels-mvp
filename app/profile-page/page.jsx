@@ -41,7 +41,7 @@ export default async function userPage() {
             <h2 className="page-title">Your Profile</h2>
           </div>
           <div className="profile-wrapper">
-            <div className="info-box">
+            <div className="profile-box">
               <div className="profile-header">
                 <img
                   src={profileBio?.profile_image_url}

@@ -1,5 +1,5 @@
 //import { Button } from "@/components/ui/button";
-import "./globals.css";
+//import "./globals.css";
 import { getUserFromSession } from "@/lib/auth";
 import "@/styles/navbar.css";
 import "@/styles/home.css";
@@ -11,14 +11,16 @@ export default async function Home() {
   return (
     <main className="main-container">
       <div className="title-container">
-        <h2 className="page-title">Leagues R Us</h2>
+        <h2 className="title">LEAGUE WORLD</h2>
       </div>
       <div className="landing-page">
         <div className="info-card">
-          <h2 className="info-title">What is Leagues r Us?</h2>
+          <div className="info-title-container">
+            <h2 className="info-title">Who are we?</h2>
+          </div>
           <div className="info-text-wrapper">
             <p className="info-text">
-              Leagues R Us wants to encourage interaction and playfulness
+              League World wants to encourage interaction and playfulness
               between players in a new way. Challenge friends, family, your
               local club nemesis, or random people all over the globe.
             </p>

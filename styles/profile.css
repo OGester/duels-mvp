@@ -17,7 +17,7 @@
   padding: 10px; /* Space inside the container */
   width: 50%;
   max-width: 400px;
-  min-width: 300px; /* Ensure it doesn’t shrink too much */
+  min-width: 250px; /* Ensure it doesn’t shrink too much */
   margin: -4rem auto 2rem auto; /* Center horizontally and add spacing */
   text-align: center;
   box-shadow: 0 2px 6px rgba(3, 3, 3, 0.517);
@@ -42,14 +42,14 @@
 /* Responsive Adjustments */
 @media (max-width: 600px) {
   .title-container {
-    width: 80%; /* Expand width for smaller screens */
-    margin-top: -2rem; /* Adjust vertical position */
-    padding: 8px; /* Reduce padding for smaller screens */
+    width: 70%; /* Ensure title container fills screen width */
+    margin-top: -2rem;
+    padding: 8px;
   }
+}
 
-  .page-title {
-    font-size: 1.2rem; /* Adjust text size for smaller screens */
-  }
+.page-title {
+  font-size: 1.2rem; /* Adjust text size for smaller screens */
 }
 
 .username {
@@ -123,7 +123,7 @@
 }
 
 /* Info Text */
-.info-box {
+.profile-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -307,7 +307,7 @@
   color: #333; /* Dark gray text */
   padding: 0.5rem 1rem;
   margin-bottom: 2rem;
-  width: 200px;
+  width: 150px;
   border: 2px solid #454444; /* Light gray border */
   border-radius: 0px 20px 20px 20px; /* Fully rounded */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2),

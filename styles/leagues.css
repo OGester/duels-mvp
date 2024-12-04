@@ -18,8 +18,8 @@
   padding: 10px; /* Space inside the container */
   width: 50%;
   max-width: 400px;
-  min-width: 300px; /* Ensure it doesn’t shrink too much */
-  margin: -4rem auto 2rem auto; /* Center horizontally and add spacing */
+  min-width: 250px; /* Ensure it doesn’t shrink too much */
+  margin: 1rem auto; /* Center horizontally with consistent spacing */
   text-align: center;
   box-shadow: 0 2px 6px rgba(3, 3, 3, 0.517);
   position: relative; /* Relative to parent container */
@@ -43,7 +43,7 @@
 @media (max-width: 600px) {
   .title-container {
     width: 80%; /* Expand width for smaller screens */
-    margin-top: -2rem; /* Adjust vertical position */
+    margin-bottom: -1rem; /* Adjust vertical position */
     padding: 8px; /* Reduce padding for smaller screens */
   }
 
@@ -85,7 +85,7 @@
   border: 3px solid #454444; /* Border color */
   border-radius: 20px 0px 15px 15px; /* Rounded corners */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Drop shadow */
-  width: 90%;
+  width: 100%;
   padding: 10px; /* Padding inside the container */
   margin-top: 10px;
   margin-bottom: 10px; /* Space between title container and form elements */
