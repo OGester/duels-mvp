@@ -1,5 +1,5 @@
 "use client";
-import { Input } from "@/components/ui/input";
+import "@/styles/searchBar.css";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 
@@ -22,7 +22,8 @@ export default function SearchLeague() {
 
   return (
     <div>
-      <Input
+      <input
+        className="search-input"
         onChange={(e) => handleChange(e.target.value)}
         defaultValue={searchParams.get("query") ?? ""}
         placeholder="Search"

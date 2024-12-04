@@ -1,3 +1,4 @@
+import "@/styles/leagues.css";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { db } from "@/db";
@@ -55,10 +56,10 @@ export default async function LeaguesPage({ searchParams }) {
           <Link
             key={league.league_id}
             href={`/leagues/${league.league_id}`}
-            className="flex justify-between items-center p-2 border border-orange-300 rounded"
+            className="league-link"
           >
-            <div>{league.name}</div>
-            <div>View</div>
+            <div className="league-name">{league.name}</div>
+            <div className="league-view">View</div>
           </Link>
         );
       })
@@ -66,44 +67,52 @@ export default async function LeaguesPage({ searchParams }) {
   //if no leagues are found render tis message
 
   return (
-    <main className="flex justify-center flex-col w-full">
-      <div className="flex-auto justify-center m-2">
-        <h2 className="text-center">Leagues</h2>
+    <main className="main-container">
+      <div className="title-container">
+        <h2 className="page-title">Leagues</h2>
       </div>
-      <div className="flex justify-center m-2">
-        <div className="flex w-1/2 justify-between">
-          <SearchLeague className="" />
-          <Button asChild className="bg-orange-300 text-black">
-            <Link href="/leagues/new">New League</Link>
-          </Button>
+      <div className="landing-page">
+        <div className="form-card">
+          <div className="form-title-container">
+            <button className="new-league-button">
+              <Link href="/leagues/new">New League</Link>
+            </button>
+          </div>
+          <div className="form-wrapper">
+            <div className="form-box">
+              <div className="search-box">
+                <SearchLeague />
+              </div>
+              <div className="leagues-container">{renderedLeagues}</div>
+            </div>
+          </div>
+          <div className="cta-section">
+            <div className="button-container">
+              {goBack && (
+                <Link
+                  href={{
+                    pathname: "/leagues",
+                    query: { query, pagenum: Number(pagenum) - 1 },
+                  }}
+                  className="pagination"
+                >
+                  ..Back
+                </Link>
+              )}
+              {showMore && (
+                <Link
+                  href={{
+                    pathname: "/leagues",
+                    query: { query, pagenum: Number(pagenum) + 1 },
+                  }}
+                  className="pagination"
+                >
+                  More..
+                </Link>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="flex justify-center m-2">
-        <div className="flex flex-col w-1/2 py-2 gap-2">{renderedLeagues}</div>
-      </div>
-      <div className="flex justify-center gap-4 m-4">
-        {goBack && (
-          <Link
-            href={{
-              pathname: "/leagues",
-              query: { query, pagenum: Number(pagenum) - 1 },
-            }}
-            className="font-semibold text-orange-300"
-          >
-            Back
-          </Link>
-        )}
-        {showMore && (
-          <Link
-            href={{
-              pathname: "/leagues",
-              query: { query, pagenum: Number(pagenum) + 1 },
-            }}
-            className="font-semibold text-orange-300"
-          >
-            More
-          </Link>
-        )}
       </div>
     </main>
   );

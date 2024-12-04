@@ -15,7 +15,7 @@ export default function SignUpForm() {
   return (
     <main className="main-container">
       <div className="title-container">
-        <h2 className="page-title">MY LEAGUES</h2>
+        <h2 className="page-title">LEAGUES r US</h2>
       </div>
       <div className="landing-page">
         <div className="form-card">
