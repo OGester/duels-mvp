@@ -1,0 +1,25 @@
+/* Styling for the search input */
+.search-input {
+  background-color: #d2cfcf;
+  width: 100%; /* Full width */
+  max-width: 500px; /* Limit the max width for responsiveness */
+  padding: 0.5rem 1rem; /* Padding for better appearance */
+  border: 2px solid #454444; /* Matches your styling */
+  border-radius: 15px 0px 10px 10px;
+  font-size: 1rem;
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.222); /* Optional subtle shadow */
+  margin: 0;
+}
+
+/* Focus effect for the input field */
+.search-input:focus {
+  border-color: #84b6ad; /* Change border color on focus */
+  box-shadow: 0 0 6px rgba(132, 182, 173, 0.8); /* Highlight the input */
+}
+
+/* Placeholder text styling */
+.search-input::placeholder {
+  color: #a5a5a5; /* Light gray placeholder color */
+  font-style: italic; /* Optional: Italicize placeholder */
+}

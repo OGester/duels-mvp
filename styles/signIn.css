@@ -11,26 +11,45 @@
 
 /* Title Container */
 .title-container {
-  background-color: #d2cfcf; /* Light gray */
+  background-image: linear-gradient(to bottom, #d2cfcf, #a5a5a5);
   border: 6px solid #a5a5a5; /* Slightly darker gray for the border */
   border-radius: 15px 0 15px 15px; /* Rounded corners */
   padding: 10px; /* Space inside the container */
-  width: 50%; /* Make it responsive */
-  max-width: 400px; /* Limit the max width for larger screens */
-  margin-top: -4rem;
-  margin-bottom: 2rem; /* Space between title and landing page */
+  width: 50%;
+  max-width: 400px;
+  min-width: 300px; /* Ensure it doesn’t shrink too much */
+  margin: -4rem auto 2rem auto; /* Center horizontally and add spacing */
   text-align: center;
-  box-shadow: 0 2px 6px rgba(3, 3, 3, 0.517),
-    inset 0 0 10px rgba(125, 241, 220, 0.289); /* Subtle shadow */
+  box-shadow: 0 2px 6px rgba(3, 3, 3, 0.517);
+
+  position: relative; /* Relative to parent container */
+}
+
+@media (min-width: 768px) {
+  .title-container {
+    margin-top: 1.5rem; /* Adjust margin for larger screens */
+  }
 }
 
 /* Page Title */
 .page-title {
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1.5rem; /* Responsive font size */
   color: #403f3f;
-  text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.337);
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .title-container {
+    width: 80%; /* Expand width for smaller screens */
+    margin-top: -2rem; /* Adjust vertical position */
+    padding: 8px; /* Reduce padding for smaller screens */
+  }
+
+  .page-title {
+    font-size: 1.2rem; /* Adjust text size for smaller screens */
+  }
 }
 
 /* Landing Page */
@@ -64,7 +83,7 @@
 .form-title-container {
   background-color: #84b6ad;
   border: 3px solid #454444; /* Border color */
-  border-radius: 0 0 8px 8px; /* Rounded corners */
+  border-radius: 0 10px 15px 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Drop shadow */
   width: 150px;
   padding: 5px; /* Padding inside the container */

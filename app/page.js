@@ -11,16 +11,16 @@ export default async function Home() {
   return (
     <main className="main-container">
       <div className="title-container">
-        <h2 className="page-title">MY LEAGUES</h2>
+        <h2 className="page-title">Leagues R Us</h2>
       </div>
       <div className="landing-page">
         <div className="info-card">
-          <h2 className="info-title">What is My Leagues?</h2>
+          <h2 className="info-title">What is Leagues r Us?</h2>
           <div className="info-text-wrapper">
             <p className="info-text">
-              My League wants to encourage interaction and playfulness between
-              players in a new way. Challenge friends, family, your local club
-              nemesis, or random people all over the globe.
+              Leagues R Us wants to encourage interaction and playfulness
+              between players in a new way. Challenge friends, family, your
+              local club nemesis, or random people all over the globe.
             </p>
           </div>
           <div className="cta-section">

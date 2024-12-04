@@ -27,12 +27,8 @@
   width: 100%;
   max-width: 900px;
   box-shadow: 0 4px 10px #292929;
-
-  /* New height rules */
-  min-height: calc(
-    100vh - 120px
-  ); /* Fill almost full screen, accounting for header height and gap */
-  margin-top: 1rem; /* Small gap from header */
+  min-height: calc(100vh - 120px);
+  margin-top: 1rem; /* gap from header */
   display: flex;
   flex-direction: column; /* Ensure content inside aligns properly */
   justify-content: center; /* Center content vertically if needed */
@@ -46,8 +42,8 @@
 /* Navbar container */
 .navbar {
   width: 100%;
-  background-color: #454444; /* Dark gray background */
-  padding: 0.5rem; /* Equivalent to 'py-4 px-2' */
+  background-color: #454444;
+  padding: 0.5rem;
 }
 
 /* Outer container for the nav items */

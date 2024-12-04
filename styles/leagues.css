@@ -1,0 +1,238 @@
+/* Main Container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+
+/* Title Container */
+.title-container {
+  background-image: linear-gradient(to bottom, #d2cfcf, #a5a5a5);
+  border: 6px solid #a5a5a5; /* Slightly darker gray for the border */
+  border-radius: 15px 0 15px 15px; /* Rounded corners */
+  padding: 10px; /* Space inside the container */
+  width: 50%;
+  max-width: 400px;
+  min-width: 300px; /* Ensure it doesn’t shrink too much */
+  margin: -4rem auto 2rem auto; /* Center horizontally and add spacing */
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(3, 3, 3, 0.517);
+  position: relative; /* Relative to parent container */
+}
+
+@media (min-width: 768px) {
+  .title-container {
+    margin-top: 1.5rem; /* Adjust margin for larger screens */
+  }
+}
+
+/* Page Title */
+.page-title {
+  font-size: 1.5rem; /* Responsive font size */
+  color: #403f3f;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.337);
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .title-container {
+    width: 80%; /* Expand width for smaller screens */
+    margin-top: -2rem; /* Adjust vertical position */
+    padding: 8px; /* Reduce padding for smaller screens */
+  }
+
+  .page-title {
+    font-size: 1.2rem; /* Adjust text size for smaller screens */
+  }
+}
+
+/* Landing Page */
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  gap: 1.5rem;
+}
+
+/* Info Card */
+.form-card {
+  background-color: #d2cfcf;
+  padding: 1rem;
+  border-radius: 0 20px 0 20px;
+  width: 70%;
+  min-height: 400px; /* Sets a minimum height */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column; /* Ensure child elements stack vertically */
+  justify-content: center; /* Distribute space for content */
+  align-items: center;
+  position: relative;
+  gap: 1rem;
+}
+
+.form-title-container {
+  background-color: #84b6ad;
+  border: 3px solid #454444; /* Border color */
+  border-radius: 20px 0px 15px 15px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Drop shadow */
+  width: 90%;
+  padding: 10px; /* Padding inside the container */
+  margin-top: 10px;
+  margin-bottom: 10px; /* Space between title container and form elements */
+  display: flex;
+  flex-direction: column; /* Use flexbox to center content */
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  text-align: center; /* Ensure text is centered */
+}
+
+.new-league-button {
+  background-image: linear-gradient(to bottom, #d2cfcf, #a5a5a5);
+  color: #333;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 2px solid #454444;
+  border-radius: 25px 0px 20px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+
+.new-league-button:hover {
+  background-color: #7bd0a0;
+}
+.search-box {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 100px; /* Example height, adjust as needed */
+  margin: 0;
+}
+
+/* Info Text Wrapper */
+.form-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Container for joined leagues section */
+.form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #bba8f2;
+  color: #333;
+  padding: 0.5rem;
+  border-radius: 40px 20px 20px 0px; /* Matches .info-box */
+  border: 4px solid #454444; /* Matches .info-box */
+  text-align: justify; /* Matches .info-box */
+  max-width: calc(100% + 8rem); /* Matches .info-box */
+  margin-left: -4rem; /* Matches .info-box */
+  margin-right: -4rem; /* Matches .info-box */
+  /* margin-top: 1rem; */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Matches .info-box */
+  position: relative;
+  gap: 1rem; /* Adds consistent spacing between children */
+}
+
+/* Container for leagues */
+.leagues-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-align the league links */
+  justify-content: center; /* Ensure proper alignment */
+  width: 100%; /* Take full width of the form-box */
+  gap: 0.2rem; /* Add spacing between each league */
+}
+
+/* Container for the link */
+.league-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  max-width: 100%;
+  padding: 0.2rem; /* Adjust padding for visual balance */
+  border: 3px solid #454444; /* Add a discrete border */
+  border-radius: 20px; /* Rounded corners */
+  background-image: linear-gradient(to top, #e1e1e2, #cececf);
+  text-decoration: none; /* Remove underline from the link */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem; /* Add spacing between items */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.league-link:hover {
+  background-color: #e0f7f5; /* Light teal hover background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+}
+
+/* Styling for the league name */
+.league-name {
+  font-size: 1.2rem; /* Adjusted for readability */
+  font-weight: 400; /* Medium font weight */
+  text-transform: capitalize; /* Capitalize the first letter of each word */
+  color: #333; /* Darker text color for contrast */
+  margin-bottom: 0.5rem; /* Space between name and role/view text */
+  text-align: center;
+}
+
+/* Styling for the "View" text */
+.league-view {
+  font-size: 0.9rem; /* Slightly larger than the role text */
+  font-weight: 500; /* Make it stand out a bit more */
+  color: #555; /* Darker shade for visibility */
+  margin-bottom: 0.25rem; /* Spacing below the "View" text */
+}
+
+/* CTA Section */
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  margin-top: 30px;
+  margin-bottom: -5px; /* Add space between the password input and the button */
+}
+
+/* Styling for the "More" link */
+.pagination {
+  color: #454444; /* Text color */
+  background-image: linear-gradient(to bottom, #e1e1e2, #cececf);
+  font-weight: bold; /* Bold font weight */
+  border: 1.5px solid #a5a5a5; /* Add a discrete border */
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 10px; /* Rounded corners */
+  text-decoration: none; /* Remove underline by default */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.pagination:hover {
+  color: #333; /* Slightly darker color on hover for emphasis */
+  text-decoration: underline; /* Optional: add underline on hover */
+}

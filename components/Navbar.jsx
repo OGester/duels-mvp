@@ -37,11 +37,11 @@ export default async function NavBar() {
           )}
 
           {/* Admin */}
-          <li>
+          {/*  <li>
             <NavLink href="/admin" prefetch={false}>
               Admin
             </NavLink>
-          </li>
+          </li> */}
 
           {/* Sign In/Sign Out */}
           {user ? (

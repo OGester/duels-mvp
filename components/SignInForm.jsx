@@ -12,7 +12,7 @@ export default function SignInForm() {
   return (
     <main className="main-container">
       <div className="title-container">
-        <h2 className="page-title">MY LEAGUES</h2>
+        <h2 className="page-title">LEAGUES r US</h2>
       </div>
       <div className="landing-page">
         <div className="form-card">
@@ -60,11 +60,10 @@ export default function SignInForm() {
             </div>
           </div>
           <div className="cta-section">
-            <button>
-              <Link className="register" href="/register">
-                New player?
-              </Link>
-            </button>
+            <span className="text-sm text-gray-500">New Player?</span>
+            <Link className="text-[#84b6ad]" href="/register">
+              Register here!
+            </Link>{" "}
           </div>
         </div>
       </div>

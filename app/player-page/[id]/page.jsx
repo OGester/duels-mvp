@@ -1,3 +1,4 @@
+import "@/styles/profile.css";
 import { getProfile } from "@/lib/profile";
 import { getUserFromSession } from "@/lib/auth";
 import { getLeagueRole } from "@/lib/league";
@@ -20,7 +21,53 @@ export default async function ShowUserProfile(props) {
     userRole === "OWNER" ? (await getEmail(user_id))?.email || null : null;
 
   return (
-    <main className="flex justify-center flex-col w-full">
+    <main className="main-container">
+      <div className="title-container">
+        <h2 className="page-title">Player Profile</h2>
+      </div>
+
+      <div className="landing-page">
+        <div className="profile-card">
+          <div className="page-title-container">
+            <h2 className="page-title"> {profile.username}</h2>
+
+            {email && <p className="p-2">{email}</p>}
+          </div>
+          <div className="profile-wrapper">
+            <div className="info-box">
+              <div className="profile-header">
+                <img
+                  src={profile?.profile?.profile_image_url}
+                  alt="ProfileImage"
+                  className="profile-image"
+                />
+                <div className="score-container">
+                  <div className="score-label">Your Score:</div>
+                  <p className="score">{profile?.profile?.score}</p>
+                </div>
+              </div>
+              <div className="separator"></div>
+              <div className="bio-section">
+                <div className="bio-label">Bio:</div>
+                <p className="bio-description">
+                  {profile?.profile?.description}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="cta-section">
+            <button className="leagues-button">
+              <Link href="/leagues">Go to Leagues</Link>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+{
+  /* <main className="flex justify-center flex-col w-full">
       <h2 className="text-center text-black font-bold mb-2.5">
         Player Profile
       </h2>
@@ -55,5 +102,5 @@ export default async function ShowUserProfile(props) {
         </div>
       </div>
     </main>
-  );
+ */
 }
