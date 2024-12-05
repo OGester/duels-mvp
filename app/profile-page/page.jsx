@@ -61,7 +61,7 @@ export default async function userPage() {
             </div>
             <div className="joined-leagues-container">
               <div className="joined-leagues-title">Joined Leagues:</div>
-              <p className="rendered-leagues">{renderedUserLeagues}</p>
+              <div className="leagues-container">{renderedUserLeagues}</div>
             </div>
           </div>
           <div className="cta-section">
