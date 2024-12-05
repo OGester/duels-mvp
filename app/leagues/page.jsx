@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { db } from "@/db";
 import SearchLeague from "@/components/SearchLeague";
-import { skip } from "@prisma/client/runtime/library";
+//import { skip } from "@prisma/client/runtime/library";
 
 export const metadata = {
   title: "Leagues",
@@ -92,7 +92,7 @@ export default async function LeaguesPage({ searchParams }) {
                 <Link
                   href={{
                     pathname: "/leagues",
-                    query: { query, pagenum: Number(pagenum) - 1 },
+                    query: { query, pagenum: pagenum - 1 },
                   }}
                   className="pagination"
                 >
@@ -103,7 +103,7 @@ export default async function LeaguesPage({ searchParams }) {
                 <Link
                   href={{
                     pathname: "/leagues",
-                    query: { query, pagenum: Number(pagenum) + 1 },
+                    query: { query, pagenum: pagenum + 1 },
                   }}
                   className="pagination"
                 >
