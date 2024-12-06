@@ -1,5 +1,6 @@
-import Link from "next/link";
 import "@/styles/specificLeague.css";
+import Link from "next/link";
+
 import { notFound } from "next/navigation";
 import { db } from "@/db";
 import { getUserFromSession } from "@/lib/auth";
@@ -47,11 +48,14 @@ export default async function SpecificLeaguePage(props) {
 
   const renderedMembers = await verifiedMembers.map((user) => {
     return (
-      <div key={user.user_id} className="player-link">
+      <div
+        key={user.user_id}
+        className="flex justify-between items-center p-1.5 px-6 border border-orange-200 rounded"
+      >
         <div className="font-medium">{user.username}</div>
         {/* show two buttons if usermembership is pending, accept and delete, pass both user_id and league as props */}
         {user.status === "PENDING" && (
-          <div className="flex">
+          <div className="flex items-center gap-1.5">
             <AcceptMemberButton
               user_id={user.user_id}
               league_id={league.league_id}
@@ -64,9 +68,9 @@ export default async function SpecificLeaguePage(props) {
           </div>
         )}
         {user.status === "ACCEPTED" && (
-          <div className="player-link">
+          <div className="flex items-center gap-1.5">
             <Link
-              className="visit-player"
+              className="text-orange-300"
               key={user.user_id}
               href={`/player-page/${user.user_id}?league_id=${league.league_id}`}
             >
@@ -95,8 +99,7 @@ export default async function SpecificLeaguePage(props) {
       </div>
       <div className="landing-page">
         <div className="background-card">
-          {/* show memberStatus depending on the logged in users league_user status */}
-          <div className="">
+          <div className="join-league-container">
             {leagueRole === "ADMIN" && (
               <span>You are Admin for this legague</span>
             )}
@@ -104,75 +107,62 @@ export default async function SpecificLeaguePage(props) {
               <span>Member</span>
             )}
             {userStatus === "PENDING" && <span>Awaiting Verification</span>}
-
             <div className="">
-              {/*If user havent got a userStatus on league show join league button */}
               {(!userStatus ||
                 (userStatus !== "ACCEPTED" && userStatus !== "PENDING")) && (
                 <JoinLeagueButton league={league} />
               )}
             </div>
           </div>
-
-          <div className="">
-            <div className="">
-              <div className="">
-                {/*if the logged in user created the league, show these buttons, if the user is Admin
-              show ONLY edit otherwise hide them 
-              ADD JOIN BUTTON IF leagueRole IS NULL!*/}
-
-                {leagueRole === "OWNER" && (
-                  <Link
-                    href={`/leagues/${league.league_id}/leagueAdmin`}
-                    className="new-admin-button"
-                  >
-                    New Admin
-                  </Link>
-                )}
-                {(leagueRole === "OWNER" || leagueRole === "ADMIN") && (
-                  <Link
-                    href={`/leagues/${league.league_id}/edit`}
-                    className="edit-button"
-                  >
-                    Edit
-                  </Link>
-                )}
-                {leagueRole === "OWNER" && (
-                  <DeleteLeagueModal league={league} />
-                )}
-              </div>
-
-              <div className="description-box">
-                <div>
-                  <h3 className="flex justify-center mb-1 font-bold">
-                    Description
-                  </h3>
-                </div>
-                <p className="flex justify-center">{league.description}</p>
-              </div>
-              {/* showing the accepted members in the league */}
-              <div className="members-box">
-                <div>
-                  <h3 className="flex justify-center mb-1 font-bold">
-                    League Members
-                  </h3>
-                </div>
-                {listMembers.length > 0 ? (
-                  <div className="flex flex-col gap-2">{renderedMembers}</div>
-                ) : (
-                  <div className="flex justify-center font-medium">
-                    {" "}
-                    No players in this league yet!{" "}
-                  </div>
-                )}
-              </div>
-              <div className="flex justify-center mb-1">
-                {/*If user is ACCEPTED show leave league modal */}
-                {userStatus === "ACCEPTED" && (
-                  <LeaveLeagueModal user_id={user_id} league={league} />
-                )}
-              </div>
+          <div className="form-wrapper">
+            <div className="button-box">
+              {/*If the logged in user created the league, show these buttons, if
+              the user is Admin show ONLY edit otherwise hide them ADD JOIN
+              BUTTON IF leagueRole IS NULL!*/}
+              {leagueRole === "OWNER" && (
+                <Link
+                  href={`/leagues/${league.league_id}/leagueAdmin`}
+                  className="p-2 border rounded border-orange-300"
+                >
+                  New Admin
+                </Link>
+              )}
+              {(leagueRole === "OWNER" || leagueRole === "ADMIN") && (
+                <Link
+                  href={`/leagues/${league.league_id}/edit`}
+                  className="p-2 border rounded border-orange-300"
+                >
+                  Edit
+                </Link>
+              )}
+              {leagueRole === "OWNER" && <DeleteLeagueModal league={league} />}
             </div>
+            <div className="description-box">
+              <h3 className="flex justify-center mb-1 font-bold">
+                Description
+              </h3>
+              <p className="flex justify-center">{league.description}</p>
+            </div>
+            <div className="members-box">
+              {/* showing the accepted members in the league */}
+              <h3 className="flex justify-center mb-1 font-bold">
+                League Members
+              </h3>
+              {listMembers.length > 0 ? (
+                <div className="flex flex-col gap-2">{renderedMembers}</div>
+              ) : (
+                <div className="flex justify-center font-medium">
+                  {" "}
+                  No players in this league yet!{" "}
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="cta-section">
+            {/*If user is ACCEPTED show leave league modal */}
+            {userStatus === "ACCEPTED" && (
+              <LeaveLeagueModal user_id={user_id} league={league} />
+            )}
           </div>
         </div>
       </div>
