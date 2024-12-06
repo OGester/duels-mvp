@@ -1,0 +1,19 @@
+.join-league-button {
+  background-image: linear-gradient(to bottom, #d2cfcf, #a5a5a5);
+  color: #333;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 2px solid #454444;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+
+.join-league-button:hover {
+  background-color: #7bd0a0;
+}
