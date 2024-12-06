@@ -14,7 +14,7 @@ export default async function userPage() {
   });
 
   const joinedLeagues = await getUserLeagues(user_id);
-
+  console.log("JOINED LEAGUES:", joinedLeagues);
   const renderedUserLeagues = joinedLeagues.map((league) => {
     return (
       <Link

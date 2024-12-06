@@ -1,0 +1,351 @@
+/* Main Container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+
+/* Title Container */
+.title-container {
+  background-image: linear-gradient(to bottom, #d2cfcf, #a5a5a5);
+  border: 6px solid #a5a5a5;
+  border-radius: 15px 0 15px 15px;
+  padding: 10px;
+  width: 50%;
+  max-width: 400px;
+  min-width: 250px;
+  margin: 1rem auto;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(3, 3, 3, 0.517);
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .title-container {
+    margin-top: 1.5rem; /* Adjust margin for larger screens */
+  }
+}
+
+/* Page Title */
+.league-title {
+  font-size: 1.5rem; /* Responsive font size */
+  color: #403f3f;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.337);
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .title-container {
+    width: 80%; /* Expand width for smaller screens */
+    margin-bottom: -1rem; /* Adjust vertical position */
+    padding: 8px; /* Reduce padding for smaller screens */
+  }
+
+  .page-title {
+    font-size: 1.2rem; /* Adjust text size for smaller screens */
+  }
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  gap: 1.5rem;
+}
+
+/* background */
+.background-card {
+  background-color: #d2cfcf;
+  padding: 1rem;
+  border-radius: 0 20px 0 20px;
+  width: 70%;
+  min-height: 400px; /* Sets a minimum height */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column; /* Ensure child elements stack vertically */
+  justify-content: center; /* Distribute space for content */
+  align-items: center;
+  position: relative;
+  gap: 1rem;
+}
+
+.join-league-container {
+  background-color: #84b6ad;
+  border: 3px solid #454444;
+  border-radius: 20px 0px 15px 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+/*button to join league*/
+.join-league-button {
+  background-image: linear-gradient(to bottom, #d2cfcf, #a5a5a5);
+  color: #333;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 2px solid #454444;
+  border-radius: 25px 0px 20px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+
+.join-league-button:hover {
+  background-color: #7bd0a0;
+}
+/*buttons for managing league*/
+.new-admin-button {
+  background-image: linear-gradient(to bottom, #d2cfcf, #a5a5a5);
+  color: #333;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 2px solid #454444;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+
+.new-admin-button:hover {
+  background-color: #7bd0a0;
+}
+
+.edit-button {
+  background-image: linear-gradient(to bottom, #d2cfcf, #a5a5a5);
+  color: #333;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 2px solid #454444;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+
+.edit-button:hover {
+  background-color: #7bd0a0;
+}
+
+.delete-button {
+  background-image: linear-gradient(to bottom, #d2cfcf, #a5a5a5);
+  color: #333;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 2px solid #454444;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+
+.delete-button:hover {
+  background-color: #7bd0a0;
+}
+
+/* Container for joined leagues section */
+.description-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #bba8f2;
+  color: #333;
+  padding: 0.5rem;
+  border-radius: 40px 20px 20px 0px;
+  border: 4px solid #454444;
+  text-align: justify;
+  max-width: calc(100% + 8rem);
+  margin-left: -4rem;
+  margin-right: -4rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  gap: 1rem;
+}
+
+/* Info Text Wrapper */
+.form-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Container for joined leagues section */
+.members-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #bba8f2;
+  color: #333;
+  padding: 0.5rem;
+  border-radius: 40px 20px 20px 0px;
+  border: 4px solid #454444;
+  text-align: justify;
+  max-width: calc(100% + 8rem);
+  margin-left: -4rem;
+  margin-right: -4rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  gap: 1rem;
+}
+
+/* Container for leagues */
+.players-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.2rem;
+}
+
+/* Container for the link */
+.player-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  max-width: 100%;
+  padding: 0.2rem;
+  border: 3px solid #454444;
+  border-radius: 20px;
+  background-image: linear-gradient(to top, #e1e1e2, #cececf);
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player-link:hover {
+  background-color: #e0f7f5;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Common container styles */
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* 8px gap between elements */
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+/* Link Styling */
+.link {
+  color: #fbd38d; /* Orange shade */
+  text-decoration: none;
+  font-size: 0.875rem; /* Small text */
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #f6ad55; /* Darker orange on hover */
+  text-decoration: underline;
+}
+
+/* Button Base Styling */
+.button {
+  padding: 6px 12px; /* Padding for a compact look */
+  font-size: 0.875rem; /* Small text */
+  border-radius: 4px; /* Rounded corners */
+  border: none; /* Remove default borders */
+  cursor: pointer;
+  color: #fff; /* White text for contrast */
+  transition: background-color 0.2s ease;
+}
+
+/* Common button hover and focus styles */
+.button:hover {
+  opacity: 0.9;
+}
+
+.button:focus {
+  outline: 2px solid #ddd; /* Add focus outline for accessibility */
+}
+
+/* Accept and Remove button variants */
+.button.accept {
+  background-color: #48bb78; /* Green */
+}
+
+.button.accept:hover {
+  background-color: #38a169; /* Darker green on hover */
+}
+
+.button.remove {
+  background-color: #e53e3e; /* Red */
+}
+
+.button.remove:hover {
+  background-color: #c53030; /* Darker red on hover */
+}
+
+/* Styling for the league name */
+.player-name {
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* Styling for the "View" text */
+.visit-player {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+
+/* CTA Section */
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: -5px;
+}
