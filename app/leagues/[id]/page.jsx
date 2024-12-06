@@ -1,6 +1,5 @@
 import "@/styles/specificLeague.css";
 import Link from "next/link";
-
 import { notFound } from "next/navigation";
 import { db } from "@/db";
 import { getUserFromSession } from "@/lib/auth";
