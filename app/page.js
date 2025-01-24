@@ -1,5 +1,3 @@
-//import { Button } from "@/components/ui/button";
-//import "./globals.css";
 import { getUserFromSession } from "@/lib/auth";
 import "@/styles/navbar.css";
 import "@/styles/home.css";

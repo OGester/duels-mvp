@@ -1,6 +1,5 @@
 "use client";
 import "@/styles/createLeague.css";
-import Link from "next/link";
 import { useState } from "react";
 import { createLeagueAction } from "@/app/leagues/new/actions";
 import { useFormState } from "../lib/hooks";
