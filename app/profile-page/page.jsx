@@ -68,6 +68,9 @@ export default async function userPage() {
             <button className="leagues-button">
               <Link href="/leagues">Go to Leagues</Link>
             </button>
+            <button className="edit-button">
+              <Link href="/profile-page/settings">Update profile</Link>
+            </button>
           </div>
         </div>
       </div>
