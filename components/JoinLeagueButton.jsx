@@ -1,7 +1,7 @@
-//import joinLeague function here
+import "@/styles/buttons.css";
 import { redirect } from "next/navigation";
 import { joinLeague } from "@/lib/league";
-//import { joinLeagueTest } from "@/lib/league";
+
 import { getUserFromSession } from "@/lib/auth";
 import { getLeagueRole } from "@/lib/league";
 
@@ -27,10 +27,7 @@ export default function JoinLeagueButton({ league }) {
     //uses a form even though there is no input to be able
     //to invoke a server action
     <form action={action}>
-      <button
-        className="text-green-500 p-2 border rounded-lg border-slate-300"
-        type="submit"
-      >
+      <button className="join-league-button" type="submit">
         Join League
       </button>
     </form>

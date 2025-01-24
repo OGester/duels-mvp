@@ -14,7 +14,7 @@ export default async function userPage() {
   });
 
   const joinedLeagues = await getUserLeagues(user_id);
-
+  console.log("JOINED LEAGUES:", joinedLeagues);
   const renderedUserLeagues = joinedLeagues.map((league) => {
     return (
       <Link
@@ -67,6 +67,9 @@ export default async function userPage() {
           <div className="cta-section">
             <button className="leagues-button">
               <Link href="/leagues">Go to Leagues</Link>
+            </button>
+            <button className="edit-button">
+              <Link href="/profile-page/settings">Update profile</Link>
             </button>
           </div>
         </div>

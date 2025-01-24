@@ -1,0 +1,309 @@
+/* Main Container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+/* title container */
+.title-container {
+  background-image: linear-gradient(to bottom, #d2cfcf, #a5a5a5);
+  border: 6px solid #a5a5a5;
+  border-radius: 15px 0 15px 15px;
+  padding: 10px;
+  width: 70%; /* Make it almost full-width on small screens */
+  max-width: 400px;
+  min-width: 250px; /* Ensure it doesn’t shrink too much */
+  margin: 1rem auto; /* Center horizontally with consistent spacing */
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(3, 3, 3, 0.517);
+  position: relative;
+}
+
+/* Page Title */
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #403f3f;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.198);
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+@media (max-width: 600px) {
+  .title-container {
+    width: 70%; /* Ensure title container fills screen width */
+    margin-top: -2rem;
+    padding: 8px;
+  }
+
+  .form-card {
+    width: 70%; /* Ensure form card adapts to smaller screens */
+    min-height: auto; /* Let height adjust dynamically */
+    max-width: auto;
+  }
+}
+
+.page-title {
+  font-size: 1.2rem; /* Adjust text size for smaller screens */
+}
+
+/* Landing Page */
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  gap: 1.5rem;
+}
+
+/* light background card */
+.form-card {
+  background-color: #d2cfcf;
+  padding: 1rem;
+  border-radius: 0 20px 0 20px;
+  width: 90%; /* Use responsive width */
+  max-width: 400px; /* Cap the width for larger screens */
+  min-height: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 1rem auto; /* Center horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.form-title-container {
+  background-color: #84b6ad;
+  border: 3px solid #454444;
+  border-radius: 10px 0px 10px 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.form-title {
+  font-size: 1rem; /* Larger font */
+  font-weight: bold;
+  color: #403f3f; /* Darker text color */
+  text-align: center;
+}
+
+/* Info Text Wrapper */
+.form-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Info Text */
+.form-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bba8f2;
+  color: #333;
+  padding: 2rem;
+  border-radius: 20px 0 40px 20px;
+  border: 4px solid #454444;
+  text-align: justify;
+  max-width: calc(100% + 8rem);
+  margin-left: -4rem;
+  margin-right: -4rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* Position the text box absolutely */
+}
+
+@media screen and (max-width: 600px) {
+  .form-box {
+    flex-direction: column; /* Stack the elements vertically */
+    padding: 1rem; /* Adjust padding for smaller screens */
+    border-radius: 0px 10px 25px 0px; /* Reduce border-radius for a more compact look */
+    max-width: calc(100% + 6rem);
+    margin-left: -3rem; /* Remove negative left margin */
+    margin-right: -3rem; /* Remove negative right margin */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Reduce shadow for smaller screens */
+  }
+}
+
+/* Form inside the existing box */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem; /* Add space between form groups */
+  width: 100%; /* Make the form take full width of the container */
+  max-width: 400px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style the labels */
+.form-label {
+  font-size: 0.9rem;
+  color: #e1e1e1;
+  margin-bottom: 0.1rem;
+  padding-left: 0.5rem;
+}
+
+.leagueName-input {
+  background-color: #d9d9d9; /* Input background color */
+  border: 2px solid #454444; /* Input border color */
+  color: #333; /* Text color */
+  padding: 5px 12px; /* Space inside the input */
+  border-radius: 10px 10px 0px 0px; /* Slightly rounded corners */
+  font-size: 14px; /* Input text size */
+  outline: none; /* Remove default outline */
+  transition: border-color 0.3s ease; /* Smooth focus transition */
+}
+.drop-down {
+  border: 2px solid #454444;
+  border-radius: 0px 0px 10px 10px;
+  background-color: #d9d9d9;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+
+  cursor: pointer;
+}
+
+.drop-down:focus {
+  border-color: #888;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.start-input {
+  background-color: #d9d9d9; /* Input background color */
+  border: 2px solid #454444; /* Input border color */
+  color: #333; /* Text color */
+  padding: 5px 12px; /* Space inside the input */
+  border-radius: 10px 10px 0px 0px; /* Slightly rounded corners */
+  font-size: 14px; /* Input text size */
+  outline: none; /* Remove default outline */
+  transition: border-color 0.3s ease; /* Smooth focus transition */
+}
+/* Style the inputs */
+
+.end-input {
+  background-color: #d9d9d9; /* Input background color */
+  border: 2px solid #454444; /* Input border color */
+  color: #333; /* Text color */
+  padding: 5px 12px; /* Space inside the input */
+  border-radius: 0 0 0 0; /* Slightly rounded corners */
+  font-size: 14px; /* Input text size */
+  outline: none; /* Remove default outline */
+  transition: border-color 0.3s ease; /* Smooth focus transition */
+}
+
+.description-input {
+  background-color: #d9d9d9; /* Input background color */
+  border: 2px solid #454444; /* Input border color */
+  color: #333; /* Text color */
+  padding: 5px 12px; /* Space inside the input */
+  width: 400px;
+  margin-bottom: 10px;
+  border-radius: 0 0 20px 20px; /* Slightly rounded corners */
+  font-size: 14px; /* Input text size */
+  outline: none; /* Remove default outline */
+  transition: border-color 0.3s ease; /* Smooth focus transition */
+}
+
+@media (max-width: 768px) {
+  .description-input {
+    width: 100%; /* Full width for smaller screens */
+  }
+}
+
+/* Add focus effect for inputs */
+.form-input:focus {
+  border-color: #5a5a5a; /* Darker border on focus */
+  background-color: #f0f0f0; /* Highlight background on focus */
+}
+
+.isPublic-label {
+  font-size: 0.8rem;
+  color: #6b6b6b;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Hide the default checkbox */
+.custom-checkbox {
+  width: 30px;
+  height: 30px;
+}
+
+/* CTA Section */
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  margin-top: 30px;
+  margin-bottom: -5px; /* Add space between the password input and the button */
+}
+
+/* Rounded Button */
+.createLeague-button {
+  background-color: #9bdacf;
+  color: #333;
+  font-weight: 600;
+  padding: 0.2rem 0.8rem;
+  width: 150px;
+  border: 2px solid #454444;
+  border-radius: 0px 20px 20px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2),
+    inset 0 0 10px rgba(60, 173, 152, 0.464);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sign-in-button:hover {
+  background-color: #008080; /* Darker teal for hover */
+}
+
+/* Secondary Button */
+.register-button {
+  background-color: #d2cfcf; /* Light gray */
+  color: #333;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  border: 2px solid #b3b3b3; /* Slightly darker gray */
+  border-radius: 20px 0 20px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #c4c4c4; /* Slightly darker gray on hover */
+}

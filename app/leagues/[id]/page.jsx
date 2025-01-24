@@ -1,5 +1,5 @@
+import "@/styles/specificLeague.css";
 import Link from "next/link";
-
 import { notFound } from "next/navigation";
 import { db } from "@/db";
 import { getUserFromSession } from "@/lib/auth";
@@ -92,39 +92,32 @@ export default async function SpecificLeaguePage(props) {
   //console.log("RENDERED USERS:", renderedMembers);
 
   return (
-    <main className="flex flex-col w-full">
-      <div className="flexp-4 max-w-full">
-        <div className="flex justify-center min-w-full">
-          <h2 className="text-center text-black text-transform: capitalize font-bold mb-2.5 w-full">
-            {league.name}
-          </h2>
-        </div>
-        {/* show memberStatus depending on the logged in users league_user status */}
-        <div className="flex justify-center my-1 font-medium text-orange-400">
-          {leagueRole === "ADMIN" && (
-            <span>You are Admin for this legague</span>
-          )}
-          {userStatus === "ACCEPTED" && leagueRole !== "ADMIN" && (
-            <span>Member</span>
-          )}
-          {userStatus === "PENDING" && <span>Awaiting Verification</span>}
-
-          <div className="flex justify-center mb-1">
-            {/*If user havent got a userStatus on league show join league button */}
-            {(!userStatus ||
-              (userStatus !== "ACCEPTED" && userStatus !== "PENDING")) && (
-              <JoinLeagueButton league={league} />
+    <main className="main-container">
+      <div className="title-container">
+        <h2 className="league-title">{league.name}</h2>
+      </div>
+      <div className="landing-page">
+        <div className="background-card">
+          <div className="join-league-container">
+            {leagueRole === "ADMIN" && (
+              <span>You are Admin for this legague</span>
             )}
+            {userStatus === "ACCEPTED" && leagueRole !== "ADMIN" && (
+              <span>Member</span>
+            )}
+            {userStatus === "PENDING" && <span>Awaiting Verification</span>}
+            <div className="">
+              {(!userStatus ||
+                (userStatus !== "ACCEPTED" && userStatus !== "PENDING")) && (
+                <JoinLeagueButton league={league} />
+              )}
+            </div>
           </div>
-        </div>
-
-        <div className=" flex justify-center min-w-full min-h-full pt-6">
-          <div className="flex flex-col justify-center border-4 rounded-xl border-orange-300 w-1/2 h-full py-4 px-4 gap-4">
-            <div className="flex justify-end gap-4">
-              {/*If the logged in user created the league, show these buttons, if the user is Admin
-              show ONLY edit otherwise hide them 
-              ADD JOIN BUTTON IF leagueRole IS NULL!*/}
-
+          <div className="form-wrapper">
+            <div className="button-box">
+              {/*If the logged in user created the league, show these buttons, if
+              the user is Admin show ONLY edit otherwise hide them ADD JOIN
+              BUTTON IF leagueRole IS NULL!*/}
               {leagueRole === "OWNER" && (
                 <Link
                   href={`/leagues/${league.league_id}/leagueAdmin`}
@@ -141,32 +134,19 @@ export default async function SpecificLeaguePage(props) {
                   Edit
                 </Link>
               )}
-              {leagueRole === "OWNER" && (
-                <DeleteLeagueModal league={league} />
-                /* <Link
-                  href={`/leagues/${league.league_id}/delete`}
-                  className="p-2 border rounded border-orange-300"
-                >
-                  Delete
-                </Link> */
-              )}
+              {leagueRole === "OWNER" && <DeleteLeagueModal league={league} />}
             </div>
-
-            <div className="flex flex-col justify-center p-4 border rounded border-slate-300">
-              <div>
-                <h3 className="flex justify-center mb-1 font-bold">
-                  Description
-                </h3>
-              </div>
+            <div className="description-box">
+              <h3 className="flex justify-center mb-1 font-bold">
+                Description
+              </h3>
               <p className="flex justify-center">{league.description}</p>
             </div>
-            {/* showing the accepted members in the league */}
-            <div className="flex flex-col justify-center p-4 border rounded border-slate-300">
-              <div>
-                <h3 className="flex justify-center mb-1 font-bold">
-                  League Members
-                </h3>
-              </div>
+            <div className="members-box">
+              {/* showing the accepted members in the league */}
+              <h3 className="flex justify-center mb-1 font-bold">
+                League Members
+              </h3>
               {listMembers.length > 0 ? (
                 <div className="flex flex-col gap-2">{renderedMembers}</div>
               ) : (
@@ -176,29 +156,15 @@ export default async function SpecificLeaguePage(props) {
                 </div>
               )}
             </div>
-            <div className="flex justify-center mb-1">
-              {/*If user is ACCEPTED show leave league modal */}
-              {userStatus === "ACCEPTED" && (
-                <LeaveLeagueModal user_id={user_id} league={league} />
-              )}
-            </div>
+          </div>
+          <div className="cta-section">
+            {/*If user is ACCEPTED show leave league modal */}
+            {userStatus === "ACCEPTED" && (
+              <LeaveLeagueModal user_id={user_id} league={league} />
+            )}
           </div>
         </div>
       </div>
     </main>
   );
 }
-
-/* {user.status === "PENDING" && (
-  <AcceptMemberButton
-    user_id={user.user_id}
-    league_id={league.league_id}
-  />
-)}
-{user.status === "PENDING" && (
-  <RemoveMemberButton
-    user_id={user.user_id}
-    league_id={league.league_id}
-  />
-)}
- */

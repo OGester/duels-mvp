@@ -1,5 +1,4 @@
 import "@/styles/leagues.css";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { db } from "@/db";
 import SearchLeague from "@/components/SearchLeague";
