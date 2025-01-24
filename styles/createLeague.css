@@ -25,9 +25,10 @@
 
 /* Page Title */
 .page-title {
-  font-size: 1.5rem; /* Responsive font size */
+  font-size: 1.5rem;
+  font-weight: 600;
   color: #403f3f;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.337);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.198);
   white-space: nowrap; /* Prevent wrapping */
 }
 
@@ -81,7 +82,7 @@
 .form-title-container {
   background-color: #84b6ad;
   border: 3px solid #454444;
-  border-radius: 10px 0px 15px 15px;
+  border-radius: 10px 0px 10px 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 200px;
   padding: 5px;
@@ -113,7 +114,7 @@
   background-color: #bba8f2;
   color: #333;
   padding: 2rem;
-  border-radius: 20px 0 20px 20px;
+  border-radius: 20px 0 40px 20px;
   border: 4px solid #454444;
   text-align: justify;
   max-width: calc(100% + 8rem);
@@ -123,31 +124,11 @@
   position: relative; /* Position the text box absolutely */
 }
 
-.description-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #bba8f2;
-  color: #333;
-  padding: 1rem;
-  border-radius: 40px 20px 20px 0px;
-  border: 4px solid #454444;
-  text-align: justify;
-  max-width: calc(100% + 8rem);
-  margin-left: -4rem;
-  margin-right: -4rem;
-  margin-top: 2rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
-  gap: 1rem;
-}
-
 @media screen and (max-width: 600px) {
   .form-box {
     flex-direction: column; /* Stack the elements vertically */
     padding: 1rem; /* Adjust padding for smaller screens */
-    border-radius: 10px; /* Reduce border-radius for a more compact look */
+    border-radius: 0px 10px 25px 0px; /* Reduce border-radius for a more compact look */
     max-width: calc(100% + 6rem);
     margin-left: -3rem; /* Remove negative left margin */
     margin-right: -3rem; /* Remove negative right margin */
@@ -222,7 +203,7 @@
   border: 2px solid #454444; /* Input border color */
   color: #333; /* Text color */
   padding: 5px 12px; /* Space inside the input */
-  border-radius: 0 0 0 10px; /* Slightly rounded corners */
+  border-radius: 0 0 0 0; /* Slightly rounded corners */
   font-size: 14px; /* Input text size */
   outline: none; /* Remove default outline */
   transition: border-color 0.3s ease; /* Smooth focus transition */
@@ -235,10 +216,16 @@
   padding: 5px 12px; /* Space inside the input */
   width: 400px;
   margin-bottom: 10px;
-  border-radius: 0 0 0 10px; /* Slightly rounded corners */
+  border-radius: 0 0 20px 20px; /* Slightly rounded corners */
   font-size: 14px; /* Input text size */
   outline: none; /* Remove default outline */
   transition: border-color 0.3s ease; /* Smooth focus transition */
+}
+
+@media (max-width: 768px) {
+  .description-input {
+    width: 100%; /* Full width for smaller screens */
+  }
 }
 
 /* Add focus effect for inputs */
@@ -286,7 +273,7 @@
 
 /* Rounded Button */
 .createLeague-button {
-  background-color: #84b6ad;
+  background-color: #9bdacf;
   color: #333;
   font-weight: 600;
   padding: 0.2rem 0.8rem;

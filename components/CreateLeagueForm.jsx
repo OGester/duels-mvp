@@ -27,92 +27,90 @@ export default function CreateLeagueForm() {
             <div className="form-box">
               <div className="form">
                 <form onSubmit={handleSubmit}>
-                  <div className="grid w-full items-center gap-4 mt-6">
-                    <div className="form-group">
-                      <label htmlFor="nameField" className="form-label">
-                        League name
-                      </label>
-                      <input
-                        id="nameField"
-                        name="name"
-                        type="text"
-                        className="leagueName-input"
-                        placeholder="Name"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="typeField" className="form-label">
-                        League type
-                      </label>
-                      <select id="typeField" name="type" className="drop-down ">
-                        <option value="" disabled>
-                          {" "}
-                          Select league type
-                        </option>
-                        {leagueType.map((type) => (
-                          <option key={type} value={type}>
-                            {/*converts "GLOBAL" to "Global by making all characters after the first to lowercase*/}
-                            {type.charAt(0) + type.slice(1).toLowerCase()}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div className="form-group">
-                      <label htmlFor="startDate" className="form-label">
-                        Start date
-                      </label>
-                      <input
-                        id="startDate"
-                        name="startDate"
-                        type="date"
-                        className="start-input"
-                        placeholder="YYYY-MM-DD"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="endDate" className="form-label">
-                        End date
-                      </label>
-                      <input
-                        id="endDate"
-                        name="endDate"
-                        type="date"
-                        className="end-input"
-                        placeholder="YYYY-MM-DD"
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      <label htmlFor="descriptionField" className="form-label">
-                        Description
-                      </label>
-                      <textarea
-                        id="descriptionField"
-                        name="description"
-                        type="text"
-                        className="description-input"
-                        placeholder="League description"
-                      />
-                    </div>
-
-                    <div className="checkbox-group">
-                      <label htmlFor="isPublic" className="isPublic-label">
-                        Public League?
-                      </label>
-                      <input
-                        type="checkbox"
-                        id="isPublic"
-                        name="isPublic"
-                        checked={isPublic}
-                        onChange={(e) => setIsPublic(e.target.checked)}
-                        className="custom-checkbox "
-                      />
-                    </div>
-                    {Boolean(state.error) && (
-                      <p className="text-red-700">{state.error.message}</p>
-                    )}
+                  <div className="form-group">
+                    <label htmlFor="nameField" className="form-label">
+                      League name
+                    </label>
+                    <input
+                      id="nameField"
+                      name="name"
+                      type="text"
+                      className="leagueName-input"
+                      placeholder="Name"
+                    />
                   </div>
+                  <div className="form-group">
+                    <label htmlFor="typeField" className="form-label">
+                      League type
+                    </label>
+                    <select id="typeField" name="type" className="drop-down ">
+                      <option value="" disabled>
+                        {" "}
+                        Select league type
+                      </option>
+                      {leagueType.map((type) => (
+                        <option key={type} value={type}>
+                          {/*converts "GLOBAL" to "Global by making all characters after the first to lowercase*/}
+                          {type.charAt(0) + type.slice(1).toLowerCase()}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="startDate" className="form-label">
+                      Start date
+                    </label>
+                    <input
+                      id="startDate"
+                      name="startDate"
+                      type="date"
+                      className="start-input"
+                      placeholder="YYYY-MM-DD"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="endDate" className="form-label">
+                      End date
+                    </label>
+                    <input
+                      id="endDate"
+                      name="endDate"
+                      type="date"
+                      className="end-input"
+                      placeholder="YYYY-MM-DD"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="descriptionField" className="form-label">
+                      Description
+                    </label>
+                    <textarea
+                      id="descriptionField"
+                      name="description"
+                      type="text"
+                      className="description-input"
+                      placeholder="League description"
+                    />
+                  </div>
+
+                  <div className="checkbox-group">
+                    <label htmlFor="isPublic" className="isPublic-label">
+                      Public League?
+                    </label>
+                    <input
+                      type="checkbox"
+                      id="isPublic"
+                      name="isPublic"
+                      checked={isPublic}
+                      onChange={(e) => setIsPublic(e.target.checked)}
+                      className="custom-checkbox "
+                    />
+                  </div>
+                  {Boolean(state.error) && (
+                    <p className="text-red-700">{state.error.message}</p>
+                  )}
                 </form>
               </div>
             </div>
