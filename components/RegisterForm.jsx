@@ -1,6 +1,5 @@
 "use client";
 import "@/styles/register.css";
-import { Card, CardContent } from "@/components/ui/card";
 
 //change to register action for readability?
 import { signUpAction } from "@/app/register/actions";

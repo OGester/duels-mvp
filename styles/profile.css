@@ -318,7 +318,7 @@
   background-color: #9ae5b9; /* Teal color */
   color: #333; /* Dark gray text */
   padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.2rem;
   width: 150px;
   border: 2px solid #454444; /* Light gray border */
   border-radius: 0px 20px 20px 20px; /* Fully rounded */
@@ -334,7 +334,7 @@
 }
 
 .edit-button {
-  background-color: #9c80f2; /* Teal color */
+  background-color: #82c29c; /* Teal color */
   color: #333; /* Dark gray text */
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
@@ -349,5 +349,5 @@
 }
 
 .leagues-button:hover {
-  background-color: #8303d8; /* Darker teal for hover */
+  background-color: #006868; /* Darker teal for hover */
 }
