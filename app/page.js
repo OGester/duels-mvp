@@ -28,7 +28,7 @@ export default async function Home() {
           <div className="cta-section">
             <button className="letsplay-button">
               <Link href={user ? "/profile-page" : "/sign-in"}>
-                Let’s Play!
+                Enter our world!
               </Link>
             </button>
             {!user && (

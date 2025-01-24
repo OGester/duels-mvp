@@ -80,16 +80,16 @@
 
 .form-title-container {
   background-color: #84b6ad;
-  border: 3px solid #454444; /* Border color */
-  border-radius: 0 10px 15px 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Drop shadow */
-  width: 150px;
-  padding: 5px; /* Padding inside the container */
-  margin-bottom: 10px; /* Space between title container and form elements */
-  display: flex; /* Use flexbox to center content */
-  justify-content: center; /* Horizontally center */
-  align-items: center; /* Vertically center */
-  text-align: center; /* Ensure text is centered */
+  border: 3px solid #454444;
+  border-radius: 10px 0px 15px 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .form-title {
@@ -97,8 +97,6 @@
   font-weight: bold;
   color: #403f3f; /* Darker text color */
   text-align: center;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-  margin: 0;
 }
 
 /* Info Text Wrapper */
@@ -180,31 +178,40 @@
   padding-left: 0.5rem;
 }
 
-.isPublic-label {
-  font-size: 0.8rem;
-  color: #e1e1e1;
-  margin-bottom: 0.3rem;
-  text-align: center;
-}
-
 .leagueName-input {
   background-color: #d9d9d9; /* Input background color */
   border: 2px solid #454444; /* Input border color */
   color: #333; /* Text color */
-  padding: 0.2rem 1rem; /* Space inside the input */
+  padding: 5px 12px; /* Space inside the input */
   border-radius: 10px 10px 0px 0px; /* Slightly rounded corners */
-  font-size: 0.8rem; /* Input text size */
+  font-size: 14px; /* Input text size */
   outline: none; /* Remove default outline */
   transition: border-color 0.3s ease; /* Smooth focus transition */
 }
-/* Style the inputs */
+.drop-down {
+  border: 2px solid #454444;
+  border-radius: 0px 0px 10px 10px;
+  background-color: #d9d9d9;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+
+  cursor: pointer;
+}
+
+.drop-down:focus {
+  border-color: #888;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
 .start-input {
   background-color: #d9d9d9; /* Input background color */
   border: 2px solid #454444; /* Input border color */
   color: #333; /* Text color */
-  padding: 0.2rem 1rem; /* Space inside the input */
+  padding: 5px 12px; /* Space inside the input */
   border-radius: 10px 10px 0px 0px; /* Slightly rounded corners */
-  font-size: 0.8rem; /* Input text size */
+  font-size: 14px; /* Input text size */
   outline: none; /* Remove default outline */
   transition: border-color 0.3s ease; /* Smooth focus transition */
 }
@@ -214,9 +221,9 @@
   background-color: #d9d9d9; /* Input background color */
   border: 2px solid #454444; /* Input border color */
   color: #333; /* Text color */
-  padding: 0.2rem 1rem; /* Space inside the input */
+  padding: 5px 12px; /* Space inside the input */
   border-radius: 0 0 0 10px; /* Slightly rounded corners */
-  font-size: 0.8rem; /* Input text size */
+  font-size: 14px; /* Input text size */
   outline: none; /* Remove default outline */
   transition: border-color 0.3s ease; /* Smooth focus transition */
 }
@@ -225,11 +232,11 @@
   background-color: #d9d9d9; /* Input background color */
   border: 2px solid #454444; /* Input border color */
   color: #333; /* Text color */
-  padding: 0.2rem 1rem; /* Space inside the input */
+  padding: 5px 12px; /* Space inside the input */
   width: 400px;
   margin-bottom: 10px;
   border-radius: 0 0 0 10px; /* Slightly rounded corners */
-  font-size: 0.8rem; /* Input text size */
+  font-size: 14px; /* Input text size */
   outline: none; /* Remove default outline */
   transition: border-color 0.3s ease; /* Smooth focus transition */
 }
@@ -240,18 +247,22 @@
   background-color: #f0f0f0; /* Highlight background on focus */
 }
 
+.isPublic-label {
+  font-size: 0.8rem;
+  color: #6b6b6b;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
 .checkbox-group {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.checkbox {
-  background-color: #d9d9d9;
-  border: 2px solid #454444;
-  border-radius: 0 0 0 10px;
-  width: 20px;
-  height: 20px;
-  outline: none;
+
+/* Hide the default checkbox */
+.custom-checkbox {
+  width: 30px;
+  height: 30px;
 }
 
 /* CTA Section */
@@ -262,6 +273,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   width: 100%;
 }
 

@@ -16,15 +16,15 @@ export default function CreateLeagueForm() {
   return (
     <main className="main-container">
       <div className="title-container">
-        <h2 className="page-title">Create new League</h2>
+        <h2 className="page-title">CREATE NEW LEAGUE</h2>
       </div>
       <div className="landing-page">
-        <div className="profile-card">
-          <div className="page-title-container">
-            <h2 className="form-title">League info</h2>
+        <div className="form-card">
+          <div className="form-title-container">
+            <h2 className="form-title">Enter League Info</h2>
           </div>
-          <div className="profile-wrapper">
-            <div className="profile-box">
+          <div className="form-wrapper">
+            <div className="form-box">
               <div className="form">
                 <form onSubmit={handleSubmit}>
                   <div className="grid w-full items-center gap-4 mt-6">
@@ -37,14 +37,14 @@ export default function CreateLeagueForm() {
                         name="name"
                         type="text"
                         className="leagueName-input"
-                        placeholder="name"
+                        placeholder="Name"
                       />
                     </div>
                     <div className="form-group">
                       <label htmlFor="typeField" className="form-label">
                         League type
                       </label>
-                      <select id="typeField" name="type" className="">
+                      <select id="typeField" name="type" className="drop-down ">
                         <option value="" disabled>
                           {" "}
                           Select league type
@@ -82,6 +82,7 @@ export default function CreateLeagueForm() {
                         placeholder="YYYY-MM-DD"
                       />
                     </div>
+
                     <div className="form-group">
                       <label htmlFor="descriptionField" className="form-label">
                         Description
@@ -91,9 +92,10 @@ export default function CreateLeagueForm() {
                         name="description"
                         type="text"
                         className="description-input"
-                        placeholder="Profile description"
+                        placeholder="League description"
                       />
                     </div>
+
                     <div className="checkbox-group">
                       <label htmlFor="isPublic" className="isPublic-label">
                         Public League?
@@ -102,9 +104,9 @@ export default function CreateLeagueForm() {
                         type="checkbox"
                         id="isPublic"
                         name="isPublic"
-                        className="checkbox"
                         checked={isPublic}
                         onChange={(e) => setIsPublic(e.target.checked)}
+                        className="custom-checkbox "
                       />
                     </div>
                     {Boolean(state.error) && (
