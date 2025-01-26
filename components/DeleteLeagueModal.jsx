@@ -3,7 +3,6 @@ import { useState } from "react";
 import { deleteLeagueAction } from "@/app/leagues/[id]/actions";
 
 import Modal from "@/components/Modal";
-import { Button } from "./ui/button";
 import { useFormState } from "@/lib/hooks";
 import { useRouter } from "next/navigation";
 
@@ -41,16 +40,16 @@ export default function DeleteLeagueModal({ league }) {
           <form onSubmit={handleSubmit}>
             <input type="hidden" name="league_id" value={league.league_id} />
             <div className="flex justify-center gap-4">
-              <Button className="bg-green-200 text-black" type="submit">
+              <button className="bg-green-200 text-black" type="submit">
                 Yes
-              </Button>
-              <Button
+              </button>
+              <button
                 type="button"
                 className="bg-red-400 text-black"
                 onClick={handleClick}
               >
                 NO!
-              </Button>
+              </button>
             </div>
             {Boolean(state.error) && (
               <p className="text-red-700">{state.error.message}</p>

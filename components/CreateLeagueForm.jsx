@@ -1,6 +1,5 @@
 "use client";
 import "@/styles/createLeague.css";
-import Link from "next/link";
 import { useState } from "react";
 import { createLeagueAction } from "@/app/leagues/new/actions";
 import { useFormState } from "../lib/hooks";
@@ -118,8 +117,9 @@ export default function CreateLeagueForm() {
             <div className="cta-section">
               <span className="text-sm text-gray-500">Launch your League?</span>
               <button className="createLeague-button" type="submit">
-                LET'S GO
+                Lets Do This
               </button>
+              {/* Had a lint error that is why it wouldnt build */}
             </div>
           </div>
         </div>
