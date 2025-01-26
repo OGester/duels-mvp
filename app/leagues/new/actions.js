@@ -54,7 +54,7 @@ export async function createLeagueAction(formData) {
 
   try {
     await createLeague(data);
-    //console.log("[createLeagueAction] League created:", data);
+    console.log("[createLeagueAction] League created:", data);
   } catch (error) {
     console.error("[createLeagueAction] Error creating league:", error);
     return {

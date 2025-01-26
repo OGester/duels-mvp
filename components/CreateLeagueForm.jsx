@@ -110,17 +110,19 @@ export default function CreateLeagueForm() {
                   {Boolean(state.error) && (
                     <p className="text-red-700">{state.error.message}</p>
                   )}
+                  <div className="cta-section">
+                    <span className="text-sm text-gray-500">
+                      Launch your League?
+                    </span>
+                    <button className="createLeague-button" type="submit">
+                      Lets Do This
+                    </button>
+                    {/* Had a lint error that is why it wouldnt build */}
+                  </div>
                 </form>
               </div>
             </div>
             {/* <div className="description-container"></div> */}
-            <div className="cta-section">
-              <span className="text-sm text-gray-500">Launch your League?</span>
-              <button className="createLeague-button" type="submit">
-                Lets Do This
-              </button>
-              {/* Had a lint error that is why it wouldnt build */}
-            </div>
           </div>
         </div>
       </div>
