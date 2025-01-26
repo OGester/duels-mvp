@@ -119,6 +119,7 @@ export default function CreateLeagueForm() {
               <button className="createLeague-button" type="submit">
                 Lets Do This
               </button>
+              {/* Had a lint error that is why it wouldnt build */}
             </div>
           </div>
         </div>
