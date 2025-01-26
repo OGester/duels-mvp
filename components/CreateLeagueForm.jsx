@@ -117,7 +117,7 @@ export default function CreateLeagueForm() {
             <div className="cta-section">
               <span className="text-sm text-gray-500">Launch your League?</span>
               <button className="createLeague-button" type="submit">
-                LET'S GO
+                Lets Do This
               </button>
             </div>
           </div>
